@@ -1,0 +1,606 @@
+---
+// Datos de promociones - Reemplazar con el contenido real de la página web
+const promotions = [
+	{
+		title: "Primera Visita Gratuita",
+		description: "Consulta inicial sin coste. Evaluación completa de tu salud bucodental.",
+		discount: "100%",
+		validUntil: "Válido todo el año"
+	},
+	{
+		title: "Ortodoncia Invisible",
+		description: "Tratamiento de ortodoncia invisible con descuento especial. Financiación disponible.",
+		discount: "20%",
+		validUntil: "Hasta fin de mes"
+	},
+	{
+		title: "Limpieza Dental",
+		description: "Limpieza profesional con descuento. Incluye revisión y diagnóstico.",
+		discount: "30%",
+		validUntil: "Promoción limitada"
+	},
+	{
+		title: "Implantes Dentales",
+		description: "Paquete completo de implantes con financiación a medida. Consulta sin compromiso.",
+		discount: "15%",
+		validUntil: "Oferta especial"
+	}
+];
+---
+
+<section class="promotions-preview-section">
+	<div class="container">
+		<h2 class="preview-title">Preview de Diseños de Promociones - Elige tu favorito</h2>
+		
+		<!-- Opción 1: Cards en Grid con Badge de Descuento -->
+		<div class="preview-option">
+			<h3 class="option-title">Opción 1: Cards en Grid con Badge de Descuento</h3>
+			<div class="promotions-grid-v1">
+				{promotions.map((promo) => (
+					<div class="promo-card-v1">
+						<div class="discount-badge">{promo.discount} OFF</div>
+						<h4>{promo.title}</h4>
+						<p>{promo.description}</p>
+						<div class="promo-footer">
+							<span class="valid-until">{promo.validUntil}</span>
+							<button class="promo-btn">Más información</button>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Opción 2: Cards Horizontales con Imagen -->
+		<div class="preview-option">
+			<h3 class="option-title">Opción 2: Cards Horizontales con Imagen</h3>
+			<div class="promotions-list-v2">
+				{promotions.map((promo) => (
+					<div class="promo-card-v2">
+						<div class="promo-image-placeholder">
+							<div class="discount-badge-large">{promo.discount}</div>
+						</div>
+						<div class="promo-content">
+							<h4>{promo.title}</h4>
+							<p>{promo.description}</p>
+							<div class="promo-meta">
+								<span class="valid-badge">{promo.validUntil}</span>
+								<button class="promo-btn">Consultar</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Opción 3: Cards Minimalistas con Borde Destacado -->
+		<div class="preview-option">
+			<h3 class="option-title">Opción 3: Cards Minimalistas con Borde Destacado</h3>
+			<div class="promotions-grid-v3">
+				{promotions.map((promo) => (
+					<div class="promo-card-v3">
+						<div class="promo-header">
+							<h4>{promo.title}</h4>
+							<div class="discount-circle">{promo.discount}</div>
+						</div>
+						<p>{promo.description}</p>
+						<div class="promo-footer-v3">
+							<small>{promo.validUntil}</small>
+							<button class="promo-btn-minimal">Ver detalles</button>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Opción 4: Banner Style con Gradiente -->
+		<div class="preview-option">
+			<h3 class="option-title">Opción 4: Banner Style con Gradiente</h3>
+			<div class="promotions-banner-v4">
+				{promotions.map((promo) => (
+					<div class="promo-banner-v4">
+						<div class="banner-content">
+							<div class="banner-badge">{promo.discount} DESCUENTO</div>
+							<h4>{promo.title}</h4>
+							<p>{promo.description}</p>
+							<div class="banner-footer">
+								<span>{promo.validUntil}</span>
+								<button class="banner-btn">Aprovechar oferta</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Opción 5: Cards con Efecto Hover y Sombra -->
+		<div class="preview-option">
+			<h3 class="option-title">Opción 5: Cards con Efecto Hover y Sombra</h3>
+			<div class="promotions-grid-v5">
+				{promotions.map((promo) => (
+					<div class="promo-card-v5">
+						<div class="promo-icon-wrapper">
+							<div class="discount-icon">{promo.discount}</div>
+						</div>
+						<div class="promo-body">
+							<h4>{promo.title}</h4>
+							<p>{promo.description}</p>
+							<div class="promo-tags">
+								<span class="tag">{promo.validUntil}</span>
+							</div>
+							<button class="promo-btn-elevated">Solicitar cita</button>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.promotions-preview-section {
+		background: #f5f5f5;
+		padding: 4rem 0;
+	}
+
+	.preview-title {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+
+	.preview-option {
+		margin-bottom: 4rem;
+		padding: 2rem;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.option-title {
+		font-size: 1.25rem;
+		margin-bottom: 1.5rem;
+		color: #4a5568;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		border-bottom: 2px solid #e2e8f0;
+		padding-bottom: 0.5rem;
+	}
+
+	/* ========== OPCIÓN 1: Grid con Badge ========== */
+	.promotions-grid-v1 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.promo-card-v1 {
+		background: white;
+		border: 2px solid #e2e8f0;
+		border-radius: 12px;
+		padding: 2rem;
+		position: relative;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.promo-card-v1:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+		border-color: #4a5568;
+	}
+
+	.discount-badge {
+		position: absolute;
+		top: -12px;
+		right: 20px;
+		background: #4a5568;
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-weight: 700;
+		font-size: 0.875rem;
+	}
+
+	.promo-card-v1 h4 {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		margin-top: 0.5rem;
+	}
+
+	.promo-card-v1 p {
+		color: #4a5568;
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.promo-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.valid-until {
+		font-size: 0.875rem;
+		color: #718096;
+	}
+
+	.promo-btn {
+		background: #4a5568;
+		color: white;
+		border: none;
+		padding: 0.625rem 1.25rem;
+		border-radius: 6px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.2s ease;
+		font-family: var(--font-body);
+	}
+
+	.promo-btn:hover {
+		background: #2d3748;
+	}
+
+	/* ========== OPCIÓN 2: Cards Horizontales ========== */
+	.promotions-list-v2 {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.promo-card-v2 {
+		display: flex;
+		background: white;
+		border: 1px solid #e2e8f0;
+		border-radius: 12px;
+		overflow: hidden;
+		transition: box-shadow 0.2s ease;
+	}
+
+	.promo-card-v2:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.promo-image-placeholder {
+		width: 150px;
+		background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	.discount-badge-large {
+		color: white;
+		font-size: 2rem;
+		font-weight: 700;
+		font-family: var(--font-heading);
+	}
+
+	.promo-content {
+		flex: 1;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.promo-content h4 {
+		font-size: 1.5rem;
+		margin-bottom: 0.75rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+
+	.promo-content p {
+		color: #4a5568;
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.promo-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.valid-badge {
+		background: #e2e8f0;
+		color: #4a5568;
+		padding: 0.375rem 0.75rem;
+		border-radius: 6px;
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	/* ========== OPCIÓN 3: Minimalista ========== */
+	.promotions-grid-v3 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.promo-card-v3 {
+		background: white;
+		border-left: 4px solid #4a5568;
+		border-radius: 8px;
+		padding: 2rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.promo-card-v3:hover {
+		border-left-color: #2d3748;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.promo-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+	}
+
+	.promo-header h4 {
+		font-size: 1.25rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		margin: 0;
+		flex: 1;
+	}
+
+	.discount-circle {
+		width: 60px;
+		height: 60px;
+		background: #4a5568;
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 1rem;
+		flex-shrink: 0;
+	}
+
+	.promo-card-v3 p {
+		color: #4a5568;
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.promo-footer-v3 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.promo-footer-v3 small {
+		color: #718096;
+		font-size: 0.875rem;
+	}
+
+	.promo-btn-minimal {
+		background: transparent;
+		color: #4a5568;
+		border: 2px solid #4a5568;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-family: var(--font-body);
+	}
+
+	.promo-btn-minimal:hover {
+		background: #4a5568;
+		color: white;
+	}
+
+	/* ========== OPCIÓN 4: Banner Style ========== */
+	.promotions-banner-v4 {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.promo-banner-v4 {
+		background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+		border-radius: 12px;
+		padding: 2.5rem;
+		color: white;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.promo-banner-v4::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		right: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.banner-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.banner-badge {
+		display: inline-block;
+		background: rgba(255, 255, 255, 0.2);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.875rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	.banner-content h4 {
+		font-size: 1.75rem;
+		margin-bottom: 0.75rem;
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+
+	.banner-content p {
+		margin-bottom: 1.5rem;
+		opacity: 0.95;
+		line-height: 1.6;
+	}
+
+	.banner-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.banner-btn {
+		background: white;
+		color: #4a5568;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 6px;
+		font-weight: 700;
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		font-family: var(--font-body);
+	}
+
+	.banner-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	/* ========== OPCIÓN 5: Cards con Hover ========== */
+	.promotions-grid-v5 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.promo-card-v5 {
+		background: white;
+		border-radius: 16px;
+		padding: 2.5rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		text-align: center;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.promo-card-v5::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, #4a5568 0%, #2d3748 100%);
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+
+	.promo-card-v5:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.promo-card-v5:hover::before {
+		transform: scaleX(1);
+	}
+
+	.promo-icon-wrapper {
+		margin-bottom: 1.5rem;
+	}
+
+	.discount-icon {
+		width: 80px;
+		height: 80px;
+		background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin: 0 auto;
+		font-family: var(--font-heading);
+	}
+
+	.promo-body h4 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+
+	.promo-body p {
+		color: #4a5568;
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.promo-tags {
+		margin-bottom: 1.5rem;
+	}
+
+	.tag {
+		display: inline-block;
+		background: #e2e8f0;
+		color: #4a5568;
+		padding: 0.375rem 0.75rem;
+		border-radius: 12px;
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	.promo-btn-elevated {
+		background: #4a5568;
+		color: white;
+		border: none;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-family: var(--font-body);
+		width: 100%;
+	}
+
+	.promo-btn-elevated:hover {
+		background: #2d3748;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	@media (max-width: 768px) {
+		.promotions-grid-v1,
+		.promotions-grid-v3,
+		.promotions-grid-v5 {
+			grid-template-columns: 1fr;
+		}
+
+		.promo-card-v2 {
+			flex-direction: column;
+		}
+
+		.promo-image-placeholder {
+			width: 100%;
+			height: 120px;
+		}
+	}
+</style>

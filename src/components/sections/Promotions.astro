@@ -1,0 +1,250 @@
+---
+const promotions = [
+	{
+		id: "ortodoncia-invisible",
+		title: "¡PROMOCIÓN ORTODONCIA INVISIBLE!",
+		shortTitle: "Ortodoncia Invisible",
+		discount: "20%",
+		description: "Ortodoncia Invisible valorada en 3700 euros por tan solo 2999 euros y de regalo Blanqueamiento con luz LED valorado en 600 euros.",
+		financing: "FINANCIACIÓN DE HASTA 36 MESES. PAGA SOLO 35 EUROS/MES",
+		validUntil: "Oferta válida hasta el 31/12/2025. Oferta válida solo si se muestra una captura de pantalla de la misma."
+	},
+	{
+		id: "primera-consulta",
+		title: "Primera Consulta Gratuita",
+		shortTitle: "Primera Consulta Gratuita",
+		discount: "100%",
+		description: "Consulta inicial sin coste. Evaluación completa de tu salud bucodental.",
+		financing: "",
+		validUntil: "Válido todo el año"
+	}
+];
+---
+
+<section class="promotions section" id="promociones">
+	<div class="container">
+		<div class="section-header text-center">
+			<h2>Promociones</h2>
+			<p class="section-description">
+				Aprovecha nuestras ofertas especiales y cuida tu sonrisa con los mejores precios.
+			</p>
+		</div>
+		
+		<div class="promotions-banner-list">
+			{promotions.map((promo) => (
+				<div class="promo-banner">
+					<div class="banner-content">
+						<div class="banner-badges">
+							<div class="banner-badge">{promo.discount} DESCUENTO</div>
+							{promo.financing && (
+								<div class="banner-badge">{promo.financing}</div>
+							)}
+						</div>
+						<h3>{promo.title}</h3>
+						<p>{promo.description}</p>
+						<div class="banner-footer">
+							<span class="valid-info">{promo.validUntil}</span>
+							<a href="#contacto" class="banner-btn" data-promo-id={promo.id} data-promo-title={promo.shortTitle}>
+								Aprovechar oferta
+							</a>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.promotions {
+		background: #f5f5f5;
+		padding: var(--spacing-xl) 0;
+	}
+	
+	.section-header {
+		margin-bottom: 3rem;
+	}
+	
+	.section-header h2 {
+		font-size: 36px;
+		color: #4a5568;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+	
+	.section-description {
+		color: var(--c-text-light);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	
+	.promotions-banner-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	
+	.promo-banner {
+		background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+		border-radius: 12px;
+		padding: 2.5rem;
+		color: white;
+		position: relative;
+		overflow: hidden;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+	
+	.promo-banner:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	}
+	
+	.promo-banner::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		right: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+		pointer-events: none;
+	}
+	
+	.banner-content {
+		position: relative;
+		z-index: 1;
+	}
+	
+	.banner-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+	
+	.banner-badge {
+		display: inline-block;
+		background: rgba(255, 255, 255, 0.2);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.875rem;
+		font-weight: 700;
+		font-family: var(--font-body);
+		white-space: nowrap;
+	}
+	
+	.banner-content h3 {
+		font-size: 1.75rem;
+		margin-bottom: 0.75rem;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		color: white;
+	}
+	
+	.banner-content p {
+		margin-bottom: 1rem;
+		opacity: 0.95;
+		line-height: 1.6;
+		font-size: 1rem;
+		color: rgba(255, 255, 255, 0.95);
+		font-family: var(--font-body);
+	}
+	
+	
+	.banner-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	.valid-info {
+		font-size: 0.875rem;
+		opacity: 0.9;
+		font-family: var(--font-body);
+	}
+	
+	.banner-btn {
+		background: white;
+		color: #4a5568;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 6px;
+		font-weight: 700;
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		font-family: var(--font-body);
+		text-decoration: none;
+		display: inline-block;
+		font-size: 0.9375rem;
+	}
+	
+	.banner-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		background: #f0f0f0;
+	}
+	
+	@media (max-width: 768px) {
+		.promo-banner {
+			padding: 2rem 1.5rem;
+		}
+		
+		.banner-content h3 {
+			font-size: 1.5rem;
+		}
+		
+		.banner-footer {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		
+		.banner-btn {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>
+
+<script>
+	// Manejar clics en botones de promoción
+	document.addEventListener('DOMContentLoaded', () => {
+		const promoButtons = document.querySelectorAll('.banner-btn[data-promo-title]');
+		
+		promoButtons.forEach((button) => {
+			button.addEventListener('click', (e) => {
+				const promoTitle = button.getAttribute('data-promo-title');
+				if (promoTitle) {
+					// Crear el mensaje con el formato solicitado
+					const message = `Hola! Estoy interesado en la oferta de "${promoTitle}", ¿Cuándo podríamos agendar una cita?`;
+					
+					// Guardar el mensaje en sessionStorage para que el formulario lo use
+					sessionStorage.setItem('promoMessage', message);
+					
+					// Actualizar inmediatamente el campo de mensaje si ya está visible
+					const messageField = document.querySelector('textarea[name="mensaje"]') as HTMLTextAreaElement;
+					if (messageField) {
+						messageField.value = message;
+					}
+					
+					// Scroll suave a la sección de contacto
+					const contactoSection = document.getElementById('contacto');
+					if (contactoSection) {
+						setTimeout(() => {
+							contactoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+							// Asegurarse de que el mensaje se actualiza después del scroll
+							setTimeout(() => {
+								const messageFieldAfter = document.querySelector('textarea[name="mensaje"]') as HTMLTextAreaElement;
+								if (messageFieldAfter) {
+									messageFieldAfter.value = message;
+									messageFieldAfter.focus();
+								}
+							}, 500);
+						}, 100);
+					}
+				}
+			});
+		});
+	});
+</script>

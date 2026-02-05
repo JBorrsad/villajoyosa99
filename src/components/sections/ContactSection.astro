@@ -15,70 +15,93 @@ const clinica = CONTACT_INFO.clinica;
 		
 		<div class="contact-content">
 			<!-- Info de contacto -->
-			<div class="contact-info">
-				<div class="info-item">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-						<circle cx="12" cy="10" r="3"></circle>
-					</svg>
-					<div>
-						<p>{clinica.address}</p>
-						<p>{clinica.postalCode} {clinica.city}</p>
+			<div class="contact-info-sidebar">
+				<h3>Información de contacto</h3>
+				<div class="info-block">
+					<div class="info-item-with-icon">
+						<div class="info-icon-circle">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+						</div>
+						<div class="info-text">
+							<p>{clinica.address}</p>
+							<p>{clinica.postalCode} {clinica.city}</p>
+						</div>
 					</div>
 				</div>
 				
-				<div class="info-item">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-					</svg>
-					<div>
-						<p><a href={`tel:+34${clinica.phone.replace(/\s/g, '')}`}>{clinica.phone}</a></p>
-						<p><a href={`tel:+34${clinica.mobile.replace(/\s/g, '')}`}>{clinica.mobile}</a></p>
+				<div class="info-block">
+					<div class="info-item-with-icon">
+						<div class="info-icon-circle">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+							</svg>
+						</div>
+						<div class="info-text">
+							<p><a href={`tel:+34${clinica.phone.replace(/\s/g, '')}`}>{clinica.phone}</a></p>
+							<p><a href={`tel:+34${clinica.mobile.replace(/\s/g, '')}`}>{clinica.mobile}</a></p>
+						</div>
 					</div>
 				</div>
 				
-				<div class="info-item">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-						<polyline points="22,6 12,13 2,6"></polyline>
-					</svg>
-					<p><a href={`mailto:${clinica.email}`}>{clinica.email}</a></p>
+				<div class="info-block">
+					<div class="info-item-with-icon">
+						<div class="info-icon-circle">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+								<polyline points="22,6 12,13 2,6"></polyline>
+							</svg>
+						</div>
+						<div class="info-text">
+							<p><a href={`mailto:${clinica.email}`}>{clinica.email}</a></p>
+						</div>
+					</div>
 				</div>
 				
-				<div class="info-item">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<circle cx="12" cy="12" r="10"></circle>
-						<polyline points="12 6 12 12 16 14"></polyline>
-					</svg>
-					<div>
-						<p>L-V: {SCHEDULE.weekdays.morning} / {SCHEDULE.weekdays.afternoon}</p>
-						<p>Sáb: {SCHEDULE.saturday.morning}</p>
+				<div class="info-block">
+					<div class="info-item-with-icon">
+						<div class="info-icon-circle">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<circle cx="12" cy="12" r="10"></circle>
+								<polyline points="12 6 12 12 16 14"></polyline>
+							</svg>
+						</div>
+						<div class="info-text">
+							<p>L-V: {SCHEDULE.weekdays.morning} / {SCHEDULE.weekdays.afternoon}</p>
+							<p>Sáb: {SCHEDULE.saturday.morning}</p>
+						</div>
 					</div>
 				</div>
 			</div>
 			
 			<!-- Formulario -->
-			<form class="contact-form" id="contact-form">
-				<div class="form-row">
-					<input type="text" name="nombre" placeholder="Nombre*" required />
-					<input type="text" name="apellido" placeholder="Apellido*" required />
-				</div>
-				<div class="form-row">
-					<input type="email" name="email" placeholder="Email*" required />
-					<input type="tel" name="telefono" placeholder="Teléfono*" required />
-				</div>
-				<textarea name="mensaje" rows="4" placeholder="Mensaje..."></textarea>
-				
-				<div class="form-footer">
-					<label class="checkbox">
-						<input type="checkbox" name="privacidad" required />
-						<span>Acepto la <a href="/politica-privacidad">política de privacidad</a></span>
-					</label>
-					<button type="submit" class="btn-submit">Enviar</button>
-				</div>
-				
-				<div id="form-message" class="form-message" style="display: none;"></div>
-			</form>
+			<div class="form-highlight">
+				<h3>¿Tienes alguna pregunta?</h3>
+				<p>Completa el formulario y te responderemos lo antes posible.</p>
+				<form class="contact-form" id="contact-form">
+					<div class="form-row">
+						<input type="text" name="nombre" placeholder="Nombre*" required />
+						<input type="text" name="apellido" placeholder="Apellido*" required />
+					</div>
+					<div class="form-row">
+						<input type="email" name="email" placeholder="Email*" required />
+						<input type="tel" name="telefono" placeholder="Teléfono*" required />
+					</div>
+					<textarea name="mensaje" rows="4" placeholder="Mensaje..."></textarea>
+					
+					<div class="form-footer">
+						<label class="checkbox">
+							<input type="checkbox" name="privacidad" required />
+							<span>Acepto la <a href="/politica-privacidad">política de privacidad</a></span>
+						</label>
+						<button type="submit" class="btn-submit">Enviar</button>
+					</div>
+					
+					<div id="form-message" class="form-message" style="display: none;"></div>
+				</form>
+			</div>
 		</div>
 		
 		<!-- Mapa -->
@@ -125,62 +148,104 @@ const clinica = CONTACT_INFO.clinica;
 		grid-template-columns: 1fr 1.5fr;
 		gap: 3rem;
 		margin-bottom: 3rem;
-		background: #4a5568;
-		padding: 2.5rem;
+	}
+	
+	/* Info de contacto - Sidebar izquierdo */
+	.contact-info-sidebar {
+		background: #f7fafc;
+		padding: 2rem;
 		border-radius: var(--rad-lg);
-		box-shadow: var(--shadow-md);
-		color: #d0d0d0;
 	}
 	
-	/* Info de contacto */
-	.contact-info {
-		display: flex;
-		flex-direction: column;
-		gap: 1.75rem;
-		padding-right: 2rem;
-		border-right: 1px solid rgba(255, 255, 255, 0.1);
+	.contact-info-sidebar h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: #2d3748;
+		font-family: var(--font-heading);
+		font-weight: 700;
 	}
 	
-	.info-item {
+	.info-block {
+		margin-bottom: 1.5rem;
+	}
+	
+	.info-block:last-child {
+		margin-bottom: 0;
+	}
+	
+	.info-item-with-icon {
 		display: flex;
 		gap: 1rem;
 		align-items: center;
 	}
 	
-	.info-item svg {
-		color: #ffffff;
-		flex-shrink: 0;
-		width: 56px;
-		height: 56px;
-		padding: 16px;
+	.info-icon-circle {
+		width: 48px;
+		height: 48px;
 		background: #3a3a3a;
 		border-radius: 50%;
-		box-sizing: border-box;
-		overflow: visible;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
 	}
 	
-	.info-item svg path,
-	.info-item svg polyline,
-	.info-item svg circle {
-		transform-origin: center;
-	}
-	
-	.info-item p {
-		margin: 0;
-		color: #d0d0d0;
-		line-height: 1.7;
-		font-size: 15px;
-	}
-	
-	.info-item a {
+	.info-icon-circle svg {
 		color: #ffffff;
-		text-decoration: none;
-		font-weight: 500;
+		width: 20px;
+		height: 20px;
 	}
 	
-	.info-item a:hover {
-		color: #d0d0d0;
+	.info-text {
+		flex: 1;
+	}
+	
+	.info-text strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: #2d3748;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+	
+	.info-text p {
+		margin: 0.25rem 0;
+		color: #4a5568;
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+	
+	.info-text a {
+		color: #4a5568;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	
+	.info-text a:hover {
+		color: #2d3748;
 		text-decoration: underline;
+	}
+	
+	/* Formulario destacado - Lado derecho */
+	.form-highlight {
+		background: #4a5568;
+		padding: 2.5rem;
+		border-radius: var(--rad-lg);
+		color: white;
+	}
+	
+	.form-highlight h3 {
+		color: white;
+		margin-bottom: 0.5rem;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: 1.5rem;
+	}
+	
+	.form-highlight > p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 1.5rem;
+		font-size: 0.95rem;
 	}
 	
 	/* Formulario */
@@ -199,19 +264,19 @@ const clinica = CONTACT_INFO.clinica;
 	.contact-form input,
 	.contact-form textarea {
 		padding: 0.875rem 1rem;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.3);
 		border-radius: var(--rad);
-		font-family: var(--ff-body);
+		font-family: var(--font-body);
 		font-size: 15px;
 		width: 100%;
-		background: rgba(255, 255, 255, 0.05);
+		background: rgba(255, 255, 255, 0.1);
 		color: #ffffff;
-		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 	}
 	
 	.contact-form input::placeholder,
 	.contact-form textarea::placeholder {
-		color: #b0b0b0;
+		color: rgba(255, 255, 255, 0.7);
 	}
 	
 	.contact-form input:focus,
@@ -219,7 +284,7 @@ const clinica = CONTACT_INFO.clinica;
 		outline: none;
 		border-color: #ffffff;
 		box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-		background: rgba(255, 255, 255, 0.08);
+		background: rgba(255, 255, 255, 0.15);
 	}
 	
 	.contact-form textarea {
@@ -239,7 +304,7 @@ const clinica = CONTACT_INFO.clinica;
 		align-items: center;
 		gap: 0.5rem;
 		font-size: 14px;
-		color: #d0d0d0;
+		color: rgba(255, 255, 255, 0.9);
 		cursor: pointer;
 	}
 	
@@ -255,27 +320,27 @@ const clinica = CONTACT_INFO.clinica;
 	}
 	
 	.checkbox a:hover {
-		color: #d0d0d0;
+		color: rgba(255, 255, 255, 0.8);
 		text-decoration: underline;
 	}
 	
 	.btn-submit {
 		background: #ffffff;
-		color: #2a2a2a;
+		color: #4a5568;
 		border: 2px solid #ffffff;
 		padding: 0.875rem 2rem;
 		border-radius: var(--rad);
 		font-weight: 600;
 		cursor: pointer;
 		transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-		font-family: var(--ff-body);
+		font-family: var(--font-body);
 		font-size: 15px;
 	}
 	
 	.btn-submit:hover {
-		background: #e8e8e8;
-		border-color: #e8e8e8;
-		color: #2a2a2a;
+		background: #f0f0f0;
+		border-color: #f0f0f0;
+		color: #4a5568;
 		transform: translateY(-1px);
 	}
 	
@@ -315,14 +380,6 @@ const clinica = CONTACT_INFO.clinica;
 		.contact-content {
 			grid-template-columns: 1fr;
 			gap: 2rem;
-			padding: 1.5rem;
-		}
-		
-		.contact-info {
-			border-right: none;
-			padding-right: 0;
-			padding-bottom: 2rem;
-			border-bottom: 1px solid var(--c-border);
 		}
 		
 		.form-row {
@@ -374,7 +431,62 @@ const clinica = CONTACT_INFO.clinica;
 		}
 	};
 
+	// Pre-llenar el formulario si hay un mensaje de promoción
 	const form = document.getElementById('contact-form') as HTMLFormElement;
+	const messageField = form?.querySelector('textarea[name="mensaje"]') as HTMLTextAreaElement;
+	
+	if (messageField) {
+		// Función para verificar y aplicar el mensaje de promoción
+		const checkPromoMessage = () => {
+			const promoMessage = sessionStorage.getItem('promoMessage');
+			if (promoMessage) {
+				// Siempre actualizar el mensaje, incluso si ya hay uno
+				messageField.value = promoMessage;
+				// Limpiar sessionStorage después de usarlo
+				sessionStorage.removeItem('promoMessage');
+				// Hacer scroll al campo de mensaje
+				setTimeout(() => {
+					messageField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					messageField.focus();
+				}, 300);
+			}
+		};
+		
+		// Verificar inmediatamente
+		checkPromoMessage();
+		
+		// También verificar cuando se hace scroll a la sección de contacto
+		const contactoSection = document.getElementById('contacto');
+		if (contactoSection) {
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						checkPromoMessage();
+					}
+				});
+			}, { threshold: 0.3 });
+			
+			observer.observe(contactoSection);
+		}
+		
+		// Escuchar cambios en sessionStorage desde otras pestañas/ventanas
+		window.addEventListener('storage', (e) => {
+			if (e.key === 'promoMessage' && e.newValue) {
+				messageField.value = e.newValue;
+				sessionStorage.removeItem('promoMessage');
+			}
+		});
+		
+		// Verificar periódicamente si hay un nuevo mensaje (para cuando se hace clic en otro botón)
+		setInterval(() => {
+			const promoMessage = sessionStorage.getItem('promoMessage');
+			if (promoMessage && messageField.value !== promoMessage) {
+				messageField.value = promoMessage;
+				sessionStorage.removeItem('promoMessage');
+			}
+		}, 200);
+	}
+	
 	if (form) {
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();

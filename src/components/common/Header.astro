@@ -4,7 +4,9 @@ import { asset } from '../../utils/assets';
 const navItems = [
 	{ title: 'Inicio', label: 'inicio', url: '#inicio' },
 	{ title: 'Servicios', label: 'servicios', url: '#servicios' },
+	{ title: 'Casos de éxito', label: 'casos-clinicos', url: '#casos-clinicos' },
 	{ title: 'Reseñas', label: 'reviews', url: '#reviews' },
+	{ title: 'Promociones', label: 'promociones', url: '#promociones' },
 	{ title: 'Contacto', label: 'contacto', url: '#contacto' },
 ];
 ---
@@ -197,6 +199,10 @@ const navItems = [
 	.nav-link.active {
 		color: var(--c-primary);
 		text-shadow: none;
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-thickness: 2px;
 	}
 
 	@keyframes nav-bg {
@@ -302,6 +308,10 @@ const navItems = [
 
 	.mobile-nav-link.active {
 		color: var(--c-primary);
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-thickness: 2px;
 	}
 
 	@media (max-width: 767px) {
@@ -350,49 +360,123 @@ const navItems = [
 		const navLinks = document.querySelectorAll('.nav-link');
 		const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+		// Mapeo de URLs a IDs de sección
+		const urlToIdMap: Record<string, string> = {
+			'#inicio': 'inicio',
+			'#servicios': 'servicios',
+			'#casos-clinicos': 'casos-clinicos',
+			'#reviews': 'reviews',
+			'#promociones': 'promociones',
+			'#contacto': 'contacto'
+		};
+
+		// Almacenar todas las secciones visibles con su posición
+		const sectionData = new Map<string, { ratio: number; top: number }>();
+
 		const callback = (entries: IntersectionObserverEntry[]) => {
 			entries.forEach((entry) => {
+				const id = (entry.target as HTMLElement).id;
+				const rect = entry.boundingClientRect;
+				
 				if (entry.isIntersecting) {
-					// Desktop nav
-					navLinks.forEach((item) => {
-						if (item.getAttribute('aria-label') === entry.target.id) {
-							item.classList.add('active');
-						} else {
-							item.classList.remove('active');
+					sectionData.set(id, {
+						ratio: entry.intersectionRatio,
+						top: rect.top
+					});
+				} else {
+					sectionData.delete(id);
+				}
+			});
+
+			// Determinar la sección activa
+			let activeId: string | null = null;
+			
+			if (sectionData.size > 0) {
+				// Si hay múltiples secciones visibles, elegir la que está más cerca del top del viewport
+				let closestToTop = Infinity;
+				
+				sectionData.forEach((data, id) => {
+					// Priorizar secciones que están cerca del top del viewport
+					const distanceFromTop = Math.abs(data.top);
+					
+					// Si la sección está en el viewport superior (top < 200px), tiene prioridad
+					if (data.top < 200 && data.top >= -100) {
+						if (distanceFromTop < closestToTop) {
+							closestToTop = distanceFromTop;
+							activeId = id;
+						}
+					}
+				});
+				
+				// Si no hay ninguna cerca del top, usar la que tiene mayor ratio
+				if (!activeId) {
+					let maxRatio = 0;
+					sectionData.forEach((data, id) => {
+						if (data.ratio > maxRatio) {
+							maxRatio = data.ratio;
+							activeId = id;
 						}
 					});
-					// Mobile nav
-					mobileNavLinks.forEach((item) => {
-						if (item.getAttribute('aria-label') === entry.target.id) {
-							item.classList.add('active');
-						} else {
-							item.classList.remove('active');
-						}
-					});
+				}
+			}
+
+			// Actualizar clases activas
+			navLinks.forEach((item) => {
+				const href = item.getAttribute('href') || '';
+				const sectionId = urlToIdMap[href] || '';
+				if (sectionId === activeId) {
+					item.classList.add('active');
+				} else {
+					item.classList.remove('active');
+				}
+			});
+			
+			mobileNavLinks.forEach((item) => {
+				const href = item.getAttribute('href') || '';
+				const sectionId = urlToIdMap[href] || '';
+				if (sectionId === activeId) {
+					item.classList.add('active');
+				} else {
+					item.classList.remove('active');
 				}
 			});
 		};
 
 		const observer = new IntersectionObserver(callback, {
 			root: null,
-			rootMargin: '0px',
-			threshold: 0.3,
+			rootMargin: '-150px 0px -40% 0px',
+			threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
 		});
 
 		sections.forEach((section) => {
 			observer.observe(section);
 		});
 
-		// Cleanup
-		document.onvisibilitychange = () => {
-			if (document.visibilityState === 'hidden') {
-				observer.disconnect();
-			} else {
-				sections.forEach((section) => {
-					observer.observe(section);
+		// También detectar por hash en la URL
+		const updateActiveFromHash = () => {
+			const hash = window.location.hash.slice(1);
+			if (hash) {
+				navLinks.forEach((item) => {
+					const href = item.getAttribute('href') || '';
+					if (href === `#${hash}`) {
+						item.classList.add('active');
+					} else {
+						item.classList.remove('active');
+					}
+				});
+				mobileNavLinks.forEach((item) => {
+					const href = item.getAttribute('href') || '';
+					if (href === `#${hash}`) {
+						item.classList.add('active');
+					} else {
+						item.classList.remove('active');
+					}
 				});
 			}
 		};
+
+		window.addEventListener('hashchange', updateActiveFromHash);
+		updateActiveFromHash();
 	});
 
 	// Menú móvil toggle
