@@ -45,8 +45,8 @@
 	--color-border-dark: #cbd5e0;
 
 	/* ========== TIPOGRAFÍAS ========== */
-	--font-family-heading: 'Raleway', system-ui, -apple-system, sans-serif;
-	--font-family-body: 'Roboto', system-ui, -apple-system, sans-serif;
+	--font-family-heading: 'Sora', system-ui, -apple-system, sans-serif;
+	--font-family-body: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
 	/* ========== TAMAÑOS DE FUENTE ========== */
 	--font-size-xs: 0.75rem;      /* 12px */

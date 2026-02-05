@@ -3,12 +3,19 @@
    Paleta basada en web de referencia
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;600&family=Sora:wght@400;700&display=swap');
 
 :root {
 	/* ========== FUENTES ========== */
-	--ff-head: 'Raleway', system-ui, -apple-system, sans-serif;
-	--ff-body: 'Roboto', system-ui, -apple-system, sans-serif;
+	--font-body: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	--font-heading: "Sora", system-ui, -apple-system, sans-serif;
+	--weight-body: 400;        /* Regular - aumentado para más peso */
+	--weight-body-strong: 500; /* para énfasis si hace falta */
+	--weight-nav: 600;         /* opcional: navbar más legible */
+	
+	/* Compatibilidad con variables antiguas */
+	--ff-head: var(--font-heading);
+	--ff-body: var(--font-body);
 
 	/* ========== COLORES DE MARCA ========== */
 	/* Color primario - Azul corporativo (extraído de clinicadentalvillajoyosa99.es) */
@@ -129,7 +136,7 @@
 }
 
 html {
-	font-family: var(--ff-body);
+	font-family: var(--font-body);
 	color: var(--c-text);
 	background: var(--c-bg);
 	scroll-behavior: smooth;
@@ -138,9 +145,9 @@ html {
 }
 
 body {
-	font-family: var(--ff-body);
+	font-family: var(--font-body);
 	font-size: var(--fs-body);
-	font-weight: 400;
+	font-weight: var(--weight-body);
 	line-height: 1.6;
 	color: var(--c-text);
 	background-color: var(--c-bg);
@@ -150,28 +157,62 @@ body {
    TIPOGRAFÍA
    ======================================== */
 
+/* Asegurar que elementos de texto hereden Source Sans 3 */
+p,
+span,
+li,
+a,
+label,
+input,
+textarea,
+button,
+small {
+	font-family: inherit;
+}
+
 p,
 li {
 	font-size: var(--fs-body);
 	line-height: 1.7;
 	margin-bottom: 1rem;
 	color: var(--c-text);
+	font-weight: var(--weight-body);
 }
 
 small,
 .meta {
 	font-size: var(--fs-small);
 	color: var(--c-text-muted);
+	font-weight: var(--weight-body);
 }
 
-/* Titulares */
+/* Titulares de sección: Libre Baskerville */
 h1,
-h2,
+h2 {
+	font-family: var(--font-heading);
+	color: var(--c-ink);
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	margin-bottom: 1rem;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: var(--fs-h1);
+	line-height: 1.1;
+}
+
+h2 {
+	font-size: var(--fs-h2);
+	line-height: 1.15;
+}
+
+/* h3, h4, h5, h6 por defecto usan Source Sans 3 */
 h3,
 h4,
 h5,
 h6 {
-	font-family: var(--ff-head);
+	font-family: var(--font-body);
 	color: var(--c-ink);
 	line-height: 1.2;
 	letter-spacing: -0.02em;
@@ -179,21 +220,8 @@ h6 {
 	font-weight: 600;
 }
 
-h1 {
-	font-size: var(--fs-h1);
-	font-weight: 700;
-	line-height: 1.1;
-}
-
-h2 {
-	font-size: var(--fs-h2);
-	font-weight: 600;
-	line-height: 1.15;
-}
-
 h3 {
 	font-size: var(--fs-h3);
-	font-weight: 600;
 }
 
 h4 {
@@ -201,10 +229,20 @@ h4 {
 	font-weight: 500;
 }
 
+/* Títulos de tarjetas: Libre Baskerville */
+.service-card h3,
+.case-card h3,
+.review-card h3,
+.card h3,
+[class*="card"] h3 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+}
+
 /* Subtítulo breve/eyebrow */
 .eyebrow {
-	font-family: var(--ff-body);
-	font-weight: 500;
+	font-family: var(--font-body);
+	font-weight: var(--weight-body-strong);
 	font-size: var(--fs-small);
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -418,10 +456,18 @@ video {
    RESPONSIVE
    ======================================== */
 
-@media (max-width: 768px) {
-	:root {
-		--container-padding: 1rem;
-		--spacing-xl: 2.5rem;
-		--spacing-lg: 2rem;
-	}
+/* Navbar: Source Sans 3 con peso 600 para legibilidad */
+nav a,
+.nav-link,
+.nav-links a {
+	font-family: var(--font-body);
+	font-weight: var(--weight-nav);
 }
+
+	@media (max-width: 768px) {
+		:root {
+			--container-padding: 1rem;
+			--spacing-xl: 2.5rem;
+			--spacing-lg: 2rem;
+		}
+	}
