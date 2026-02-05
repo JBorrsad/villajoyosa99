@@ -1,0 +1,72 @@
+/* ========================================
+   Variables de Diseño - Clínica Dental Villajoyosa 99
+   Archivo de compatibilidad y referencia rápida
+   ======================================== */
+
+:root {
+	/* ========== COLORES PRINCIPALES ========== */
+	--color-primary: #00a097;
+	--color-primary-dark: #008a82;
+	--color-primary-light: #e6f7f6;
+	--color-secondary: #1a365d;
+	--color-accent: #38b2ac;
+
+	/* ========== COLORES DE TEXTO ========== */
+	--color-text: #2d3748;
+	--color-text-light: #4a5568;
+	--color-text-muted: #718096;
+
+	/* ========== COLORES DE FONDO ========== */
+	--color-bg: #ffffff;
+	--color-bg-light: #f7fafc;
+	--color-bg-section: #f8f9fa;
+
+	/* ========== COLORES DE BORDE ========== */
+	--color-border: #e2e8f0;
+	--color-divider: #e2e8f0;
+
+	/* ========== TIPOGRAFÍA ========== */
+	--font-primary: 'Roboto', system-ui, -apple-system, sans-serif;
+	--font-heading: 'Raleway', system-ui, -apple-system, sans-serif;
+
+	--font-size-base: 16px;
+	--font-size-sm: 14px;
+	--font-size-lg: 18px;
+	--font-size-xl: 24px;
+	--font-size-2xl: 32px;
+	--font-size-3xl: 42px;
+
+	--line-height-base: 1.6;
+	--line-height-heading: 1.2;
+
+	/* ========== ESPACIADO ========== */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 2rem;
+	--spacing-lg: 4rem;
+	--spacing-xl: 6rem;
+
+	/* ========== OTROS ========== */
+	--border-radius: 8px;
+	--border-radius-lg: 12px;
+	--transition: 250ms ease;
+
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+	/* ========== CONTENEDOR ========== */
+	--container-max-width: 1280px;
+	--container-padding: 1.5rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 767px) {
+	:root {
+		--font-size-2xl: 28px;
+		--font-size-3xl: 36px;
+		--spacing-lg: 3rem;
+		--spacing-xl: 4rem;
+		--container-padding: 1rem;
+	}
+}

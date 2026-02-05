@@ -1,0 +1,394 @@
+---
+import { CONTACT_INFO, SCHEDULE } from '../../utils/constants';
+
+const clinica = CONTACT_INFO.clinica;
+---
+
+<section class="contact section" id="contacto">
+	<div class="container">
+		<div class="section-header text-center">
+			<h2>Contacto</h2>
+			<p class="section-description">
+				Estamos aquí para ayudarte. Contáctanos por teléfono, email o visítanos en nuestra clínica.
+			</p>
+		</div>
+		
+		<div class="contact-content">
+			<!-- Info de contacto -->
+			<div class="contact-info">
+				<div class="info-item">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+						<circle cx="12" cy="10" r="3"></circle>
+					</svg>
+					<div>
+						<p>{clinica.address}</p>
+						<p>{clinica.postalCode} {clinica.city}</p>
+					</div>
+				</div>
+				
+				<div class="info-item">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+					</svg>
+					<div>
+						<p><a href={`tel:+34${clinica.phone.replace(/\s/g, '')}`}>{clinica.phone}</a></p>
+						<p><a href={`tel:+34${clinica.mobile.replace(/\s/g, '')}`}>{clinica.mobile}</a></p>
+					</div>
+				</div>
+				
+				<div class="info-item">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+						<polyline points="22,6 12,13 2,6"></polyline>
+					</svg>
+					<p><a href={`mailto:${clinica.email}`}>{clinica.email}</a></p>
+				</div>
+				
+				<div class="info-item">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle cx="12" cy="12" r="10"></circle>
+						<polyline points="12 6 12 12 16 14"></polyline>
+					</svg>
+					<div>
+						<p>L-V: {SCHEDULE.weekdays.morning} / {SCHEDULE.weekdays.afternoon}</p>
+						<p>Sáb: {SCHEDULE.saturday.morning}</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Formulario -->
+			<form class="contact-form" id="contact-form">
+				<div class="form-row">
+					<input type="text" name="nombre" placeholder="Nombre*" required />
+					<input type="text" name="apellido" placeholder="Apellido*" required />
+				</div>
+				<div class="form-row">
+					<input type="email" name="email" placeholder="Email*" required />
+					<input type="tel" name="telefono" placeholder="Teléfono*" required />
+				</div>
+				<textarea name="mensaje" rows="4" placeholder="Mensaje..."></textarea>
+				
+				<div class="form-footer">
+					<label class="checkbox">
+						<input type="checkbox" name="privacidad" required />
+						<span>Acepto la <a href="/politica-privacidad">política de privacidad</a></span>
+					</label>
+					<button type="submit" class="btn-submit">Enviar</button>
+				</div>
+				
+				<div id="form-message" class="form-message" style="display: none;"></div>
+			</form>
+		</div>
+		
+		<!-- Mapa -->
+		<div class="map-container">
+			<iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5!2d-3.6931!3d40.3456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42278b07014761%3A0xff1c8493e98a7081!2sClinica%20Dental%20Villajoyosa%2099!5e0!3m2!1ses!2ses!4v1770281003787!5m2!1ses!2ses"
+				width="100%"
+				height="300"
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				title="Ubicación de Clínica Dental Villajoyosa 99"
+			></iframe>
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact {
+		background: #f5f7f9;
+		padding: var(--spacing-xl) 0;
+	}
+	
+	.section-header {
+		margin-bottom: 3rem;
+	}
+	
+	.section-header h2 {
+		font-size: 36px;
+		color: var(--c-ink);
+		font-family: var(--ff-head);
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+	
+	.section-description {
+		color: #666;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	
+	.contact-content {
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		gap: 3rem;
+		margin-bottom: 3rem;
+		background: white;
+		padding: 2.5rem;
+		border-radius: 12px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+	}
+	
+	/* Info de contacto */
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+		padding-right: 2rem;
+		border-right: 1px solid #eee;
+	}
+	
+	.info-item {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+	
+	.info-item svg {
+		color: white;
+		flex-shrink: 0;
+		width: 44px;
+		height: 44px;
+		padding: 10px;
+		background: var(--c-primary);
+		border-radius: 50%;
+	}
+	
+	.info-item p {
+		margin: 0;
+		color: #444;
+		line-height: 1.7;
+		font-size: 15px;
+	}
+	
+	.info-item a {
+		color: var(--c-primary);
+		text-decoration: none;
+		font-weight: 500;
+	}
+	
+	.info-item a:hover {
+		text-decoration: underline;
+	}
+	
+	/* Formulario */
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+	
+	.contact-form input,
+	.contact-form textarea {
+		padding: 0.875rem 1rem;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		font-family: var(--ff-body);
+		font-size: 15px;
+		width: 100%;
+		background: #fff;
+		transition: border-color 0.2s, box-shadow 0.2s;
+	}
+	
+	.contact-form input::placeholder,
+	.contact-form textarea::placeholder {
+		color: #999;
+	}
+	
+	.contact-form input:focus,
+	.contact-form textarea:focus {
+		outline: none;
+		border-color: var(--c-primary);
+		box-shadow: 0 0 0 3px rgba(0, 160, 151, 0.1);
+	}
+	
+	.contact-form textarea {
+		resize: vertical;
+	}
+	
+	.form-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 0.5rem;
+	}
+	
+	.checkbox {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 14px;
+		color: var(--c-gray-600);
+		cursor: pointer;
+	}
+	
+	.checkbox input {
+		width: 16px;
+		height: 16px;
+		cursor: pointer;
+	}
+	
+	.checkbox a {
+		color: var(--c-primary);
+		text-decoration: none;
+	}
+	
+	.checkbox a:hover {
+		text-decoration: underline;
+	}
+	
+	.btn-submit {
+		background: var(--c-primary);
+		color: white;
+		border: none;
+		padding: 0.875rem 2rem;
+		border-radius: 6px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.2s;
+	}
+	
+	.btn-submit:hover {
+		background: var(--color-primary-dark, #008577);
+	}
+	
+	.btn-submit:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+	
+	.form-message {
+		padding: 1rem;
+		border-radius: 6px;
+		font-size: 14px;
+	}
+	
+	.form-message.success {
+		background: #d4edda;
+		color: #155724;
+	}
+	
+	.form-message.error {
+		background: #f8d7da;
+		color: #721c24;
+	}
+	
+	/* Mapa */
+	.map-container {
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	
+	.map-container iframe {
+		display: block;
+	}
+	
+	@media (max-width: 768px) {
+		.contact-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 1.5rem;
+		}
+		
+		.contact-info {
+			border-right: none;
+			padding-right: 0;
+			padding-bottom: 2rem;
+			border-bottom: 1px solid #eee;
+		}
+		
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+		
+		.form-footer {
+			flex-direction: column;
+			align-items: stretch;
+		}
+		
+		.btn-submit {
+			text-align: center;
+		}
+	}
+</style>
+
+<script>
+	const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY || '';
+	const EMAILJS_SERVICE_ID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || '';
+	const EMAILJS_TEMPLATE_ID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || '';
+	const RECIPIENT_EMAIL = import.meta.env.PUBLIC_EMAILJS_RECIPIENT_EMAIL || 'clinicavillajoyosa99@gmail.com';
+
+	const loadEmailJS = () => {
+		return new Promise((resolve, reject) => {
+			if (window.emailjs) {
+				resolve(window.emailjs);
+				return;
+			}
+			const script = document.createElement('script');
+			script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+			script.onload = () => {
+				window.emailjs.init(EMAILJS_PUBLIC_KEY);
+				resolve(window.emailjs);
+			};
+			script.onerror = reject;
+			document.head.appendChild(script);
+		});
+	};
+
+	const showMessage = (message: string, type: 'success' | 'error') => {
+		const el = document.getElementById('form-message');
+		if (!el) return;
+		el.textContent = message;
+		el.className = `form-message ${type}`;
+		el.style.display = 'block';
+		if (type === 'success') {
+			setTimeout(() => { el.style.display = 'none'; }, 5000);
+		}
+	};
+
+	const form = document.getElementById('contact-form') as HTMLFormElement;
+	if (form) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
+			const originalText = btn.textContent;
+			
+			if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+				showMessage('Error: Formulario no configurado.', 'error');
+				return;
+			}
+
+			btn.disabled = true;
+			btn.textContent = 'Enviando...';
+
+			try {
+				await loadEmailJS();
+				const data = new FormData(form);
+				await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+					to_email: RECIPIENT_EMAIL,
+					from_name: `${data.get('nombre')} ${data.get('apellido')}`,
+					from_email: data.get('email'),
+					phone: data.get('telefono'),
+					message: data.get('mensaje') || 'Sin mensaje',
+					reply_to: data.get('email')
+				});
+				showMessage('✅ Mensaje enviado correctamente.', 'success');
+				form.reset();
+			} catch (err) {
+				showMessage('❌ Error al enviar. Llámanos: 91 798 86 69', 'error');
+			} finally {
+				btn.disabled = false;
+				btn.textContent = originalText;
+			}
+		});
+	}
+</script>

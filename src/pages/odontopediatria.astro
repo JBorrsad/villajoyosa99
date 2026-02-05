@@ -1,0 +1,774 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+const title = 'Odontopediatría — Dentista infantil en Pamplona | Programa PADI';
+const description = 'Dentista infantil en Pamplona. Clínica adherida al Programa PADI de Navarra. Primera visita antes del primer cumpleaños. Prevención, tratamientos sin miedo y cercanía.';
+const keywords = 'odontopediatría Pamplona, dentista infantil Pamplona, PADI Navarra, dentista niños Pamplona, selladores dentales, flúor infantil';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<article class="pediatric-page">
+			<!-- Hero Section -->
+			<section class="page-hero">
+				<div class="container">
+					<h1>Odontopediatría</h1>
+					<p class="hero-subtitle">Cuidamos la salud oral de tus hijos desde antes de que les salga su primer diente</p>
+				</div>
+			</section>
+
+			<!-- Introducción -->
+			<section class="section">
+				<div class="container">
+					<div class="content-block intro-text">
+						<p>En nuestra Clínica Dental en Pamplona acompañamos a peques y familias desde la primera erupción hasta la adolescencia, con un enfoque preventivo, amable y basado en la evidencia. <strong>Recomendamos la primera visita cuando sale el primer diente o antes del primer cumpleaños</strong>: sirve para detectar riesgos de caries, enseñar hábitos y crear una relación positiva con el equipo dental.</p>
+						
+						<p>Años de experiencia tratando con niños y familias de Pamplona y Tafalla nos han enseñado que la prevención y la comunicación clara son las mejores herramientas. Creamos un espacio donde tu hijo se sienta cómodo, seguro y aprenda desde pequeño que cuidar su boca es algo natural y positivo.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Programa PADI -->
+			<section class="section padi-section">
+				<div class="container">
+					<div class="padi-box">
+						<div class="padi-icon">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+							</svg>
+						</div>
+						<div class="padi-content">
+							<h2>Participamos en el Programa PADI (Navarra)</h2>
+							<p>Somos clínica adherida al <strong>Programa de Atención Dental Infantil (PADI)</strong> del Servicio Navarro de Salud, que ofrece atención dental básica gratuita a los menores que cumplan los requisitos en Navarra. Te ayudamos a gestionar el talón de aceptación, la primera revisión del año y la derivación si hiciera falta.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Qué hacemos en Odontopediatría -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>¿Qué te ofrecemos?</h2>
+					<div class="content-block">
+						<ul class="treatments-list">
+							<li>
+								<h3><span>Prevención y educación</span></h3>
+								<p>Revisiones periódicas, control de placa y consejos de cepillado y dieta adaptados a la edad.</p>
+								<p>Barniz de flúor y pautas de pastas fluoradas según riesgo, bajo control profesional.</p>
+							</li>
+							<li>
+								<h3><span>Selladores de fosas y fisuras</span></h3>
+								<p>Aplicamos selladores en muelas permanentes con surcos profundos para reducir la retención de placa y el riesgo de caries. La evidencia apoya su utilidad en dientes permanentes; en dientes de leche los resultados son menos concluyentes, por eso indicamos caso a caso.</p>
+							</li>
+							<li>
+								<h3><span>Tratamientos conservadores y "sin miedo"</span></h3>
+								<p>Obturaciones estéticas cuando hay caries.</p>
+								<p>Manejo de conducta con técnicas comunicativas y desensibilización.</p>
+								<p>Sedación consciente con óxido nitroso en indicaciones seleccionadas para reducir ansiedad (técnica segura y efectiva con protocolos adecuados).</p>
+							</li>
+							<li>
+								<h3><span>Traumatismos dentales y emergencias</span></h3>
+								<p>Evaluación de golpes, fracturas y avulsiones con indicaciones claras para casa y seguimiento clínico.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Nuestro enfoque -->
+			<section class="section">
+				<div class="container">
+					<h2>Nuestro enfoque con niños y familias</h2>
+					<div class="workflow-grid">
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">1</div>
+								<h3>Visitas positivas y comunicación clara</h3>
+							</div>
+							<p>Explicamos cada paso con lenguaje comprensible, validando emociones y celebrando logros de higiene para normalizar la visita al dentista.</p>
+						</div>
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">2</div>
+								<h3>Plan personalizado por riesgo</h3>
+							</div>
+							<p>Valoramos hábitos, dieta, higiene, historial y anatomía para definir la frecuencia de revisiones y los cuidados en casa (fluoruro, seda/hilo dental, selladores, barniz).</p>
+						</div>
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">3</div>
+								<h3>Coordinación con PADI</h3>
+							</div>
+							<p>Si el niño/a tiene derecho a PADI, tramitamos la atención dentro del programa y resolvemos dudas sobre qué cubre y cómo participar.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Por qué escogernos -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>Porqué escogernos para el cuidado dental de tu familia</h2>
+					
+					<div class="content-block">
+						<div class="why-choose-item">
+							<h3>Prevención real y basada en evidencia</h3>
+							<p>Priorizamos prevención (fluoruro, selladores, educación) y tratamientos mínimamente invasivos cuando son necesarios, siempre que aporten beneficio demostrado. Cada recomendación está respaldada por estudios y protocolos actualizados.</p>
+						</div>
+
+						<div class="why-choose-item">
+							<h3>Experiencia y cercanía</h3>
+							<p>Años de trabajo con familias de Pamplona y Tafalla, con un trato paciente y empático que reduce el miedo y mejora la colaboración. Sabemos cómo hablar con los niños y cómo acompañarlos en este camino.</p>
+						</div>
+
+						<div class="why-choose-item">
+							<h3>Programa PADI y gestión sencilla</h3>
+							<p>Te guiamos paso a paso para aprovechar el Programa PADI y mantener al día las revisiones del año. Resolvemos todas tus dudas sobre requisitos, coberturas y trámites necesarios.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="section faq-section">
+				<div class="container">
+					<h2>Preguntas frecuentes</h2>
+					<div class="faq-accordion">
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿A qué edad debo llevar a mi hijo al dentista por primera vez?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Recomendamos antes del primer cumpleaños o cuando erupcione el primer diente. La visita temprana permite detectar riesgos y enseñar a cuidar la boca desde el principio.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Qué cubre el Programa PADI en Navarra?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>El PADI ofrece atención dental básica gratuita a los menores que cumplan criterios en Navarra. Para participar, hace falta el talón de aceptación del año en curso y acudir a un dentista habilitado. Te ayudamos con la cita y los pasos.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Los selladores son necesarios para todos los niños?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>No en todos. Son útiles en muelas permanentes con surcos profundos o riesgo elevado de caries. En dientes de leche la evidencia es menos clara; por eso indicamos individualmente tras revisar el caso.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Es seguro usar flúor en niños?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Sí, cuando se utiliza bajo control profesional y con cantidades adecuadas de pasta dental según la edad. El barniz de flúor reduce el riesgo de caries y se complementa con buena higiene y revisiones.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>Mi hijo tiene miedo al dentista, ¿qué opciones hay?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Trabajamos con manejo de conducta (explicar-mostrar-hacer, refuerzos positivos) y, si lo indica el caso, óxido nitroso como sedación consciente, técnica segura y eficaz con monitorización y protocolos específicos para pediatría.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Cada cuánto hay que venir a revisión?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Depende del riesgo de caries y del desarrollo dental. Muchos niños acuden cada 6 meses; si el riesgo es bajo, podemos espaciar; si es alto, acortar revisiones y reforzar prevención.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Qué hago si se rompe o se cae un diente por un golpe?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Llama y ven cuanto antes. Si es un diente permanente avulsionado, colócalo en leche o suero y evita tocar la raíz; si es diente de leche, no reimplantar. Valoramos en clínica y pautamos seguimiento.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="section cta-section">
+				<div class="container">
+					<div class="cta-box">
+						<h2>¿Buscas odontopediatra en Pamplona o quieres aprovechar el Programa PADI?</h2>
+						<p>Pide tu primera visita: revisaremos la boca de tu hijo, os daremos pautas claras y diseñaremos un plan preventivo adaptado a vuestra familia.</p>
+						<div class="cta-buttons">
+							<a href={`${baseUrl}#contacto`} class="btn btn-primary">Pedir cita</a>
+							<a href="tel:+34948172617" class="btn btn-secondary">Llamar ahora</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
+	<Footer />
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "MedicalBusiness",
+		"name": "Odontopediatría Clínica Dental Sada Borrás",
+		"description": "Dentista infantil en Pamplona. Clínica adherida al Programa PADI de Navarra",
+		"medicalSpecialty": "Odontopediatría",
+		"areaServed": "Pamplona, Navarra"
+	})} />
+</MainLayout>
+
+<script>
+	// Accordion functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqButtons = document.querySelectorAll('.faq-question');
+		
+		faqButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				const faqItem = button.parentElement;
+				const isExpanded = button.getAttribute('aria-expanded') === 'true';
+				
+				// Close all other items
+				faqButtons.forEach(btn => {
+					if (btn !== button && btn.parentElement) {
+						btn.setAttribute('aria-expanded', 'false');
+						btn.parentElement.classList.remove('active');
+					}
+				});
+				
+				// Toggle current item
+				if (faqItem) {
+					button.setAttribute('aria-expanded', String(!isExpanded));
+					faqItem.classList.toggle('active');
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.pediatric-page {
+		background: white;
+	}
+
+	/* Hero Section */
+	.page-hero {
+		background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-accent) 100%);
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.page-hero h1 {
+		color: white;
+		font-size: var(--fs-h1);
+		font-family: var(--ff-head);
+		margin: 0 0 1rem 0;
+		font-weight: 700;
+	}
+
+	.hero-subtitle {
+		color: rgba(255, 255, 255, 0.95);
+		font-size: var(--fs-h3);
+		font-family: var(--ff-head);
+		margin: 0;
+		font-weight: 600;
+	}
+
+	/* Section Styles */
+	.section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.section-light {
+		background: var(--c-bg);
+	}
+
+	.section h2 {
+		font-size: var(--fs-h2);
+		font-family: var(--ff-head);
+		color: var(--c-ink);
+		margin-bottom: var(--spacing-lg);
+		text-align: center;
+		font-weight: 700;
+		padding-bottom: 1rem;
+		border-bottom: 3px solid var(--c-primary);
+		display: inline-block;
+		width: auto;
+	}
+
+	.container > h2 {
+		display: block;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+	}
+
+	.section-intro {
+		text-align: center;
+		font-size: 1.125rem;
+		color: var(--c-gray-700);
+		margin-bottom: var(--spacing-md);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.content-block {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.content-block p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.intro-text {
+		margin-bottom: var(--spacing-md);
+	}
+
+	/* PADI Section */
+	.padi-section {
+		background: linear-gradient(135deg, #E6F7F6 0%, #B8E5E1 100%);
+	}
+
+	.padi-box {
+		max-width: 900px;
+		margin: 0 auto;
+		background: white;
+		padding: 3rem;
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+	}
+
+	.padi-icon {
+		flex-shrink: 0;
+		width: 80px;
+		height: 80px;
+		background: var(--c-primary);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.padi-icon svg {
+		color: white;
+	}
+
+	.padi-content h2 {
+		font-size: 1.5rem;
+		font-family: var(--ff-head);
+		color: var(--c-ink);
+		margin-bottom: 1rem;
+		font-weight: 700;
+		padding: 0;
+		border: none;
+		display: block;
+		text-align: left;
+		width: 100%;
+	}
+
+	.padi-content p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* Why Choose Items */
+	.why-choose-item {
+		margin-bottom: 2.5rem;
+	}
+
+	.why-choose-item:last-child {
+		margin-bottom: 0;
+	}
+
+	.why-choose-item h3 {
+		font-size: 1.25rem;
+		font-family: var(--ff-body);
+		color: var(--c-primary);
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.why-choose-item p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* Treatments List */
+	.treatments-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.treatments-list li {
+		margin-bottom: 2.5rem;
+	}
+
+	.treatments-list h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin-bottom: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.treatments-list h3::before {
+		content: "•";
+		color: var(--c-primary);
+		font-weight: 700;
+		font-size: 2rem;
+		line-height: 1.125rem;
+		flex-shrink: 0;
+	}
+
+	.treatments-list h3 span {
+		border-bottom: 2px solid var(--c-primary);
+		padding-bottom: 0.5rem;
+	}
+
+	.treatments-list p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0 0 0.5rem 0;
+		padding-left: 2.75rem;
+	}
+
+	.treatments-list p:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Workflow Grid */
+	.workflow-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-lg);
+		margin-top: var(--spacing-lg);
+	}
+
+	.workflow-step {
+		background: white;
+		padding: 2rem;
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.workflow-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.workflow-number {
+		width: 48px;
+		height: 48px;
+		background: var(--c-primary);
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 1.5rem;
+		font-family: var(--ff-head);
+		flex-shrink: 0;
+	}
+
+	.workflow-step h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin: 0;
+		font-weight: 600;
+		text-transform: uppercase;
+		flex: 1;
+	}
+
+	.workflow-step p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* FAQ Accordion */
+	.faq-section {
+		background: var(--c-bg);
+	}
+
+	.faq-accordion {
+		max-width: 900px;
+		margin: 0 auto;
+		margin-top: var(--spacing-lg);
+	}
+
+	.faq-item {
+		background: white;
+		border: 2px solid var(--c-gray-200);
+		border-radius: var(--border-radius-lg);
+		margin-bottom: 1rem;
+		overflow: hidden;
+		transition: var(--transition);
+	}
+
+	.faq-item:hover {
+		border-color: var(--c-primary);
+	}
+
+	.faq-item.active {
+		border-color: var(--c-primary);
+		box-shadow: var(--shadow-md);
+	}
+
+	.faq-question {
+		width: 100%;
+		background: transparent;
+		border: none;
+		padding: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		cursor: pointer;
+		text-align: left;
+		font-size: var(--fs-body);
+		font-family: var(--ff-head);
+		font-weight: 600;
+		color: var(--c-ink);
+		transition: var(--transition);
+	}
+
+	.faq-question:hover {
+		color: var(--c-primary);
+	}
+
+	.faq-question span {
+		flex: 1;
+	}
+
+	.faq-icon {
+		flex-shrink: 0;
+		transition: transform 0.3s ease;
+		color: var(--c-primary);
+	}
+
+	.faq-item.active .faq-icon {
+		transform: rotate(180deg);
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease, padding 0.3s ease;
+		padding: 0 1.5rem;
+	}
+
+	.faq-item.active .faq-answer {
+		max-height: 500px;
+		padding: 0 1.5rem 1.5rem;
+	}
+
+	.faq-answer p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.faq-answer p:last-child {
+		margin-bottom: 0;
+	}
+
+	/* CTA Section */
+	.cta-section {
+		background: var(--c-primary);
+		color: white;
+	}
+
+	.cta-box {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.cta-box h2 {
+		color: white;
+		border-bottom-color: rgba(255, 255, 255, 0.3);
+		font-size: var(--fs-h2);
+		margin-bottom: 1.5rem;
+	}
+
+	.cta-box > p {
+		color: white;
+		font-size: var(--fs-body);
+		margin-bottom: 2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: var(--rad);
+		font-weight: 600;
+		font-size: var(--font-size-base);
+		transition: var(--transition);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+		font-family: var(--ff-body);
+		line-height: 1;
+	}
+
+	.btn-primary {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	.btn-primary:hover {
+		background: var(--c-bg);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		.workflow-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ====== Solo móvil ≤768px ====== */
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.page-hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.125rem;
+		}
+
+		.padi-box {
+			flex-direction: column;
+			padding: 2rem 1.5rem;
+			gap: 1.5rem;
+		}
+
+		.padi-icon {
+			width: 64px;
+			height: 64px;
+		}
+
+		.padi-content h2 {
+			font-size: 1.25rem;
+		}
+
+		/* CTA al ancho del contenido (no 100%) */
+		.cta-buttons {
+			display: flex;
+			flex-direction: row;
+			gap: 1rem;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+
+		.cta-buttons .btn {
+			display: inline-flex !important;
+			width: auto !important;
+			max-width: 100% !important;
+			white-space: nowrap !important;
+			align-self: flex-start;
+			flex: 0 1 auto;
+		}
+
+		.faq-question {
+			padding: 1.25rem;
+			font-size: 0.95rem;
+		}
+
+		.faq-answer {
+			font-size: 0.9rem;
+		}
+	}
+</style>
+

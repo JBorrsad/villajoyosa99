@@ -1,0 +1,89 @@
+name: Build & Deploy (with Google Reviews)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Ejecuta diariamente a las 00:00 hora española (medianoche)
+    # 00:00 CET (UTC+1) = 23:00 UTC (invierno)
+    - cron: "0 23 * * *"
+    # 00:00 CEST (UTC+2) = 22:00 UTC (verano)
+    - cron: "0 22 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      # ✅ Trae reseñas ANTES del build. NO commitea, solo genera JSON.
+      - name: Fetch Google Reviews
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          GOOGLE_PLACE_ID_1: ${{ secrets.GOOGLE_PLACE_ID_1 }}
+          GOOGLE_PLACE_ID_2: ${{ secrets.GOOGLE_PLACE_ID_2 }}
+        run: |
+          PLACE_IDS=""
+          if [ -n "$GOOGLE_PLACE_ID_1" ]; then
+            PLACE_IDS="$GOOGLE_PLACE_ID_1"
+          fi
+          if [ -n "$GOOGLE_PLACE_ID_2" ]; then
+            if [ -n "$PLACE_IDS" ]; then
+              PLACE_IDS="$PLACE_IDS,$GOOGLE_PLACE_ID_2"
+            else
+              PLACE_IDS="$GOOGLE_PLACE_ID_2"
+            fi
+          fi
+          export GOOGLE_PLACE_IDS="$PLACE_IDS"
+          npm run fetch:reviews || echo "⚠️  WARN: fetch script skipped/failed (leaving old JSON if exists)"
+
+      - name: Build Astro site
+        env:
+          NODE_ENV: production
+          PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+          PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+          PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+          PUBLIC_EMAILJS_RECIPIENT_EMAIL: ${{ secrets.EMAILJS_RECIPIENT_EMAIL }}
+        run: npm run build:no-fetch
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,384 @@
+---
+import { SERVICES } from '../../utils/constants';
+import { asset } from '../../utils/assets';
+---
+
+<section class="services section" id="servicios">
+	<div class="container">
+		<div class="section-header text-center">
+			<h2>Lo que mejor hacemos</h2>
+			<p class="section-subtitle">De la revisión a los tratamientos complejos, con un plan claro</p>
+		</div>
+		
+		<div class="services-grid">
+			{SERVICES.map(service => {
+				const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+				let serviceUrl = null;
+				if (service.id === 'implantologia') {
+					serviceUrl = `${baseUrl}implantologia`;
+				} else if (service.id === 'odontologia-conservadora') {
+					serviceUrl = `${baseUrl}conservadora`;
+				} else if (service.id === 'odontopediatria') {
+					serviceUrl = `${baseUrl}odontopediatria`;
+				} else if (service.id === 'rmr') {
+					serviceUrl = `${baseUrl}rmr`;
+				} else if (service.id === 'estetica-facial') {
+					serviceUrl = `${baseUrl}estetica-facial`;
+				}
+				const CardTag = serviceUrl ? 'a' : 'article';
+				
+				return (
+					<CardTag 
+						class="service-card" 
+						{...(serviceUrl ? { href: serviceUrl } : {})}
+					>
+					<div class="service-image">
+						<img 
+							src={asset(service.image)}
+							alt={service.title}
+							width="400"
+							height="100"
+							loading="lazy"
+							decoding="async"
+							style="aspect-ratio: 4/1;"
+						/>
+					</div>
+						<div class="service-content">
+							<h3>{service.title}</h3>
+							<ul class="service-features">
+								{service.features.map(feature => (
+									<li>
+										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+						{serviceUrl && (
+							<div class="service-read-more">
+								<span>Leer más...</span>
+							</div>
+						)}
+					</CardTag>
+				);
+			})}
+			
+			<div class="services-cta" id="services-cta">
+				<p class="services-note">¿No encuentras lo que buscas? Contáctanos y te ayudaremos.</p>
+				<a href="#contacto" class="btn btn-primary">Pedir información</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	function adjustCTAWidth() {
+		const grid = document.querySelector('.services-grid') as HTMLElement;
+		const cta = document.getElementById('services-cta');
+		const cards = document.querySelectorAll('.service-card');
+		
+		if (!grid || !cta || cards.length === 0) return;
+		
+		// Obtener el ancho del grid y el gap
+		const gridStyles = window.getComputedStyle(grid);
+		const gridWidth = grid.offsetWidth;
+		const gap = parseFloat(gridStyles.gap) || 0;
+		
+		// Calcular cuántas columnas caben (cada tarjeta es 300px + gap)
+		const columnWidth = 300 + gap;
+		const columnsPerRow = Math.floor((gridWidth + gap) / columnWidth);
+		
+		if (columnsPerRow <= 1) {
+			// En móvil o pantallas pequeñas, no hacemos nada especial
+			cta.style.gridColumn = '';
+			return;
+		}
+		
+		// Calcular cuántas tarjetas hay (sin contar el CTA)
+		const totalCards = cards.length;
+		
+		// Calcular cuántas columnas ocupa la última fila sin el CTA
+		const cardsInLastRow = totalCards % columnsPerRow || columnsPerRow;
+		
+		// Calcular cuántas columnas quedan disponibles después de las tarjetas
+		const availableColumns = columnsPerRow - cardsInLastRow;
+		
+		if (availableColumns > 0) {
+			// El CTA ocupará el espacio restante en la fila
+			cta.style.gridColumn = `span ${availableColumns}`;
+		} else {
+			// Si la última fila está completa, el CTA ocupará toda la siguiente fila
+			cta.style.gridColumn = `span ${columnsPerRow}`;
+		}
+	}
+	
+	// Ejecutar al cargar la página
+	adjustCTAWidth();
+	
+	// Ejecutar cuando cambie el tamaño de la ventana
+	let resizeTimeout: number;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(adjustCTAWidth, 100);
+	});
+</script>
+
+<style>
+	.services {
+		background: var(--color-bg-light);
+		position: relative;
+		z-index: 10;
+	}
+	
+	.services::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url('/img/bgservices.webp');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		opacity: 0.1;
+		pointer-events: none;
+		z-index: 0;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		filter: contrast(1.1);
+	}
+	
+	.services .container {
+		position: relative;
+		z-index: 1;
+	}
+	
+	.section-header {
+		margin-bottom: var(--spacing-lg);
+	}
+	
+	.section-header h2 {
+		font-size: 38px;
+		margin-bottom: 1rem;
+		color: var(--c-ink);
+		font-family: var(--ff-head);
+		font-weight: 700;
+		line-height: 1.2;
+		padding-bottom: 1rem;
+		border-bottom: 3px solid var(--c-ink);
+		display: inline-block;
+	}
+	
+	.section-subtitle {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-light);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 300px);
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-lg);
+		justify-content: center;
+	}
+	
+	.service-card {
+		background: white;
+		border: 1px solid var(--c-gray-200);
+		border-radius: var(--border-radius-lg);
+		padding: 0;
+		transition: var(--transition);
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		width: 300px;
+	}
+	
+	@media (min-width: 768px) {
+		.service-card:hover {
+			border-color: var(--c-primary);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+			transform: translateY(-5px);
+		}
+	}
+	
+	.service-image {
+		width: 100%;
+		height: 100px;
+		overflow: hidden;
+		border-radius: 11px 11px 0 0;
+	}
+	
+	.service-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	
+	.service-content {
+		padding: 1.25rem 1.5rem;
+	}
+	
+	.service-read-more {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 50px;
+		background: var(--color-primary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0 0 11px 11px;
+		transform: translateX(calc(-100% - 25px));
+		transition: transform 0.3s ease;
+		pointer-events: none;
+	}
+	
+	.service-read-more::after {
+		content: '';
+		position: absolute;
+		left: -25px;
+		top: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 25px 25px 25px 0;
+		border-color: transparent var(--color-primary) transparent transparent;
+	}
+	
+	.service-read-more span {
+		color: white;
+		font-weight: 600;
+		font-size: 15px;
+		font-family: var(--ff-body);
+	}
+	
+	@media (min-width: 768px) {
+		.service-card:hover .service-read-more {
+			transform: translateX(0);
+		}
+	}
+	
+	.service-card h3 {
+		font-size: 18px;
+		margin-bottom: 1rem;
+		color: var(--c-ink);
+		font-family: var(--ff-head);
+		font-weight: 700;
+		line-height: 1.3;
+		min-height: 2.5em;
+	}
+	
+	.service-features {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.service-features li {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+		font-size: 14px;
+		color: var(--color-text);
+	}
+	
+	.service-features svg {
+		color: var(--color-primary);
+		flex-shrink: 0;
+	}
+	
+	.services-cta {
+		min-width: 300px;
+		width: 100%;
+		padding: 2rem;
+		background: white;
+		border: 1px solid var(--c-gray-200);
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	
+	.services-note {
+		font-size: 18px;
+		color: var(--color-secondary);
+		margin-bottom: 1.5rem;
+		font-weight: 500;
+	}
+	
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: var(--border-radius);
+		font-weight: 600;
+		font-size: var(--font-size-base);
+		transition: var(--transition);
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+	}
+	
+	.btn-primary {
+		background: var(--color-primary);
+		color: white;
+	}
+	
+	.btn-primary:hover {
+		background: var(--color-primary-dark);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+	
+	/* Pantallas móviles y tablets pequeñas */
+	@media (max-width: 767px) {
+		.services::before {
+			background-image: url('/img/bgservicesmobile.png');
+		}
+		
+		.services-grid {
+			grid-template-columns: 1fr;
+			justify-content: center;
+		}
+		
+		.service-card {
+			width: 100%;
+			max-width: 300px;
+			min-width: auto;
+			margin: 0 auto;
+		}
+		
+		.service-card h3 {
+			min-height: auto;
+		}
+		
+		.service-read-more {
+			display: none;
+		}
+		
+		.services-cta {
+			width: 100%;
+			max-width: 300px;
+			min-width: auto;
+			margin: 0 auto;
+		}
+	}
+</style>
+

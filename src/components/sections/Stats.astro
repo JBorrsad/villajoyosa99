@@ -1,0 +1,192 @@
+---
+// Sección de estadísticas con contadores animados
+---
+
+<section class="stats section" id="stats">
+	<div class="container">
+		<div class="stats-grid">
+			<div class="stat-item" data-target="5000">
+				<span class="stat-number">+<span class="counter">0</span></span>
+				<p class="stat-label">Pacientes<br>Atendidos</p>
+			</div>
+			
+			<div class="stat-item" data-target="25">
+				<span class="stat-number"><span class="counter">0</span></span>
+				<p class="stat-label">Años de<br>Experiencia</p>
+			</div>
+			
+			<div class="stat-item" data-target="37">
+				<span class="stat-number"><span class="counter">0</span></span>
+				<p class="stat-label">Años del Dr. Polo<br>en Odontología</p>
+			</div>
+			
+			<div class="stat-item" data-target="8">
+				<span class="stat-number"><span class="counter">0</span></span>
+				<p class="stat-label">Servicios<br>Especializados</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.stats {
+		background: #E6F7F6;
+		padding: var(--spacing-xl) 0;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 3rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.stat-item {
+		text-align: center;
+		padding: 1.5rem;
+		position: relative;
+	}
+	
+	.stat-item::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 1px;
+		height: 60%;
+		background: var(--c-gray-200);
+	}
+	
+	.stat-item:last-child::after {
+		display: none;
+	}
+	
+	.stat-number {
+		display: block;
+		font-size: 52px;
+		font-weight: 700;
+		color: #003366;
+		line-height: 1.1;
+		margin-bottom: 0.5rem;
+		font-family: var(--ff-head);
+		letter-spacing: -0.01em;
+	}
+	
+	.stat-label {
+		font-size: 12px;
+		color: var(--c-gray-700);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		font-weight: 600;
+		line-height: 1.4;
+		margin: 0;
+		font-family: var(--ff-body);
+	}
+	
+	@media (max-width: 1024px) {
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem;
+		}
+		
+		.stat-item:nth-child(2)::after,
+		.stat-item:last-child::after {
+			display: none;
+		}
+		
+		.stat-number {
+			font-size: 3rem;
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.stats {
+			padding: var(--spacing-lg) 0;
+		}
+		
+		.stats-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+		
+		.stat-item::after {
+			display: none;
+		}
+		
+		.stat-number {
+			font-size: 3.5rem;
+		}
+	}
+</style>
+
+<script>
+	class CounterAnimation {
+		private observer: IntersectionObserver;
+		private hasAnimated: boolean = false;
+		
+		constructor() {
+			this.observer = new IntersectionObserver(
+				(entries) => this.handleIntersection(entries),
+				{ threshold: 0.3 }
+			);
+			
+			this.init();
+		}
+		
+		init() {
+			const statsSection = document.querySelector('.stats');
+			if (statsSection) {
+				this.observer.observe(statsSection);
+			}
+		}
+		
+		handleIntersection(entries: IntersectionObserverEntry[]) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && !this.hasAnimated) {
+					this.hasAnimated = true;
+					this.animateCounters();
+					this.observer.disconnect();
+				}
+			});
+		}
+		
+		animateCounters() {
+			const statItems = document.querySelectorAll('.stat-item');
+			
+			statItems.forEach((item) => {
+				const target = parseInt(item.getAttribute('data-target') || '0');
+				const counter = item.querySelector('.counter');
+				
+				if (!counter) return;
+				
+				const duration = 2000; // 2 segundos
+				const increment = target / (duration / 16); // 60 FPS
+				let current = 0;
+				
+				const updateCounter = () => {
+					current += increment;
+					
+					if (current < target) {
+						counter.textContent = Math.floor(current).toString();
+						requestAnimationFrame(updateCounter);
+					} else {
+						counter.textContent = target.toString();
+					}
+				};
+				
+				updateCounter();
+			});
+		}
+	}
+	
+	// Inicializar cuando el DOM esté listo
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', () => new CounterAnimation());
+	} else {
+		new CounterAnimation();
+	}
+</script>

@@ -1,0 +1,132 @@
+---
+import { asset } from '../../utils/assets';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<section class="about-section" id="sobre-nosotros">
+	<div class="container">
+		<div class="about-container">
+			<div class="about-text-column">
+<div class="about-text-content">
+				<p class="about-description">Los mejores profesionales y la medicina más avanzada nos diferencian de los demás. Porque lo más importante para nosotros eres tú, con nuestra atención individualizada te ayudaremos a permanecer siempre saludable y feliz.</p>
+				<p class="about-cta"><strong>LA PRIMERA VISITA Y EL DIAGNÓSTICO SON GRATUITOS. ¡A QUE ESPERAS! LLÁMANOS</strong></p>
+			</div>
+		</div>
+		<div class="about-buttons-column">
+			<a href="tel:+34917988669" class="btn-primary">Llámanos ahora</a>
+			<a href="#contacto" class="btn-secondary">Pide una cita</a>
+		</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-section {
+		position: relative;
+		z-index: 10;
+		height: 30vh;
+		display: flex;
+		align-items: center;
+		padding: 0;
+		background: white;
+	}
+	
+	.about-section .container {
+		width: 100%;
+	}
+	
+	.about-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		background: white;
+		align-items: center;
+	}
+	
+	.about-text-column {
+		background: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem 2rem;
+	}
+	
+	.about-text-content {
+		max-width: 600px;
+		width: 100%;
+	}
+	
+	.about-description {
+		font-size: 18px;
+		line-height: 1.5;
+		color: var(--c-gray-700);
+		margin: 0 0 0.75rem 0;
+		font-family: var(--ff-body);
+	}
+	
+	.about-cta {
+		font-size: 16px;
+		line-height: 1.4;
+		color: var(--c-primary);
+		margin: 0;
+		font-family: var(--ff-body);
+	}
+	
+	.about-buttons-column {
+		background: white;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		padding: 1.5rem 2rem;
+	}
+	
+	.about-buttons-column .btn-primary,
+	.about-buttons-column .btn-secondary {
+		white-space: nowrap;
+		padding: 0.75rem 1.5rem;
+		border: 2px solid var(--c-primary);
+		font-size: 1rem;
+		line-height: 1;
+	}
+	
+	.about-buttons-column .btn-secondary {
+		color: var(--c-primary);
+	}
+	
+	.about-buttons-column .btn-secondary:hover {
+		color: #fff;
+	}
+	
+	@media (max-width: 768px) {
+		.about-section {
+			height: auto;
+			min-height: 35vh;
+			padding: 1rem 0;
+		}
+		
+		.about-container {
+			grid-template-columns: 1fr;
+		}
+		
+		.about-text-column {
+			padding: 1rem 1.5rem;
+		}
+		
+		.about-description {
+			font-size: 15px;
+		}
+		
+		.about-buttons-column {
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 0.75rem 1.5rem;
+		}
+		
+		.about-buttons-column .btn-primary,
+		.about-buttons-column .btn-secondary {
+			width: auto;
+			max-width: 280px;
+		}
+	}
+</style>

@@ -1,0 +1,969 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+const title = 'Implantología, Cirugía Oral y Periodoncia — Clínica Dental en Pamplona';
+const description = 'Implantes dentales en Pamplona. Recupera función y estética con seguridad. Cirugía guiada, PRGF y sedación consciente. Primera consulta gratuita.';
+const keywords = 'implantes dentales Pamplona, implantología Pamplona, cirugía oral Pamplona, periodoncia Pamplona, carga inmediata, all-on-4 Pamplona';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<article class="implant-page">
+			<!-- Hero Section -->
+			<section class="page-hero">
+				<div class="container">
+					<h1>Implantología, Cirugía Oral y Periodoncia</h1>
+					<p class="hero-subtitle">Implantes dentales: recupera función y estética con seguridad</p>
+				</div>
+			</section>
+
+			<!-- ¿Por qué escoger los implantes? -->
+			<section class="section">
+				<div class="container">
+					<h2>¿Por qué escoger los implantes?</h2>
+					<div class="content-block intro-text">
+						<p>Los implantes dentales son raíces de titanio que sustituyen a una pieza perdida y sirven de base para una corona o prótesis fija. En nuestra Clínica Dental en Pamplona, planificamos cada caso con enfoque integral para devolverte masticación, fonación y estética con resultados predecibles a largo plazo. Entre las ventajas: solución fija y duradera, protección del hueso y comodidad en el día a día (sensaciones similares al diente natural). Estas son razones generalmente aceptadas en implantología moderna y también destacadas por clínicas de referencia locales.</p>
+					</div>
+					<div class="benefits-layout">
+						<div class="benefits-image">
+							<img src={`${baseUrl}img/implantoak.png`} alt="Implante dental" loading="lazy" />
+						</div>
+						<div class="benefits-content">
+							<ul class="benefits-list">
+								<li>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									<div>
+										<p>Solución fija y estable con alto grado de éxito a largo plazo.</p>
+									</div>
+								</li>
+								<li>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									<div>
+										<p>Función y estética: recuperas mordida, dicción y sonrisa de forma natural.</p>
+									</div>
+								</li>
+								<li>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									<div>
+										<p>Conserva dientes sanos (evita tallados) y frena la pérdida ósea.</p>
+									</div>
+								</li>
+								<li>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									<div>
+										<p>Confort desde el primer día con opciones de prótesis provisional inmediata cuando el caso lo permite.</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Nuestro enfoque en Implantología -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>Nuestro enfoque en Implantología</h2>
+					<p class="section-intro">Nuestro método combina claridad, coordinación y seguimiento para que todo fluya.</p>
+					<div class="approach-grid">
+						<!-- Bloque 1 -->
+						<div class="approach-block">
+							<div class="approach-item">
+								<h3>Cirugía guiada (NobelGuide) y mínima invasión</h3>
+								<p>Utilizamos sistemas de cirugía guiada (p. ej., NobelGuide) para colocar implantes sin abrir la encía cuando la anatomía lo permite. Esto reduce molestias postoperatorias y mejora la precisión en la posición del implante.</p>
+							</div>
+							<div class="approach-image">
+								<img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&h=400&fit=crop" alt="Cirugía guiada dental" loading="lazy" />
+							</div>
+						</div>
+
+						<!-- Bloque 2 -->
+						<div class="approach-block reverse">
+							<div class="approach-item">
+								<h3>PRGF: plasma rico en factores de crecimiento</h3>
+								<p>En cirugía y regeneración aplicamos PRGF (plasma rico en factores de crecimiento) obtenido de tu propia sangre. Favorece una cicatrización más rápida y confortable, y optimiza la integración de tejidos.</p>
+							</div>
+							<div class="approach-image">
+								<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop" alt="PRGF plasma rico en factores de crecimiento" loading="lazy" />
+							</div>
+						</div>
+
+						<!-- Bloque 3 -->
+						<div class="approach-block">
+							<div class="approach-item">
+								<h3>Sedación consciente con óxido nitroso</h3>
+								<p>Para pacientes con ansiedad o cirugías largas, disponemos de sedación consciente con óxido nitroso, que ofrece una experiencia tranquila y controlada.</p>
+							</div>
+							<div class="approach-image">
+								<img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop" alt="Sedación consciente dental" loading="lazy" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Tratamientos con implantes -->
+			<section class="section">
+				<div class="container">
+					<h2>Tratamientos con implantes (según tu caso)</h2>
+					<div class="content-block">
+						<ul class="treatments-list">
+							<li>
+								<h3>Implante unitario</h3>
+								<p>La solución ideal para reemplazar una sola pieza dental sin afectar los dientes sanos adyacentes.</p>
+								<p>Recupera la estética y la funcionalidad de tu sonrisa con una corona personalizada, diseñada para integrarse perfectamente con el resto de tus dientes.</p>
+							</li>
+							<li>
+								<h3>Puente sobre implantes</h3>
+								<p>Perfecto para sustituir varias piezas contiguas apoyadas en 2 a 4 implantes.</p>
+								<p>Con esta técnica se evita el uso de prótesis removibles, ofreciendo una mayor comodidad, estabilidad y naturalidad al sonreír o masticar.</p>
+							</li>
+							<li>
+								<h3>Carga inmediata — "dientes en un día"</h3>
+								<p>En determinados casos, colocamos una prótesis provisional fija el mismo día de la cirugía, gracias a la técnica de carga inmediata.</p>
+								<p>Tras un estudio previo de estabilidad y calidad ósea, el paciente disfruta de estética y función inmediatas mientras el implante cicatriza.</p>
+								<p>Una técnica avanzada que aplicamos habitualmente en nuestra clínica dental en Pamplona.</p>
+							</li>
+							<li>
+								<h3>All-on-4 / All-on-6 — Rehabilitación completa</h3>
+								<p>Indicada para pacientes con pérdida total o múltiple de dientes, esta técnica permite restaurar toda la arcada dental mediante 4 o 6 implantes.</p>
+								<p>Proporciona una sonrisa fija, funcional y estética, evitando las prótesis removibles tradicionales.</p>
+							</li>
+							<li>
+								<h3>Regeneración ósea y elevación de seno</h3>
+								<p>Cuando el hueso no presenta suficiente volumen, realizamos injertos óseos o elevación de seno maxilar para asegurar una base sólida antes de colocar los implantes.</p>
+								<p>Estos procedimientos garantizan el éxito y la durabilidad del tratamiento implantológico.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Periodoncia -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>Periodoncia: encías sanas, sonrisa estable</h2>
+					<div class="content-block">
+						<p>La periodoncia es la especialidad odontológica que previene, diagnostica y trata las enfermedades de las encías, como la gingivitis y la periodontitis.</p>
+						<p>Son patologías muy comunes y a menudo silenciosas: pueden no causar dolor, pero provocan sangrado, inflamación, retracción de encías y, si no se tratan a tiempo, pérdida dental.</p>
+						<p>Con una terapia periodontal personalizada y mantenimientos regulares, conseguimos detener su progreso, proteger tus dientes e incluso asegurar la estabilidad de los implantes dentales a largo plazo.</p>
+						
+						<h3>Señales de alerta</h3>
+						<p>Presta atención a estos síntomas, ya que pueden indicar una enfermedad periodontal:</p>
+						<ul class="standard-list">
+							<li>Sangrado al cepillarte o mal aliento persistente.</li>
+							<li>Encías inflamadas, enrojecidas o retraídas.</li>
+							<li>Sensibilidad dental o movilidad de las piezas.</li>
+						</ul>
+
+						<h3>Tratamiento y mantenimiento periodontal</h3>
+						<p><strong>Fase activa:</strong> realizamos una higiene profesional profunda, raspado y alisado radicular, y cuando es necesario, cirugía periodontal para eliminar las bacterias acumuladas bajo la encía.</p>
+						<p><strong>Mantenimiento:</strong> establecemos un plan de revisiones y limpiezas periódicas adaptado a tu riesgo individual, para prevenir recaídas y mantener encías e implantes saludables (control de mucositis y periimplantitis).</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Método de trabajo -->
+			<section class="section">
+				<div class="container">
+					<h2>Método de trabajo (paso a paso)</h2>
+					<div class="workflow-grid">
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">1</div>
+								<h3>Primera visita y estudio</h3>
+							</div>
+							<p>Historia clínica, exploración y registros digitales. Si procede, imagen 3D/planificación para cirugía guiada.</p>
+						</div>
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">2</div>
+								<h3>Plan por fases y consentimiento informado</h3>
+							</div>
+							<p>Definimos alternativas, tiempos, citas y presupuesto. Priorizamos salud periodontal, después rehabilitación y estética.</p>
+						</div>
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">3</div>
+								<h3>Cirugía y provisionalización</h3>
+							</div>
+							<p>Colocación de implantes con técnicas mínimamente invasivas y, si el caso lo permite, prótesis provisional inmediata.</p>
+						</div>
+						<div class="workflow-step">
+							<div class="workflow-header">
+								<div class="workflow-number">4</div>
+								<h3>Osteointegración y prótesis definitiva</h3>
+							</div>
+							<p>Tras el periodo de integración, instalamos la corona/prótesis final, ajustamos oclusión y programamos mantenimiento.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="section faq-section">
+				<div class="container">
+					<h2>Preguntas frecuentes</h2>
+					<div class="faq-accordion">
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Soy candidato/a a implantes dentales?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>La mayoría de los pacientes lo son, pero valoramos salud general, medicación, higiene y calidad ósea. Si falta hueso, estudiamos regeneración o elevación de seno.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Duelen los implantes?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>La cirugía se realiza con anestesia local y, si lo prefieres, sedación consciente. El postoperatorio suele ser leve con pautas de medicación y frío local. Clínicas de referencia en Pamplona también resaltan el carácter indoloro del procedimiento bajo anestesia/sedación.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Puedo tener dientes el mismo día?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>En determinados casos sí (carga inmediata). Depende de la estabilidad del implante y de tu hueso. Si no es posible, utilizamos soluciones temporales estéticas y cómodas hasta la prótesis definitiva. Este enfoque es estándar en implantología moderna local.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Cuánto dura el tratamiento completo?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Desde la cirugía hasta la prótesis definitiva pueden pasar varias semanas o meses, según tu caso (integración ósea y necesidad de regeneración). En carga inmediata, sales con provisional el mismo día mientras cicatriza.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Cómo cuido mis implantes a largo plazo?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Con higiene diaria, uso de interdentales/irrigadores, y un plan de mantenimientos periodontal-periimplantarios. Estas revisiones protegen la inversión y previenen mucositis/periimplantitis.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Qué riesgos existen?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>Como en cualquier cirugía: infección, alteraciones de la cicatrización o falta de osteointegración (poco frecuente). Reducimos riesgos con planificación, técnica guiada y controles.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+							<button class="faq-question" aria-expanded="false">
+								<span>¿Cuánto cuesta un implante?</span>
+								<svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<div class="faq-answer">
+								<p>El presupuesto varía según estudio, si requiere injertos y el tipo de prótesis (unidad, puente, arcada completa). Te entregamos presupuesto cerrado y opciones de financiación tras tu valoración clínica.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="section cta-section">
+				<div class="container">
+					<div class="cta-box">
+						<h2>¿Quieres valorar tu caso de implantes dentales en Pamplona?</h2>
+						<p>Pide tu primera visita: haremos un estudio claro y te propondremos un plan por fases con tiempos y presupuesto detallado.</p>
+						<div class="cta-buttons">
+							<a href={`${baseUrl}#contacto`} class="btn btn-primary">Pedir cita</a>
+							<a href="tel:+34948172617" class="btn btn-secondary">Llamar ahora</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
+	<Footer />
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "MedicalProcedure",
+		"name": "Implantes Dentales en Pamplona",
+		"description": "Implantes dentales con cirugía guiada, PRGF y sedación consciente en Pamplona",
+		"procedureType": "Implantología Dental"
+	})} />
+</MainLayout>
+
+<script>
+	// Accordion functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqButtons = document.querySelectorAll('.faq-question');
+		
+		faqButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				const faqItem = button.parentElement;
+				const isExpanded = button.getAttribute('aria-expanded') === 'true';
+				
+				// Close all other items
+				faqButtons.forEach(btn => {
+					if (btn !== button && btn.parentElement) {
+						btn.setAttribute('aria-expanded', 'false');
+						btn.parentElement.classList.remove('active');
+					}
+				});
+				
+				// Toggle current item
+				if (faqItem) {
+					button.setAttribute('aria-expanded', String(!isExpanded));
+					faqItem.classList.toggle('active');
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.implant-page {
+		background: white;
+	}
+
+	/* Hero Section */
+	.page-hero {
+		background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-accent) 100%);
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.page-hero h1 {
+		color: white;
+		font-size: var(--fs-h1);
+		font-family: var(--ff-head);
+		margin: 0 0 1rem 0;
+		font-weight: 700;
+	}
+
+	.hero-subtitle {
+		color: rgba(255, 255, 255, 0.95);
+		font-size: var(--fs-h3);
+		font-family: var(--ff-head);
+		margin: 0;
+		font-weight: 600;
+	}
+
+	/* Section Styles */
+	.section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.section-light {
+		background: var(--c-bg);
+	}
+
+	.section h2 {
+		font-size: var(--fs-h2);
+		font-family: var(--ff-head);
+		color: var(--c-ink);
+		margin-bottom: var(--spacing-lg);
+		text-align: center;
+		font-weight: 700;
+		padding-bottom: 1rem;
+		border-bottom: 3px solid var(--c-primary);
+		display: inline-block;
+		width: auto;
+	}
+
+	.container > h2 {
+		display: block;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+	}
+
+	.content-block {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.content-block p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.content-block h3 {
+		font-size: var(--fs-h3);
+		font-family: var(--ff-head);
+		color: var(--c-ink);
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	cite {
+		font-style: normal;
+		font-size: 0.85em;
+		color: var(--c-gray-500);
+		font-weight: 500;
+	}
+
+	/* Standard List */
+	.standard-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0;
+	}
+
+	.standard-list li {
+		position: relative;
+		padding-left: 1.5rem;
+		margin-bottom: 0.75rem;
+		color: var(--c-gray-700);
+		line-height: 1.6;
+	}
+
+	.standard-list li::before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		color: var(--c-primary);
+		font-weight: 700;
+		font-size: 1.2rem;
+	}
+
+
+	.intro-text {
+		margin-bottom: var(--spacing-md);
+	}
+
+	/* Benefits Layout */
+	.benefits-layout {
+		display: grid;
+		grid-template-columns: 0.8fr 1.2fr;
+		gap: var(--spacing-md);
+		margin-top: var(--spacing-md);
+		align-items: center;
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.benefits-image {
+		width: 100%;
+		height: auto;
+		max-height: 350px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0;
+		overflow: visible;
+		box-shadow: none;
+	}
+
+	.benefits-image img {
+		width: 100%;
+		height: auto;
+		max-height: 350px;
+		object-fit: contain;
+		display: block;
+		mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 85%);
+		-webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 85%);
+	}
+
+	.benefits-content {
+		padding-left: 2rem;
+	}
+
+	.benefits-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.benefits-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.benefits-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.benefits-list li svg {
+		color: var(--color-primary);
+		flex-shrink: 0;
+		margin-top: 0.25rem;
+	}
+
+	.benefits-list li div {
+		flex: 1;
+	}
+
+	.benefits-list p {
+		font-size: 1rem;
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	/* Approach Grid */
+	.approach-grid {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-lg);
+		margin-top: var(--spacing-lg);
+	}
+
+	.approach-block {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+		align-items: center;
+	}
+
+	.approach-block.reverse {
+		direction: rtl;
+	}
+
+	.approach-block.reverse > * {
+		direction: ltr;
+	}
+
+	.approach-item {
+		background: transparent;
+		padding: 2rem;
+		border-radius: 0;
+		border: none;
+		position: relative;
+	}
+
+	.approach-item h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin-bottom: 1rem;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.approach-item p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.approach-image {
+		width: 100%;
+		height: 100%;
+		min-height: 300px;
+		border-radius: var(--border-radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-md);
+	}
+
+	.approach-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	/* Treatments List */
+	.treatments-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.treatments-list li {
+		position: relative;
+		padding-left: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.treatments-list li::before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: var(--c-primary);
+		font-weight: 700;
+		font-size: 2rem;
+		line-height: 1.3;
+	}
+
+	.treatments-list h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.treatments-list p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* Workflow Grid */
+	.workflow-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+		margin-top: var(--spacing-lg);
+	}
+
+	.workflow-step {
+		background: white;
+		padding: 2rem;
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.workflow-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.workflow-number {
+		width: 48px;
+		height: 48px;
+		background: var(--c-primary);
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 1.5rem;
+		font-family: var(--ff-head);
+		flex-shrink: 0;
+	}
+
+	.workflow-step h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin: 0;
+		font-weight: 600;
+		text-transform: uppercase;
+		flex: 1;
+	}
+
+	.workflow-step p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+
+	/* FAQ Accordion */
+	.faq-section {
+		background: var(--c-bg);
+	}
+
+	.faq-accordion {
+		max-width: 900px;
+		margin: 0 auto;
+		margin-top: var(--spacing-lg);
+	}
+
+	.faq-item {
+		background: white;
+		border: 2px solid var(--c-gray-200);
+		border-radius: var(--border-radius-lg);
+		margin-bottom: 1rem;
+		overflow: hidden;
+		transition: var(--transition);
+	}
+
+	.faq-item:hover {
+		border-color: var(--c-primary);
+	}
+
+	.faq-item.active {
+		border-color: var(--c-primary);
+		box-shadow: var(--shadow-md);
+	}
+
+	.faq-question {
+		width: 100%;
+		background: transparent;
+		border: none;
+		padding: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		cursor: pointer;
+		text-align: left;
+		font-size: var(--fs-body);
+		font-family: var(--ff-head);
+		font-weight: 600;
+		color: var(--c-ink);
+		transition: var(--transition);
+	}
+
+	.faq-question:hover {
+		color: var(--c-primary);
+	}
+
+	.faq-question span {
+		flex: 1;
+	}
+
+	.faq-icon {
+		flex-shrink: 0;
+		transition: transform 0.3s ease;
+		color: var(--c-primary);
+	}
+
+	.faq-item.active .faq-icon {
+		transform: rotate(180deg);
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease, padding 0.3s ease;
+		padding: 0 1.5rem;
+	}
+
+	.faq-item.active .faq-answer {
+		max-height: 500px;
+		padding: 0 1.5rem 1.5rem;
+	}
+
+	.faq-answer p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* CTA Section */
+	.cta-section {
+		background: var(--c-primary);
+		color: white;
+	}
+
+	.cta-box {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.cta-box h2 {
+		color: white;
+		border-bottom-color: rgba(255, 255, 255, 0.3);
+		font-size: var(--fs-h2);
+		margin-bottom: 1.5rem;
+	}
+
+	.cta-box > p {
+		color: white;
+		font-size: var(--fs-body);
+		margin-bottom: 2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: var(--rad);
+		font-weight: 600;
+		font-size: var(--font-size-base);
+		transition: var(--transition);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+		font-family: var(--ff-body);
+		line-height: 1;
+	}
+
+	.btn-primary {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	.btn-primary:hover {
+		background: var(--c-bg);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		.benefits-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.benefits-image {
+			max-height: 300px;
+		}
+
+		.benefits-content {
+			padding-left: 0;
+			padding-top: 2rem;
+		}
+
+		.approach-block {
+			gap: var(--spacing-md);
+		}
+
+		.workflow-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ====== Solo móvil ≤768px ====== */
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.page-hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.125rem;
+		}
+
+		/* 1) Corrección solapes en "Por qué escoger los implantes" */
+		.benefits-layout {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+			position: relative;
+			z-index: auto;
+		}
+
+		.benefits-layout > * {
+			position: static !important;
+			z-index: auto !important;
+		}
+
+		.benefits-image {
+			order: 2;
+			max-height: 250px;
+		}
+
+		.benefits-content {
+			order: 1;
+			padding-left: 0;
+		}
+
+		/* 2) Forzar orden texto → imagen en "Nuestro enfoque" */
+		.approach-block {
+			grid-template-columns: 1fr;
+			direction: ltr;
+		}
+
+		.approach-block .approach-item {
+			order: 1;
+		}
+
+		.approach-block .approach-image {
+			order: 2;
+			min-height: 250px;
+		}
+
+		/* 3) CTA al ancho del contenido (no 100%) */
+		.cta-buttons {
+			display: flex;
+			flex-direction: row;
+			gap: 1rem;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+
+		.cta-buttons .btn {
+			display: inline-flex !important;
+			width: auto !important;
+			max-width: 100% !important;
+			white-space: nowrap !important;
+			align-self: flex-start;
+			flex: 0 1 auto;
+		}
+
+		.faq-question {
+			padding: 1.25rem;
+			font-size: 0.95rem;
+		}
+
+		.faq-answer {
+			font-size: 0.9rem;
+		}
+	}
+</style>
+

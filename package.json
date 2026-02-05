@@ -1,0 +1,23 @@
+{
+  "name": "clinica-sada-borras",
+  "type": "module",
+  "version": "1.0.0",
+	"scripts": {
+		"dev": "npm run fetch:reviews && astro dev",
+		"dev:no-fetch": "astro dev",
+		"start": "astro dev",
+		"build": "npm run fetch:reviews && astro build",
+		"build:no-fetch": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"fetch:reviews": "node scripts/fetch-google-reviews.mjs"
+	},
+  "dependencies": {
+    "astro": "^5.16.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "typescript": "^5.6.0"
+  }
+}

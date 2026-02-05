@@ -1,0 +1,740 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import { asset } from '../utils/assets';
+
+const title = 'Nuestras Instalaciones — Clínica Dental en Pamplona';
+const description = 'Conoce nuestras instalaciones en Pamplona. Espacios diseñados para tu confort y seguridad con tecnología avanzada: escáner intraoral, CBCT, sedación consciente.';
+const keywords = 'instalaciones clínica dental Pamplona, tecnología dental Pamplona, escáner intraoral, CBCT dental, esterilización dental';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+const pamplonaImages = [
+	'img/IMG_7719-Large-1024x768.jpeg',
+	'img/IMG_7699-Large-1024x768.jpeg',
+	'img/IMG_7711-Large-1024x768.jpeg',
+	'img/IMG_7763-Large-1024x768.jpeg',
+	'img/IMG_7766-Large-1024x768.jpeg'
+];
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<article class="installations-page">
+			<!-- Hero Section -->
+			<section class="page-hero">
+				<div class="container">
+					<h1>Nuestras Instalaciones</h1>
+					<p class="hero-subtitle">Espacios pensados para tu confort y seguridad</p>
+				</div>
+			</section>
+
+			<!-- Introducción -->
+			<section class="section">
+				<div class="container">
+					<div class="content-block intro-text">
+						<p>Diseñamos la clínica para que cada visita sea cómoda, ágil y segura: salas luminosas, circuitos de trabajo ordenados, boxes amplios y una sala de espera tranquila. Detrás de esa calma hay <strong>protocolos de bioseguridad y esterilización</strong> que seguimos de forma rigurosa —limpieza, desinfección y esterilización del instrumental, con procedimientos recogidos en guías profesionales de referencia— porque tu tranquilidad empieza por hacer las cosas bien.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Tecnología -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>Tecnología que mejora tu experiencia (y el resultado)</h2>
+					<div class="content-block">
+						<ul class="treatments-list">
+							<li>
+								<h3><span>Radiología digital de baja dosis</span></h3>
+								<p>Usamos radiografía digital para obtener imágenes nítidas con menos dosis que los sistemas convencionales, lo que favorece diagnósticos rápidos con una exposición optimizada. La evidencia y los organismos reguladores subrayan que la imagen digital permite reducir notablemente la dosis frente a técnicas analógicas, manteniendo la calidad diagnóstica.</p>
+							</li>
+							<li>
+								<h3><span>CBCT (TAC dental) cuando realmente aporta valor</span></h3>
+								<p>Contamos con CBCT para casos en los que la visión 3D cambia el plan (implantes, cirugía, anatomía compleja). Lo indicamos solo cuando está justificado, ajustando el protocolo a la tarea diagnóstica y manteniendo la dosis tan baja como sea razonablemente posible (principio ALARA), tal y como recomiendan las guías europeas y reguladores.</p>
+							</li>
+							<li>
+								<h3><span>Escáner intraoral: adiós a las pastas de impresión</span></h3>
+								<p>El escáner intraoral nos permite tomar registros rápidos y cómodos, sin arcadas ni pastas voluminosas. Además, mejora el flujo digital y la precisión en restauraciones, alineadores y prótesis, elevando tu experiencia en consulta.</p>
+							</li>
+							<li>
+								<h3><span>Sedación consciente con óxido nitroso (si la necesitas)</span></h3>
+								<p>Para pacientes con ansiedad o tratamientos largos, ofrecemos sedación consciente con óxido nitroso. Es una técnica segura y eficaz en odontología cuando se realiza con monitorización y protocolos adecuados, ayudando a que la experiencia sea más tranquila.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Esterilización -->
+			<section class="section">
+				<div class="container">
+					<h2>Esterilización y control de infecciones</h2>
+					<div class="content-block">
+						<ul class="simple-list">
+							<li>Esterilización de instrumental con trazabilidad por ciclos.</li>
+							<li>Zonas y circuitos diferenciados (limpio/sucio) y EPI del equipo.</li>
+							<li>Desinfección de superficies entre pacientes y ventilación programada.</li>
+						</ul>
+						<p>Estas medidas forman parte de las buenas prácticas recomendadas por colegios y organizaciones profesionales para garantizar una odontología segura.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Accesibilidad -->
+			<section class="section section-light">
+				<div class="container">
+					<h2>Accesibilidad y bienestar</h2>
+					<div class="content-block">
+						<p>Cuidamos los detalles: accesos cómodos, iluminación cálida, climatización y música ambiental suave. Te explicamos cada paso con claridad y ajustamos tiempos para que la visita sea predecible y sin prisas.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Galería de fotos -->
+			<section class="section gallery-section">
+				<div class="container">
+					<h2>Recorre la clínica de Pamplona</h2>
+					<p class="section-intro">En esta galería encontrarás nuestras salas, boxes, área de esterilización y tecnología. Si lo prefieres, te acompañamos en una visita guiada cuando vengas a la primera cita.</p>
+					
+					<div class="photo-grid">
+						{pamplonaImages.map((img, index) => (
+							<div class="photo-item" data-index={index}>
+								<img 
+									src={asset(img)}
+									alt={`Instalaciones Clínica Dental Sada Borrás Pamplona - Imagen ${index + 1}`}
+									loading="lazy"
+									decoding="async"
+									width="400"
+									height="300"
+									style="aspect-ratio: 4/3;"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Por qué marcan la diferencia -->
+			<section class="section">
+				<div class="container">
+					<h2>¿Por qué nuestras instalaciones marcan la diferencia?</h2>
+					<div class="content-block">
+						<div class="why-choose-item">
+							<h3>Confort real en cada paso</h3>
+							<p>Desde la recepción al box, cada espacio está diseñado para que te sientas cómodo y tranquilo durante toda tu visita.</p>
+						</div>
+
+						<div class="why-choose-item">
+							<h3>Seguridad basada en protocolos</h3>
+							<p>Seguimos guías profesionales de bioseguridad y esterilización para garantizar un entorno seguro en cada tratamiento.</p>
+						</div>
+
+						<div class="why-choose-item">
+							<h3>Tecnología útil y justificada</h3>
+							<p>Aplicamos tecnología digital y 3D solo cuando aporta valor real al diagnóstico y al resultado, optimizando tu experiencia y seguridad.</p>
+						</div>
+
+						<div class="why-choose-item">
+							<h3>Experiencia fluida</h3>
+							<p>Menos esperas, más claridad y mejores sensaciones en cada visita. Organizamos nuestro trabajo para que tu tiempo sea respetado.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="section cta-section">
+				<div class="container">
+					<div class="cta-box">
+						<h2>¿Quieres conocer la clínica por dentro?</h2>
+						<p>Reserva tu primera visita: te enseñamos nuestras instalaciones, resolvemos tus dudas y planificamos tu tratamiento con la tecnología que de verdad necesitas.</p>
+						<div class="cta-buttons">
+							<a href={`${baseUrl}#contacto`} class="btn btn-primary">Pedir cita</a>
+							<a href="tel:+34948172617" class="btn btn-secondary">Llamar ahora</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
+	<Footer />
+
+	<!-- Modal para galería -->
+	<div id="gallery-modal" class="modal" aria-hidden="true">
+		<button class="modal-close" aria-label="Cerrar galería">
+			<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+		<button class="modal-prev" aria-label="Imagen anterior">
+			<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<polyline points="15 18 9 12 15 6"></polyline>
+			</svg>
+		</button>
+		<button class="modal-next" aria-label="Imagen siguiente">
+			<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<polyline points="9 18 15 12 9 6"></polyline>
+			</svg>
+		</button>
+		<div class="modal-content">
+			<img id="modal-image" src="" alt="" />
+		</div>
+	</div>
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "MedicalBusiness",
+		"name": "Instalaciones Clínica Dental Sada Borrás",
+		"description": "Instalaciones modernas con tecnología avanzada en Pamplona",
+		"areaServed": "Pamplona, Navarra"
+	})} />
+</MainLayout>
+
+<script>
+	// Gallery modal functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const modal = document.getElementById('gallery-modal');
+		const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+		const photoItems = document.querySelectorAll('.photo-item');
+		const closeBtn = document.querySelector('.modal-close');
+		const prevBtn = document.querySelector('.modal-prev');
+		const nextBtn = document.querySelector('.modal-next');
+		
+		let currentIndex = 0;
+		const images = Array.from(photoItems).map(item => {
+			const img = item.querySelector('img') as HTMLImageElement;
+			return {
+				src: img?.src || '',
+				alt: img?.alt || ''
+			};
+		});
+		
+		function openModal(index: number) {
+			currentIndex = index;
+			const imgElement = modalImage as HTMLImageElement;
+			if (imgElement && modal) {
+				imgElement.src = images[currentIndex].src;
+				imgElement.alt = images[currentIndex].alt;
+				modal.classList.add('active');
+				modal.setAttribute('aria-hidden', 'false');
+				document.body.style.overflow = 'hidden';
+			}
+		}
+		
+		function closeModal() {
+			if (modal) {
+				modal.classList.remove('active');
+				modal.setAttribute('aria-hidden', 'true');
+				document.body.style.overflow = '';
+			}
+		}
+		
+		function showImage(index: number) {
+			currentIndex = (index + images.length) % images.length;
+			const imgElement = modalImage as HTMLImageElement;
+			if (imgElement) {
+				imgElement.src = images[currentIndex].src;
+				imgElement.alt = images[currentIndex].alt;
+			}
+		}
+		
+		function nextImage() {
+			showImage(currentIndex + 1);
+		}
+		
+		function prevImage() {
+			showImage(currentIndex - 1);
+		}
+		
+		// Event listeners
+		photoItems.forEach((item, index) => {
+			item.addEventListener('click', () => openModal(index));
+		});
+		
+		closeBtn?.addEventListener('click', closeModal);
+		prevBtn?.addEventListener('click', prevImage);
+		nextBtn?.addEventListener('click', nextImage);
+		
+		// Cerrar con ESC
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && modal?.classList.contains('active')) {
+				closeModal();
+			} else if (e.key === 'ArrowRight' && modal?.classList.contains('active')) {
+				nextImage();
+			} else if (e.key === 'ArrowLeft' && modal?.classList.contains('active')) {
+				prevImage();
+			}
+		});
+		
+		// Cerrar al hacer click en el fondo
+		modal?.addEventListener('click', (e) => {
+			if (e.target === modal) {
+				closeModal();
+			}
+		});
+	});
+</script>
+
+<style>
+	.installations-page {
+		background: white;
+	}
+
+	/* Hero Section */
+	.page-hero {
+		background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-accent) 100%);
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.page-hero h1 {
+		color: white;
+		font-size: var(--fs-h1);
+		font-family: var(--ff-head);
+		margin: 0 0 1rem 0;
+		font-weight: 700;
+	}
+
+	.hero-subtitle {
+		color: rgba(255, 255, 255, 0.95);
+		font-size: var(--fs-h3);
+		font-family: var(--ff-head);
+		margin: 0;
+		font-weight: 600;
+	}
+
+	/* Section Styles */
+	.section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.section-light {
+		background: var(--c-bg);
+	}
+
+	.section h2 {
+		font-size: var(--fs-h2);
+		font-family: var(--ff-head);
+		color: var(--c-ink);
+		margin-bottom: var(--spacing-lg);
+		text-align: center;
+		font-weight: 700;
+		padding-bottom: 1rem;
+		border-bottom: 3px solid var(--c-primary);
+		display: inline-block;
+		width: auto;
+	}
+
+	.container > h2 {
+		display: block;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+	}
+
+	.section-intro {
+		text-align: center;
+		font-size: 1.125rem;
+		color: var(--c-gray-700);
+		margin-bottom: var(--spacing-lg);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.content-block {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.content-block p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.intro-text {
+		margin-bottom: var(--spacing-md);
+	}
+
+	/* Simple List */
+	.simple-list {
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0;
+	}
+
+	.simple-list li {
+		position: relative;
+		padding-left: 2rem;
+		margin-bottom: 1rem;
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+	}
+
+	.simple-list li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: var(--c-primary);
+		font-weight: 700;
+		font-size: 1.5rem;
+	}
+
+	/* Why Choose Items */
+	.why-choose-item {
+		margin-bottom: 2.5rem;
+	}
+
+	.why-choose-item:last-child {
+		margin-bottom: 0;
+	}
+
+	.why-choose-item h3 {
+		font-size: 1.25rem;
+		font-family: var(--ff-body);
+		color: var(--c-primary);
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.why-choose-item p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* Treatments List */
+	.treatments-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.treatments-list li {
+		margin-bottom: 2.5rem;
+	}
+
+	.treatments-list h3 {
+		font-size: 1.125rem;
+		font-family: var(--ff-body);
+		color: var(--c-ink);
+		margin-bottom: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.treatments-list h3::before {
+		content: "•";
+		color: var(--c-primary);
+		font-weight: 700;
+		font-size: 2rem;
+		line-height: 1.125rem;
+		flex-shrink: 0;
+	}
+
+	.treatments-list h3 span {
+		border-bottom: 2px solid var(--c-primary);
+		padding-bottom: 0.5rem;
+	}
+
+	.treatments-list p {
+		font-size: var(--fs-body);
+		color: var(--c-gray-700);
+		line-height: 1.7;
+		margin: 0 0 0.5rem 0;
+		padding-left: 2.75rem;
+	}
+
+	.treatments-list p:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Gallery Section */
+	.gallery-section {
+		background: white;
+	}
+
+	.photo-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1rem;
+		margin-top: var(--spacing-md);
+	}
+
+	.photo-item {
+		aspect-ratio: 4/3;
+		overflow: hidden;
+		border-radius: var(--border-radius);
+		cursor: pointer;
+		transition: var(--transition);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.photo-item:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.photo-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: var(--transition);
+	}
+
+	.photo-item:hover img {
+		transform: scale(1.05);
+	}
+
+	/* Modal */
+	.modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.95);
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.modal.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.modal-content {
+		max-width: 90vw;
+		max-height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.modal-content img {
+		max-width: 100%;
+		max-height: 90vh;
+		object-fit: contain;
+		display: block;
+		border-radius: var(--border-radius);
+	}
+
+	.modal-close,
+	.modal-prev,
+	.modal-next {
+		position: fixed;
+		background: rgba(255, 255, 255, 0.9);
+		border: none;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: var(--transition);
+		z-index: 10000;
+	}
+
+	.modal-close:hover,
+	.modal-prev:hover,
+	.modal-next:hover {
+		background: white;
+		transform: scale(1.1);
+	}
+
+	.modal-close {
+		top: 2rem;
+		right: 2rem;
+	}
+
+	.modal-prev {
+		left: 2rem;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.modal-next {
+		right: 2rem;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.modal-prev:hover {
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	.modal-next:hover {
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	.modal-close svg,
+	.modal-prev svg,
+	.modal-next svg {
+		color: var(--c-ink);
+	}
+
+	/* CTA Section */
+	.cta-section {
+		background: var(--c-primary);
+		color: white;
+	}
+
+	.cta-box {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.cta-box h2 {
+		color: white;
+		border-bottom-color: rgba(255, 255, 255, 0.3);
+		font-size: var(--fs-h2);
+		margin-bottom: 1.5rem;
+	}
+
+	.cta-box > p {
+		color: white;
+		font-size: var(--fs-body);
+		margin-bottom: 2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: var(--rad);
+		font-weight: 600;
+		font-size: var(--font-size-base);
+		transition: var(--transition);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+		font-family: var(--ff-body);
+		line-height: 1;
+	}
+
+	.btn-primary {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	.btn-primary:hover {
+		background: var(--c-bg);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: white;
+		color: var(--c-primary);
+	}
+
+	/* Responsive */
+	@media (max-width: 1200px) {
+		.photo-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.photo-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	/* ====== Solo móvil ≤768px ====== */
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.page-hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.125rem;
+		}
+
+		.photo-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.75rem;
+		}
+
+		.modal-close {
+			top: 1rem;
+			right: 1rem;
+			width: 40px;
+			height: 40px;
+		}
+
+		.modal-prev,
+		.modal-next {
+			width: 40px;
+			height: 40px;
+		}
+
+		.modal-prev {
+			left: 1rem;
+		}
+
+		.modal-next {
+			right: 1rem;
+		}
+
+		/* CTA al ancho del contenido (no 100%) */
+		.cta-buttons {
+			display: flex;
+			flex-direction: row;
+			gap: 1rem;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+
+		.cta-buttons .btn {
+			display: inline-flex !important;
+			width: auto !important;
+			max-width: 100% !important;
+			white-space: nowrap !important;
+			align-self: flex-start;
+			flex: 0 1 auto;
+		}
+	}
+</style>
+

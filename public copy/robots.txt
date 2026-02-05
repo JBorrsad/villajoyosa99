@@ -1,0 +1,29 @@
+# robots.txt para Clínica Dental Sada Borrás
+# https://sadaborras.com
+
+# Permitir a todos los robots el acceso completo
+User-agent: *
+Allow: /
+
+# Bloquear acceso a carpetas administrativas y recursos privados
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
+
+# Crawl-delay para bots más agresivos
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://sadaborras.com/sitemap.xml
+
+
+
+
+

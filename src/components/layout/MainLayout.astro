@@ -1,0 +1,143 @@
+---
+import { asset } from '../../utils/assets';
+import '../../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+	keywords?: string;
+}
+
+const { title, description, keywords } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href={asset("/icons/cropped-logo-dental-2-32x32.png")} />
+	<link rel="apple-touch-icon" sizes="180x180" href={asset("/icons/cropped-logo-dental-2-180x180.png")} />
+	<link rel="icon" type="image/png" sizes="192x192" href={asset("/icons/cropped-logo-dental-2-192x192.png")} />
+	<link rel="icon" type="image/png" sizes="512x512" href={asset("/icons/logo-dental-2.png")} />
+	<meta name="generator" content={Astro.generator} />
+	
+	<!-- Preload recursos críticos -->
+	<link rel="preload" href="https://fonts.gstatic.com/s/lora/v32/0QI6MX1D_JOuGQbT0gvTJPa787weuxJBkq0.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="https://fonts.gstatic.com/s/publicsans/v15/ijwGs572Xtc6ZYQws9YVwllKVG8qX1oyOymuFpmJygco.woff2" as="font" type="font/woff2" crossorigin />
+	
+	<!-- SEO Meta Tags -->
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	{keywords && <meta name="keywords" content={keywords} />}
+	<meta name="author" content="Clínica Dental Sada Borrás" />
+	
+	<!-- Open Graph -->
+	<meta property="og:title" content="Clínica Dental Sada Borrás" />
+	<meta property="og:description" content="Cuidamos tu sonrisa en Pamplona y Tafalla. Más de 40 años de experiencia en implantes, odontopediatría y estética." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://sadaborras.com" />
+	<meta property="og:image" content="https://sadaborras.com/icons/logowhatsapp.png" />
+	<meta property="og:image:secure_url" content="https://sadaborras.com/icons/logowhatsapp.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:image:alt" content="Logo Clínica Dental Sada Borrás" />
+	<meta property="og:locale" content="es_ES" />
+	<meta property="og:site_name" content="Clínica Dental Sada Borrás" />
+	<meta property="fb:app_id" content="0" />
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Clínica Dental Sada Borrás" />
+	<meta name="twitter:description" content="Cuidamos tu sonrisa en Pamplona y Tafalla. Más de 40 años de experiencia en implantes, odontopediatría y estética." />
+	<meta name="twitter:image" content="https://sadaborras.com/icons/logowhatsapp.png" />
+	<meta name="twitter:image:alt" content="Logo Clínica Dental Sada Borrás" />
+	
+	<!-- Fuentes Google Fonts - Optimizado para Core Web Vitals -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+	<noscript>
+		<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+	</noscript>
+	
+	<!-- Schema.org Structured Data -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Dentist",
+		"name": "Clínica Dental Sada Borrás",
+		"image": "https://sadaborras.com/icons/logo-dental-1.png",
+		"@id": "https://sadaborras.com",
+		"url": "https://sadaborras.com",
+		"telephone": "+34948172617",
+		"priceRange": "€€",
+		"address": [
+			{
+				"@type": "PostalAddress",
+				"streetAddress": "Avenida Pío XII, 8, bajo",
+				"addressLocality": "Pamplona",
+				"addressRegion": "Navarra",
+				"postalCode": "31008",
+				"addressCountry": "ES"
+			},
+			{
+				"@type": "PostalAddress",
+				"streetAddress": "Diputación Foral, 2 - 2º C y D",
+				"addressLocality": "Tafalla",
+				"addressRegion": "Navarra",
+				"postalCode": "31300",
+				"addressCountry": "ES"
+			}
+		],
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 42.8125,
+			"longitude": -1.6458
+		},
+		"openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday"
+			],
+			"opens": "09:00",
+			"closes": "20:00"
+		}
+	})} />
+</head>
+<body>
+	<slot />
+	
+	<!-- Script para optimizar rendimiento -->
+	<script>
+		// Prefetch de enlaces al hacer hover (mejora la navegación)
+		document.addEventListener('DOMContentLoaded', () => {
+			const links = document.querySelectorAll('a[href^="/"], a[href^="#"]');
+			const prefetchedLinks = new Set();
+			
+			const prefetchLink = (url) => {
+				if (prefetchedLinks.has(url) || url.startsWith('#')) return;
+				prefetchedLinks.add(url);
+				
+				const link = document.createElement('link');
+				link.rel = 'prefetch';
+				link.href = url;
+				document.head.appendChild(link);
+			};
+			
+			links.forEach(link => {
+				link.addEventListener('mouseenter', () => {
+					const href = link.getAttribute('href');
+					if (href) prefetchLink(href);
+				}, { once: true, passive: true });
+			});
+		});
+	</script>
+</body>
+</html>
+

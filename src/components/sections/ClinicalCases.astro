@@ -1,0 +1,407 @@
+---
+import { asset } from '../../utils/assets';
+
+const cases = [
+	{
+		id: 'carillas-composite',
+		title: 'Carillas de composite',
+		beforeImage: '/img/casos-clinicos/Caso_1_antes.jpg',
+		afterImage: '/img/casos-clinicos/Caso_1_despues.jpg'
+	},
+	{
+		id: 'carillas-porcelana',
+		title: 'Carillas de porcelana',
+		beforeImage: '/img/casos-clinicos/LA_antes.JPG',
+		afterImage: '/img/casos-clinicos/LA_despues.JPG'
+	},
+	{
+		id: 'blanqueamiento',
+		title: 'Blanqueamiento',
+		beforeImage: '/img/casos-clinicos/Caso_1_antes.jpg',
+		afterImage: '/img/casos-clinicos/Caso_1_despues.jpg'
+	},
+	{
+		id: 'rmr',
+		title: 'RMR',
+		beforeImage: '/img/casos-clinicos/Caso_1_antes.jpg',
+		afterImage: '/img/casos-clinicos/Caso_1_despues.jpg'
+	}
+];
+---
+
+<section class="clinical-cases section" id="casos-clinicos">
+	<div class="container">
+		<div class="section-header text-center">
+			<h2>Resultados reales de nuestros pacientes</h2>
+			<div class="intro-text">
+				<div class="intro-column">
+					<p>Explora cambios documentados antes y después: salud, función y estética que se notan. En cada caso diseñamos un plan a medida y, cuando conviene, coordinamos a varias especialidades.</p>
+				</div>
+				<div class="intro-column">
+					<p>Seleccionamos la técnica adecuada para cada persona y, cuando hace falta, intervenimos de forma multidisciplinar.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="cases-grid">
+			{cases.map(clinicalCase => (
+				<div class="case-card">
+					<div class="case-title">
+						<h3>{clinicalCase.title}</h3>
+					</div>
+					<div class="comparison-slider" data-case-id={clinicalCase.id}>
+						<div class="comparison-container">
+							<img 
+								src={asset(clinicalCase.beforeImage)} 
+								alt={`${clinicalCase.title} - Antes`}
+								class="image-before"
+								loading="lazy"
+								decoding="async"
+								width="300"
+								height="225"
+								style="aspect-ratio: 4/3;"
+							/>
+							<img 
+								src={asset(clinicalCase.afterImage)} 
+								alt={`${clinicalCase.title} - Después`}
+								class="image-after"
+								loading="lazy"
+								decoding="async"
+								width="300"
+								height="225"
+								style="aspect-ratio: 4/3;"
+							/>
+							<div class="slider-handle">
+								<div class="slider-button">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="15 18 9 12 15 6"></polyline>
+									</svg>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="9 18 15 12 9 6"></polyline>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="case-labels">
+						<div class="label-before">ANTES</div>
+						<div class="label-after">DESPUÉS</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<script>
+	function initComparisonSliders() {
+		const sliders = document.querySelectorAll('.comparison-slider');
+		
+		sliders.forEach(slider => {
+			const container = slider.querySelector('.comparison-container') as HTMLElement;
+			const afterImage = slider.querySelector('.image-after') as HTMLElement;
+			const handle = slider.querySelector('.slider-handle') as HTMLElement;
+			
+			// Obtener las etiquetas desde la tarjeta padre
+			const card = slider.closest('.case-card') as HTMLElement;
+			const labelBefore = card?.querySelector('.label-before') as HTMLElement;
+			const labelAfter = card?.querySelector('.label-after') as HTMLElement;
+			
+			if (!container || !afterImage || !handle) return;
+			
+			let isActive = false;
+			
+			const updateSlider = (position: number) => {
+				const rect = container.getBoundingClientRect();
+				const containerWidth = rect.width;
+				
+				// Limitar la posición entre 0 y el ancho del contenedor
+				const clampedPosition = Math.max(0, Math.min(position, containerWidth));
+				const percentage = (clampedPosition / containerWidth) * 100;
+				
+				// Usar clip-path para revelar la imagen "después"
+				afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+				
+				// Actualizar la posición del handle
+				handle.style.left = `${percentage}%`;
+				
+				// Actualizar la opacidad de las etiquetas
+				if (labelBefore && labelAfter) {
+					// "ANTES" tiene opacidad inversa al porcentaje (100% cuando slider está a la izquierda)
+					labelBefore.style.opacity = `${(100 - percentage) / 100}`;
+					
+					// "DESPUÉS" tiene opacidad directa al porcentaje (100% cuando slider está a la derecha)
+					labelAfter.style.opacity = `${percentage / 100}`;
+				}
+			};
+			
+			const startSliding = () => {
+				isActive = true;
+				container.classList.add('active');
+			};
+			
+			const stopSliding = () => {
+				isActive = false;
+				container.classList.remove('active');
+			};
+			
+			const handleMove = (clientX: number) => {
+				if (!isActive) return;
+				
+				const rect = container.getBoundingClientRect();
+				const position = clientX - rect.left;
+				updateSlider(position);
+			};
+			
+			// Mouse events
+			handle.addEventListener('mousedown', (e) => {
+				e.preventDefault();
+				startSliding();
+			});
+			
+			container.addEventListener('mousemove', (e) => {
+				handleMove(e.clientX);
+			});
+			
+			document.addEventListener('mouseup', stopSliding);
+			
+			// Touch events
+			handle.addEventListener('touchstart', (e) => {
+				e.preventDefault();
+				startSliding();
+			});
+			
+			container.addEventListener('touchmove', (e) => {
+				if (!isActive) return;
+				e.preventDefault();
+				const touch = e.touches[0];
+				handleMove(touch.clientX);
+			});
+			
+			document.addEventListener('touchend', stopSliding);
+			
+			// Inicializar en el centro (50%)
+			const rect = container.getBoundingClientRect();
+			updateSlider(rect.width / 2);
+		});
+	}
+	
+	// Inicializar cuando la página esté lista
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initComparisonSliders);
+	} else {
+		initComparisonSliders();
+	}
+</script>
+
+<style>
+	.clinical-cases {
+		background: white;
+		position: relative;
+		z-index: 10;
+	}
+	
+	.section-header {
+		margin-bottom: var(--spacing-lg);
+	}
+	
+	.section-header h2 {
+		font-size: 38px;
+		margin-bottom: 1.5rem;
+		color: var(--c-ink);
+		font-family: var(--ff-head);
+		font-weight: 700;
+		line-height: 1.2;
+		padding-bottom: 1rem;
+		border-bottom: 3px solid var(--c-ink);
+		display: inline-block;
+	}
+	
+	.intro-text {
+		max-width: 1000px;
+		margin: 2rem auto 0;
+		color: var(--color-text);
+		font-size: var(--font-size-base);
+		line-height: 1.6;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-xl);
+		text-align: left;
+	}
+	
+	.intro-column p {
+		margin: 0;
+	}
+	
+	.intro-text strong {
+		color: var(--c-ink);
+		font-weight: 600;
+	}
+	
+	.cases-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 300px);
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-lg);
+		justify-content: center;
+	}
+	
+	.case-card {
+		background: white;
+		border: 1px solid var(--c-gray-200);
+		border-radius: var(--border-radius-lg);
+		overflow: hidden;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+	
+	.case-title {
+		padding: 1.25rem 1.5rem;
+		background: var(--color-bg-light);
+		border-bottom: 1px solid var(--c-gray-200);
+	}
+	
+	.case-title h3 {
+		font-size: 18px;
+		margin: 0;
+		color: var(--c-ink);
+		font-family: var(--ff-head);
+		font-weight: 700;
+		text-align: center;
+	}
+	
+	.comparison-slider {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		position: relative;
+		user-select: none;
+	}
+	
+	.comparison-container {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		cursor: col-resize;
+	}
+	
+	.comparison-container.active {
+		cursor: grabbing;
+	}
+	
+	.image-before,
+	.image-after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		pointer-events: none;
+	}
+	
+	.image-before {
+		z-index: 1;
+	}
+	
+	.image-after {
+		z-index: 2;
+		clip-path: inset(0 50% 0 0);
+	}
+	
+	.case-labels {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem 1.5rem;
+		background: white;
+	}
+	
+	.label-before,
+	.label-after {
+		padding: 6px 16px;
+		background: rgba(0, 0, 0, 0.75);
+		color: white;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		border-radius: 4px;
+		transition: opacity 0.1s ease-out;
+	}
+	
+	.slider-handle {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 4px;
+		height: 100%;
+		background: white;
+		transform: translateX(-50%);
+		z-index: 3;
+		cursor: col-resize;
+	}
+	
+	.slider-button {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 48px;
+		height: 48px;
+		background: white;
+		border: 3px solid var(--color-primary);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		transition: var(--transition);
+	}
+	
+	.slider-button:hover {
+		background: var(--color-primary);
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+	
+	.slider-button:hover svg {
+		color: white;
+	}
+	
+	.slider-button svg {
+		color: var(--color-primary);
+		flex-shrink: 0;
+		transition: var(--transition);
+	}
+	
+	.slider-button svg:first-child {
+		margin-right: -8px;
+	}
+	
+	.slider-button svg:last-child {
+		margin-left: -8px;
+	}
+	
+	/* Móvil */
+	@media (max-width: 767px) {
+		.intro-text {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+			text-align: center;
+		}
+		
+		.cases-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.case-card {
+			max-width: 500px;
+			margin: 0 auto;
+			width: 100%;
+		}
+		
+		.section-header h2 {
+			font-size: 32px;
+		}
+	}
+</style>
+

@@ -1,0 +1,29 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Stats from '../components/sections/Stats.astro';
+import GoogleReviews from '../components/Reviews/GoogleReviews.astro';
+import Services from '../components/sections/Services.astro';
+import ClinicalCases from '../components/sections/ClinicalCases.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+
+const title = 'Clínica Dental en Madrid | Villajoyosa 99 - Desde 1999';
+const description = 'Clínica dental en Madrid (Villaverde) con más de 25 años de experiencia. Especialistas en implantes, ortodoncia, endodoncia y odontopediatría. ☎️ 91 798 86 69';
+const keywords = 'clínica dental Madrid, dentista Villaverde, implantes dentales Madrid, odontopediatría Madrid, ortodoncia Madrid, endodoncia, periodoncia, prótesis dentales';
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<Hero />
+		<Stats />
+		<Services />
+		<ClinicalCases />
+		<GoogleReviews />
+		<ContactSection />
+	</main>
+	<Footer />
+</MainLayout>
+

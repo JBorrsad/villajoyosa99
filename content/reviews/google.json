@@ -1,0 +1,60 @@
+{
+  "last_updated": "2026-02-05T08:51:08.635Z",
+  "places": [
+    {
+      "place_id": "ChIJYUcBB4snQg0RgXCK6ZOEHP8",
+      "name": "Clinica Dental Villajoyosa 99",
+      "rating": 5,
+      "userRatingCount": 52,
+      "googleMapsUri": "https://maps.google.com/?cid=18382713549832745089&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+      "writeReviewUri": "https://search.google.com/local/writereview?placeid=ChIJYUcBB4snQg0RgXCK6ZOEHP8",
+      "reviews": [
+        {
+          "id": "Ci9DQUlRQUNvZENodHljRjlvT2xWV1pWbDFRVGxHVmt0MmIzVktVVmxPUVVSb2RFRRAB",
+          "rating": 5,
+          "text": "Excelente atención y profesionalidad! Muy recomendada",
+          "time": "2025-10-31",
+          "author": "Manu Marched",
+          "author_uri": "https://www.google.com/maps/contrib/117141367334052667269/reviews",
+          "deep_link": "https://www.google.com/maps/place/?q=place_id:ChIJYUcBB4snQg0RgXCK6ZOEHP8&reviewId=Ci9DQUlRQUNvZENodHljRjlvT2xWV1pWbDFRVGxHVmt0MmIzVktVVmxPUVVSb2RFRRAB"
+        },
+        {
+          "id": "Ci9DQUlRQUNvZENodHljRjlvT25KVWNuWlRhVFprV0RkSGRXOHlXVjlHTUdvdFNtYxAB",
+          "rating": 5,
+          "text": "Excelentes profesionales  mi clínica de toda la vida! Los recomiendo",
+          "time": "2025-09-16",
+          "author": "Alejandra",
+          "author_uri": "https://www.google.com/maps/contrib/103577542326067171593/reviews",
+          "deep_link": "https://www.google.com/maps/place/?q=place_id:ChIJYUcBB4snQg0RgXCK6ZOEHP8&reviewId=Ci9DQUlRQUNvZENodHljRjlvT25KVWNuWlRhVFprV0RkSGRXOHlXVjlHTUdvdFNtYxAB"
+        },
+        {
+          "id": "Ci9DQUlRQUNvZENodHljRjlvT2paWFVHZFZVMUkwV0haelRtbHFNRmcyU1hsTE9IYxAB",
+          "rating": 5,
+          "text": "Muchas gracias por la atención fue maravillosa. Fuimos con una urgencia y la respuesta fue inmediata",
+          "time": "2025-08-09",
+          "author": "Lisset Rodríguez",
+          "author_uri": "https://www.google.com/maps/contrib/111596243497801032557/reviews",
+          "deep_link": "https://www.google.com/maps/place/?q=place_id:ChIJYUcBB4snQg0RgXCK6ZOEHP8&reviewId=Ci9DQUlRQUNvZENodHljRjlvT2paWFVHZFZVMUkwV0haelRtbHFNRmcyU1hsTE9IYxAB"
+        },
+        {
+          "id": "ChdDSUhNMG9nS0VJQ0FnSURQa3F5emxBRRAB",
+          "rating": 5,
+          "text": "Me encantó esta clínica dental.Son súper majo y me trataron genial desde que llegué. Siempre estaban atentos a que me sintiera cómoda. El ambiente es muy agradable, y de verdad se nota que les importa hacer bien su trabajo. La recomiendo totalmente",
+          "time": "2024-11-30",
+          "author": "mah",
+          "author_uri": "https://www.google.com/maps/contrib/101623801112022029922/reviews",
+          "deep_link": "https://www.google.com/maps/place/?q=place_id:ChIJYUcBB4snQg0RgXCK6ZOEHP8&reviewId=ChdDSUhNMG9nS0VJQ0FnSURQa3F5emxBRRAB"
+        },
+        {
+          "id": "ChdDSUhNMG9nS0VJQ0FnSUQzLXRiZnBnRRAB",
+          "rating": 5,
+          "text": "Es la mejor clínica  dental de villaverde, y me atrevo a decir,de todo Madrid.\n\nAtención exquisita desde que  entras por la puerta que te recibe Isabel,que es encantadora.\n\nLos doctores Alfredo y Sebastián son muy profesionales y tienen una gran experiencia, me explicaron al detalle  el procedimiento  y resolvían las dudas que me iban surgiendo, y dan tranquilidad ,que  es muy importante.\n\nAgradezco el tiempo que dedicaron para que los  resultados fueran los esperados,  y así fue, el resultado ha sido muy satisfactorio.\n\nHe recuperado la autoestima y perdido el miedo  al dentista gracias a ellos.\n\nYa es mi clínica de confianza.\n\nOs recomiendo al 100% esta clínica dental.",
+          "time": "2024-11-14",
+          "author": "Celia Medina",
+          "author_uri": "https://www.google.com/maps/contrib/113177673429023773644/reviews",
+          "deep_link": "https://www.google.com/maps/place/?q=place_id:ChIJYUcBB4snQg0RgXCK6ZOEHP8&reviewId=ChdDSUhNMG9nS0VJQ0FnSUQzLXRiZnBnRRAB"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+---
+import { asset } from '../../utils/assets';
+
+// Hero section con contenido optimizado para SEO y Core Web Vitals
+---
+
+<section class="hero" id="inicio">
+	<div class="hero-bg">
+		<img 
+			src={asset("/img/hero.png")}
+			alt="Fachada Clínica Dental Villajoyosa 99"
+			class="hero-image"
+			loading="eager"
+			fetchpriority="high"
+		/>
+	</div>
+	<div class="hero-overlay"></div>
+	<div class="container hero-content">
+		<div class="hero-inner">
+			<h1>Tu sonrisa, en manos expertas</h1>
+			<div class="hero-bottom">
+				<div class="hero-text">
+					<p>Los mejores profesionales y la medicina más avanzada nos diferencian de los demás. Porque lo más importante para nosotros eres tú, con nuestra atención individualizada te ayudaremos a permanecer siempre saludable y feliz.</p>
+				</div>
+				<div class="hero-buttons">
+					<a href="tel:+34917988669" class="btn-primary">Llámanos ahora</a>
+					<a href="#contacto" class="btn-secondary">Pide una cita</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#stats" class="scroll-indicator" aria-label="Scroll hacia abajo">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+			<path d="M12 5v14M5 12l7 7 7-7"/>
+		</svg>
+	</a>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+	
+	.hero-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	
+	.hero-bg .hero-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 25%;
+		display: block;
+		filter: blur(2px);
+	}
+	
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.35);
+		z-index: 1;
+	}
+	
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	
+	.hero-inner {
+		width: 100%;
+	}
+	
+	.hero-inner h1 {
+		font-size: 48px;
+		color: white;
+		font-family: var(--ff-head);
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0 0 2rem 0;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+	}
+	
+	.hero-bottom {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+	
+	.hero-text p {
+		font-size: 17px;
+		color: rgba(255, 255, 255, 0.95);
+		font-family: var(--ff-body);
+		line-height: 1.7;
+		margin: 0;
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+	}
+	
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+	
+	.hero-buttons .btn-primary,
+	.hero-buttons .btn-secondary {
+		padding: 0.875rem 1.75rem;
+		border-radius: 6px;
+		font-size: 15px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+	}
+	
+	.hero-buttons .btn-primary {
+		background: var(--c-primary);
+		color: white;
+		border: 2px solid var(--c-primary);
+	}
+	
+	.hero-buttons .btn-primary:hover {
+		background: white;
+		color: var(--c-primary);
+	}
+	
+	.hero-buttons .btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+	
+	.hero-buttons .btn-secondary:hover {
+		background: white;
+		color: var(--c-ink);
+	}
+	
+	.scroll-indicator {
+		position: absolute;
+		bottom: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 3;
+		color: white;
+		text-decoration: none;
+		animation: bounce 2s infinite;
+	}
+	
+	.scroll-indicator svg {
+		display: block;
+	}
+	
+	@keyframes bounce {
+		0%, 20%, 50%, 80%, 100% {
+			transform: translateX(-50%) translateY(0);
+		}
+		40% {
+			transform: translateX(-50%) translateY(-10px);
+		}
+		60% {
+			transform: translateX(-50%) translateY(-5px);
+		}
+	}
+	
+	@media (max-width: 767px) {
+		.hero {
+			height: 100vh;
+			min-height: 100vh;
+			padding: 2rem 0;
+		}
+		
+		.scroll-indicator {
+			bottom: 1.5rem;
+		}
+		
+		.hero-inner h1 {
+			font-size: 32px;
+			margin-bottom: 1.5rem;
+		}
+		
+		.hero-bottom {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+		
+		.hero-text p {
+			font-size: 15px;
+		}
+		
+		.hero-buttons {
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+		
+		.hero-buttons .btn-primary,
+		.hero-buttons .btn-secondary {
+			text-align: center;
+		}
+	}
+</style>
+
