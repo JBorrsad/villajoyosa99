@@ -17,10 +17,22 @@ const currentYear = new Date().getFullYear();
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/png" href={asset("/icons/cropped-logo-dental-2-32x32.png")} />
-	<link rel="apple-touch-icon" sizes="180x180" href={asset("/icons/cropped-logo-dental-2-180x180.png")} />
-	<link rel="icon" type="image/png" sizes="192x192" href={asset("/icons/cropped-logo-dental-2-192x192.png")} />
-	<link rel="icon" type="image/png" sizes="512x512" href={asset("/icons/logo-dental-2.png")} />
+	<!-- Favicon para modo claro -->
+	<link rel="icon" type="image/png" href={asset("/logo/logo.png")} media="(prefers-color-scheme: light)" />
+	<link rel="icon" type="image/png" sizes="32x32" href={asset("/logo/logo.png")} media="(prefers-color-scheme: light)" />
+	<link rel="icon" type="image/png" sizes="192x192" href={asset("/logo/logo.png")} media="(prefers-color-scheme: light)" />
+	<link rel="icon" type="image/png" sizes="512x512" href={asset("/logo/logo.png")} media="(prefers-color-scheme: light)" />
+	<link rel="apple-touch-icon" sizes="180x180" href={asset("/logo/logo.png")} media="(prefers-color-scheme: light)" />
+	
+	<!-- Favicon para modo oscuro -->
+	<link rel="icon" type="image/png" href={asset("/logo/white.png")} media="(prefers-color-scheme: dark)" />
+	<link rel="icon" type="image/png" sizes="32x32" href={asset("/logo/white.png")} media="(prefers-color-scheme: dark)" />
+	<link rel="icon" type="image/png" sizes="192x192" href={asset("/logo/white.png")} media="(prefers-color-scheme: dark)" />
+	<link rel="icon" type="image/png" sizes="512x512" href={asset("/logo/white.png")} media="(prefers-color-scheme: dark)" />
+	<link rel="apple-touch-icon" sizes="180x180" href={asset("/logo/white.png")} media="(prefers-color-scheme: dark)" />
+	
+	<!-- Favicon por defecto (fallback) -->
+	<link rel="icon" type="image/png" href={asset("/logo/logo.png")} />
 	<meta name="generator" content={Astro.generator} />
 	
 	<!-- Preload recursos críticos -->
@@ -113,6 +125,29 @@ const currentYear = new Date().getFullYear();
 	
 	<!-- Script para optimizar rendimiento -->
 	<script>
+		// Cambiar favicon según el modo oscuro/claro
+		function updateFavicon() {
+			const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const favicon = (document.querySelector('link[rel="icon"]:not([media])') || document.querySelector('link[rel="icon"]')) as HTMLLinkElement;
+			const appleIcon = (document.querySelector('link[rel="apple-touch-icon"]:not([media])') || document.querySelector('link[rel="apple-touch-icon"]')) as HTMLLinkElement;
+			
+			const darkLogo = '{whiteLogoUrl}';
+			const lightLogo = '{logoUrl}';
+			
+			if (favicon) {
+				favicon.href = isDark ? darkLogo : lightLogo;
+			}
+			if (appleIcon) {
+				appleIcon.href = isDark ? darkLogo : lightLogo;
+			}
+		}
+		
+		// Actualizar al cargar
+		updateFavicon();
+		
+		// Escuchar cambios en el modo oscuro/claro
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+		
 		// Prefetch de enlaces al hacer hover (mejora la navegación)
 		document.addEventListener('DOMContentLoaded', () => {
 			const links = document.querySelectorAll('a[href^="/"], a[href^="#"]');
