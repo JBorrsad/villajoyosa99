@@ -9,7 +9,7 @@ export const CONTACT_INFO = {
 		phone: '91 798 86 69',
 		mobile: '618 459 605',
 		email: 'clinicavillajoyosa99@gmail.com',
-		googleMapsUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5!2d-3.6931!3d40.3456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227c1e7b6f7a1%3A0x8c6f8b8b8b8b8b!2sCalle%20de%20Villajoyosa%2C%2099%2C%2028041%20Madrid!5e0!3m2!1ses!2ses!4v1707100000000!5m2!1ses!2ses'
+		googleMapsUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5!2d-3.6931!3d40.3456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227c1e7b6f7a1%3A0x8c6f8b8b8b8b8b8b!2sCalle%20de%20Villajoyosa%2C%2099%2C%2028041%20Madrid!5e0!3m2!1ses!2ses!4v1707100000000!5m2!1ses!2ses'
 	}
 } as const;
 
