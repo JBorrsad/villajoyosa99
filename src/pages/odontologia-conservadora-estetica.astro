@@ -870,25 +870,28 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 	}
 
 	.btn-primary {
-		background: white;
-		color: var(--c-primary);
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: 2px solid var(--btn-primary-bg);
 	}
 
 	.btn-primary:hover {
-		background: var(--c-bg);
+		background: var(--btn-hover-bg);
+		color: var(--btn-hover-text);
+		border-color: var(--btn-secondary-border);
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-md);
 	}
 
 	.btn-secondary {
 		background: transparent;
-		color: white;
-		border: 2px solid white;
+		color: var(--btn-secondary-text);
+		border: 2px solid var(--btn-secondary-border);
 	}
 
 	.btn-secondary:hover {
-		background: white;
-		color: var(--c-primary);
+		background: var(--btn-hover-bg);
+		color: var(--btn-hover-text);
 	}
 
 	/* Responsive */

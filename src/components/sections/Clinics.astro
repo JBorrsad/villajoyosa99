@@ -180,12 +180,15 @@ const clinica = CONTACT_INFO.clinica;
 	}
 	
 	.btn-primary {
-		background: var(--color-primary);
-		color: white;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: 2px solid var(--btn-primary-bg);
 	}
 	
 	.btn-primary:hover {
-		background: var(--color-primary-dark);
+		background: var(--btn-hover-bg);
+		color: var(--btn-hover-text);
+		border-color: var(--btn-secondary-border);
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-md);
 	}

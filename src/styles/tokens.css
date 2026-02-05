@@ -6,10 +6,11 @@
 
 :root {
 	/* ========== COLORES PRINCIPALES ========== */
-	--color-primary: #00a097;
-	--color-primary-dark: #008a82;
-	--color-primary-light: #33b3ab;
-	--color-primary-bg: #e6f7f6;
+	/* Azul corporativo - extraído de clinicadentalvillajoyosa99.es */
+	--color-primary: #2563eb;
+	--color-primary-dark: #1d4ed8;
+	--color-primary-light: #3b82f6;
+	--color-primary-bg: #eff6ff;
 
 	--color-secondary: #1a365d;
 	--color-secondary-light: #2c5282;

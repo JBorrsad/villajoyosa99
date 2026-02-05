@@ -11,14 +11,14 @@
 	--ff-body: 'Roboto', system-ui, -apple-system, sans-serif;
 
 	/* ========== COLORES DE MARCA ========== */
-	/* Color primario - Turquesa corporativo */
-	--c-primary: #00a097;
-	--c-primary-dark: #008a82;
-	--c-primary-light: #33b3ab;
-	--c-primary-bg: #e6f7f6;
+	/* Color primario - Azul corporativo (extraído de clinicadentalvillajoyosa99.es) */
+	--c-primary: #2563eb;
+	--c-primary-dark: #1d4ed8;
+	--c-primary-light: #3b82f6;
+	--c-primary-bg: #eff6ff;
 
 	/* Color secundario - Azul oscuro */
-	--c-secondary: #1a365d;
+	--c-secondary: #1e3a5f;
 	--c-secondary-light: #2c5282;
 
 	/* ========== COLORES DE TEXTO ========== */
@@ -56,7 +56,19 @@
 	--c-divider: #e2e8f0;
 
 	/* ========== COLORES DE ACENTO ========== */
-	--c-accent: #38b2ac;           /* Acento turquesa claro */
+	--c-accent: #60a5fa;           /* Acento azul claro */
+
+	/* ========== COLORES INVERSOS (FOOTER OSCURO) ========== */
+	--c-surface-inverse: #1a202c;  /* Fondo oscuro */
+	--c-text-inverse: #f7fafc;     /* Texto sobre fondo oscuro */
+	--c-text-inverse-muted: #a0aec0; /* Texto secundario sobre fondo oscuro */
+	--c-border-inverse: rgba(255, 255, 255, 0.1);
+
+	/* ========== COLORES DE ESTADOS ========== */
+	--c-success-bg: #c6f6d5;
+	--c-success-text: #22543d;
+	--c-error-bg: #fed7d7;
+	--c-error-text: #742a2a;
 
 	/* ========== ESCALA TIPOGRÁFICA RESPONSIVE ========== */
 	--fs-h1: clamp(2.25rem, 3vw + 1rem, 3.25rem);
@@ -222,11 +234,21 @@ a:focus-visible {
    BOTONES
    ======================================== */
 
+/* Variables de botones */
+:root {
+	--btn-primary-bg: #4a5568;
+	--btn-primary-text: #fff;
+	--btn-secondary-border: #4a5568;
+	--btn-secondary-text: #4a5568;
+	--btn-hover-bg: #f8f9fa;
+	--btn-hover-text: #4a5568;
+}
+
 .btn-primary {
 	font: 500 0.9375rem/1 var(--ff-body);
-	background: var(--c-primary);
-	color: #fff;
-	border: 2px solid var(--c-primary);
+	background: var(--btn-primary-bg);
+	color: var(--btn-primary-text);
+	border: 2px solid var(--btn-primary-bg);
 	border-radius: var(--rad);
 	padding: 0.75rem 1.5rem;
 	cursor: pointer;
@@ -236,9 +258,9 @@ a:focus-visible {
 }
 
 .btn-primary:hover {
-	background: var(--c-primary-dark);
-	border-color: var(--c-primary-dark);
-	color: #fff;
+	background: var(--btn-hover-bg);
+	border-color: var(--btn-secondary-border);
+	color: var(--btn-hover-text);
 	transform: translateY(-1px);
 	box-shadow: var(--shadow-md);
 }
@@ -249,9 +271,9 @@ a:focus-visible {
 
 .btn-secondary {
 	font: 500 0.9375rem/1 var(--ff-body);
-	color: var(--c-primary);
+	color: var(--btn-secondary-text);
 	background: transparent;
-	border: 2px solid var(--c-primary);
+	border: 2px solid var(--btn-secondary-border);
 	border-radius: var(--rad);
 	padding: 0.75rem 1.5rem;
 	cursor: pointer;
@@ -261,8 +283,8 @@ a:focus-visible {
 }
 
 .btn-secondary:hover {
-	background: var(--c-primary);
-	color: #fff;
+	background: var(--btn-hover-bg);
+	color: var(--btn-hover-text);
 	transform: translateY(-1px);
 	box-shadow: var(--shadow-md);
 }
@@ -313,7 +335,7 @@ textarea:focus,
 select:focus {
 	outline: none;
 	border-color: var(--c-primary);
-	box-shadow: 0 0 0 3px rgba(0, 160, 151, 0.15);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 input::placeholder,

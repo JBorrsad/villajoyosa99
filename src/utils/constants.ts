@@ -31,7 +31,7 @@ export const SERVICES = [
 		id: 'visitas-regulares',
 		title: 'Visitas Regulares',
 		icon: 'tesicon4.png',
-		image: '/img/servicios_cards/visitas.jpg',
+		image: '/img/servicios_cards/prevencion.png',
 		description: 'Las revisiones regulares sirven para mucho más de lo que pueda parecer. Son una ocasión ideal para conocer todos los detalles acerca de tu estado de salud y hacer un seguimiento del mismo.',
 		features: ['Revisiones completas', 'Seguimiento personalizado', 'La mejor prevención']
 	},
@@ -55,7 +55,7 @@ export const SERVICES = [
 		id: 'ortodoncia',
 		title: 'Ortodoncia',
 		icon: 'tesicon8.png',
-		image: '/img/servicios_cards/orto.jpg',
+		image: '/img/servicios_cards/orto.avif',
 		description: 'La ortodoncia es una rama de la odontología que estudia, previene y corrige problemas dentales como desviación en la posición de los dientes, apiñamientos o diastemas.',
 		features: ['Corrección de posición dental', 'Tratamiento de apiñamientos', 'Asesoramiento personalizado']
 	},
@@ -87,7 +87,7 @@ export const SERVICES = [
 		id: 'odontopediatria',
 		title: 'Odontopediatría',
 		icon: 'tesicon4.png',
-		image: '/img/servicios_cards/qs03.jpg',
+		image: '/img/servicios_cards/odontopediatria.jpg',
 		description: 'En Clínica Dental Villajoyosa 99 también nos preocupamos por los más pequeños. Por eso, ofrecemos un servicio de odontopediatría ajustado a cada niño o niña para que su experiencia sea lo más llevadera posible.',
 		features: ['Atención especializada para niños', 'Ambiente adaptado', 'Experiencia sin estrés']
 	}

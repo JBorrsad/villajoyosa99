@@ -240,7 +240,7 @@ const cases = [
 	
 	.cases-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, 300px);
+		grid-template-columns: repeat(4, 300px);
 		gap: var(--spacing-md);
 		margin-bottom: var(--spacing-lg);
 		justify-content: center;
@@ -252,6 +252,28 @@ const cases = [
 		border-radius: var(--border-radius-lg);
 		overflow: hidden;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		width: 300px;
+		min-width: 300px;
+		max-width: 300px;
+	}
+	
+	@media (max-width: 1400px) {
+		.cases-grid {
+			grid-template-columns: repeat(auto-fit, 300px);
+		}
+	}
+	
+	@media (max-width: 767px) {
+		.cases-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.case-card {
+			width: 100%;
+			min-width: auto;
+			max-width: 300px;
+			margin: 0 auto;
+		}
 	}
 	
 	.case-title {
@@ -348,7 +370,7 @@ const cases = [
 		width: 48px;
 		height: 48px;
 		background: white;
-		border: 3px solid var(--color-primary);
+		border: 3px solid #4a5568;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -359,7 +381,7 @@ const cases = [
 	}
 	
 	.slider-button:hover {
-		background: var(--color-primary);
+		background: #4a5568;
 		transform: translate(-50%, -50%) scale(1.1);
 	}
 	
@@ -368,7 +390,7 @@ const cases = [
 	}
 	
 	.slider-button svg {
-		color: var(--color-primary);
+		color: #4a5568;
 		flex-shrink: 0;
 		transition: var(--transition);
 	}
