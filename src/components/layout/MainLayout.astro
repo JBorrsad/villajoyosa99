@@ -31,29 +31,29 @@ const currentYear = new Date().getFullYear();
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	{keywords && <meta name="keywords" content={keywords} />}
-	<meta name="author" content="Clínica Dental Sada Borrás" />
+	<meta name="author" content="Clínica Dental Villajoyosa 99" />
 	
 	<!-- Open Graph -->
-	<meta property="og:title" content="Clínica Dental Sada Borrás" />
-	<meta property="og:description" content="Cuidamos tu sonrisa en Pamplona y Tafalla. Más de 40 años de experiencia en implantes, odontopediatría y estética." />
+	<meta property="og:title" content="Clínica Dental Villajoyosa 99" />
+	<meta property="og:description" content="Más de 25 años cuidando sonrisas en Madrid. Tu clínica dental de confianza en Villaverde con los mejores profesionales y la medicina más avanzada." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://sadaborras.com" />
-	<meta property="og:image" content="https://sadaborras.com/icons/logowhatsapp.png" />
-	<meta property="og:image:secure_url" content="https://sadaborras.com/icons/logowhatsapp.png" />
+	<meta property="og:url" content="https://jborrsad.github.io/villajoyosa99/" />
+	<meta property="og:image" content="https://jborrsad.github.io/villajoyosa99/logo/logo.png" />
+	<meta property="og:image:secure_url" content="https://jborrsad.github.io/villajoyosa99/logo/logo.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
-	<meta property="og:image:alt" content="Logo Clínica Dental Sada Borrás" />
+	<meta property="og:image:alt" content="Logo Clínica Dental Villajoyosa 99" />
 	<meta property="og:locale" content="es_ES" />
-	<meta property="og:site_name" content="Clínica Dental Sada Borrás" />
+	<meta property="og:site_name" content="Clínica Dental Villajoyosa 99" />
 	<meta property="fb:app_id" content="0" />
 	
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Clínica Dental Sada Borrás" />
-	<meta name="twitter:description" content="Cuidamos tu sonrisa en Pamplona y Tafalla. Más de 40 años de experiencia en implantes, odontopediatría y estética." />
-	<meta name="twitter:image" content="https://sadaborras.com/icons/logowhatsapp.png" />
-	<meta name="twitter:image:alt" content="Logo Clínica Dental Sada Borrás" />
+	<meta name="twitter:title" content="Clínica Dental Villajoyosa 99" />
+	<meta name="twitter:description" content="Más de 25 años cuidando sonrisas en Madrid. Tu clínica dental de confianza en Villaverde con los mejores profesionales y la medicina más avanzada." />
+	<meta name="twitter:image" content="https://jborrsad.github.io/villajoyosa99/logo/logo.png" />
+	<meta name="twitter:image:alt" content="Logo Clínica Dental Villajoyosa 99" />
 	
 	<!-- Fuentes Google Fonts - Optimizado para Core Web Vitals -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -67,47 +67,45 @@ const currentYear = new Date().getFullYear();
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "Dentist",
-		"name": "Clínica Dental Sada Borrás",
-		"image": "https://sadaborras.com/icons/logo-dental-1.png",
-		"@id": "https://sadaborras.com",
-		"url": "https://sadaborras.com",
-		"telephone": "+34948172617",
+		"name": "Clínica Dental Villajoyosa 99",
+		"image": "https://jborrsad.github.io/villajoyosa99/logo/logo.png",
+		"@id": "https://jborrsad.github.io/villajoyosa99/",
+		"url": "https://jborrsad.github.io/villajoyosa99/",
+		"telephone": "+34917988669",
 		"priceRange": "€€",
-		"address": [
-			{
-				"@type": "PostalAddress",
-				"streetAddress": "Avenida Pío XII, 8, bajo",
-				"addressLocality": "Pamplona",
-				"addressRegion": "Navarra",
-				"postalCode": "31008",
-				"addressCountry": "ES"
-			},
-			{
-				"@type": "PostalAddress",
-				"streetAddress": "Diputación Foral, 2 - 2º C y D",
-				"addressLocality": "Tafalla",
-				"addressRegion": "Navarra",
-				"postalCode": "31300",
-				"addressCountry": "ES"
-			}
-		],
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "Calle de Villajoyosa, 99",
+			"addressLocality": "Madrid",
+			"addressRegion": "Madrid",
+			"postalCode": "28041",
+			"addressCountry": "ES"
+		},
 		"geo": {
 			"@type": "GeoCoordinates",
-			"latitude": 42.8125,
-			"longitude": -1.6458
+			"latitude": 40.3456,
+			"longitude": -3.6931
 		},
-		"openingHoursSpecification": {
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": [
-				"Monday",
-				"Tuesday",
-				"Wednesday",
-				"Thursday",
-				"Friday"
-			],
-			"opens": "09:00",
-			"closes": "20:00"
-		}
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+				"opens": "10:00",
+				"closes": "14:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+				"opens": "16:30",
+				"closes": "20:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Saturday"],
+				"opens": "10:00",
+				"closes": "13:30"
+			}
+		]
 	})} />
 </head>
 <body>
