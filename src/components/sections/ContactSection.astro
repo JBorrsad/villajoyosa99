@@ -2,6 +2,7 @@
 import { CONTACT_INFO, SCHEDULE } from '../../utils/constants';
 
 const clinica = CONTACT_INFO.clinica;
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <section class="contact section" id="contacto">
@@ -94,7 +95,7 @@ const clinica = CONTACT_INFO.clinica;
 					<div class="form-footer">
 						<label class="checkbox">
 							<input type="checkbox" name="privacidad" required />
-							<span>Acepto la <a href="/politica-privacidad">política de privacidad</a></span>
+							<span>Acepto la <a href={`${baseUrl}politica-privacidad`}>política de privacidad</a></span>
 						</label>
 						<button type="submit" class="btn-submit">Enviar</button>
 					</div>
@@ -155,6 +156,7 @@ const clinica = CONTACT_INFO.clinica;
 		background: #f7fafc;
 		padding: 2rem;
 		border-radius: var(--rad-lg);
+		border: 2px solid #4a5568;
 	}
 	
 	.contact-info-sidebar h3 {
@@ -182,7 +184,7 @@ const clinica = CONTACT_INFO.clinica;
 	.info-icon-circle {
 		width: 48px;
 		height: 48px;
-		background: #3a3a3a;
+		background: #4a5568;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -370,6 +372,7 @@ const clinica = CONTACT_INFO.clinica;
 	.map-container {
 		border-radius: var(--rad);
 		overflow: hidden;
+		border: 2px solid #4a5568;
 	}
 	
 	.map-container iframe {

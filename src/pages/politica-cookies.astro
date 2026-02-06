@@ -1,0 +1,269 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+const title = 'Política de Cookies | Clínica Dental Villajoyosa 99';
+const description = 'Configuración y política de cookies de Clínica Dental Villajoyosa 99. Información sobre los tipos de cookies utilizadas en nuestro sitio web.';
+const keywords = 'cookies, política de cookies, configuración cookies, clínica dental Madrid';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<article class="legal-page">
+			<!-- Hero Section -->
+			<section class="page-hero">
+				<div class="container">
+					<h1>Política de Cookies</h1>
+				</div>
+			</section>
+
+			<!-- Content -->
+			<section class="section">
+				<div class="container">
+					<div class="legal-content">
+						<p>Esta página web utiliza cookies. Es posible obtener más información sobre los tipos de cookies que se utilizan y habilitar cookies individuales en sus respectivas categorías. Se puede establecer la configuración en cualquier momento entrando al enlace que se encuentra en el pie de página de este sitio web.</p>
+
+						<div class="cookies-links">
+							<a href={`${baseUrl}aviso-legal`} class="cookie-link">Aviso legal</a>
+							<a href={`${baseUrl}politica-privacidad`} class="cookie-link">Política de privacidad</a>
+						</div>
+
+						<h2>Estrictamente necesarias</h2>
+						<p>Las cookies estrictamente necesarias garantizan funciones que son indispensables para el funcionamiento adecuado de la página web. Como resultado, estas cookies no pueden desactivarse. Se utilizan de forma exclusiva en esta página web y, por lo tanto, son cookies propias. Esto significa que toda la información almacenada en las cookies solo se mandará a esta web.</p>
+
+						<div class="cookie-item">
+							<h3>Cloudflare</h3>
+							<p>Cloudflare es un servicio que proporciona mayor seguridad y rendimiento a los sitios web. Cloudflare ofrece una red de entrega de contenidos ("CDN") para mejorar los tiempos de carga de la web. El uso de una CDN permite al usuario hacer que el contenido esté disponible para su recuperación más rápidamente con la ayuda de servidores distribuidos regional o internacionalmente.</p>
+							<p class="cookie-provider"><strong>Proveedor:</strong> Cloudflare Inc, 101 Townsend St, San Francisco, CA 94107, USA</p>
+							<p class="cookie-details"><strong>Nombres y duración de las cookies:</strong> __cfruid (duración: sesión), __cf_bm (duración: 30 minutos), __cf_clearance (duración: 30 minutos)</p>
+							<div class="cookie-links-small">
+								<a href="https://www.cloudflare.com/cookie-policy/" target="_blank" rel="noopener noreferrer">Política de cookies</a>
+								<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Política de privacidad</a>
+							</div>
+						</div>
+
+						<h2>Funcionamiento</h2>
+						<p>Las cookies de funcionamiento permiten que esta página web pueda ofrecer ciertas opciones y guardar la información ya proporcionada (como el nombre o la selección del idioma) para brindar funciones mejoradas y más personalizadas.</p>
+
+						<div class="cookie-item">
+							<h3>Google Maps</h3>
+							<p>Google establece esta cookie como parte del uso de Google Maps.</p>
+							<p class="cookie-provider"><strong>Proveedor:</strong> Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA; o, para residentes de la UE, Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+							<p class="cookie-details"><strong>Nombre y duración de las cookies:</strong> UULE (duración: 1 día), OTZ (duración: 2 semanas), 1P_JAR (duración: 1 mes), SIDCC (duración: 1 año), _Secure-3PAPISID (duración: 2 años), _Secure-APSID (duración: 2 meses), _Secure-SSID (duración: 2 años), HSID (duración: 2 años), _Secure-3PSID (duración: 2 años), ANID (duración: 1 año), SID (duración: 2 años), APISID (duración: 2 años), _Secure-HSID (duración: 2 meses), SAPISID (duración: 2 años), NID (duración: 6 meses)</p>
+							<div class="cookie-links-small">
+								<a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Política de cookies</a>
+								<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a>
+							</div>
+						</div>
+
+						<h2>Marketing / Terceros</h2>
+						<p>Las cookies de marketing o de terceros provienen de empresas de publicidad externas (entre otras) y se utilizan para recopilar información sobre las páginas web que los usuarios visitan; por ejemplo, para crear publicidad personalizada.</p>
+						<p class="no-cookies">No existen cookies en esta categoría.</p>
+
+						<h2>Rendimiento</h2>
+						<p>Las cookies de rendimiento recopilan información sobre el uso de una página web. Se utilizan para entender mejor el funcionamiento de una página web y poder mejorar su apariencia, contenido y funcionalidad.</p>
+
+						<div class="cookie-item">
+							<h3>Google Analytics</h3>
+							<p>Estas cookies recopilan información anónima con motivos de análisis, como ver el uso y la interacción de los visitantes con esta página web.</p>
+							<p class="cookie-provider"><strong>Proveedor:</strong> Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA; o, para residentes de la UE, Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+							<p class="cookie-details"><strong>Nombre de la cookie:</strong> _ga, _gat y _gid</p>
+							<p class="cookie-details"><strong>Duración de la cookie:</strong> 2 años</p>
+							<div class="cookie-links-small">
+								<a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Política de cookies</a>
+								<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a>
+							</div>
+						</div>
+
+						<h2>¿Cómo gestionar las cookies?</h2>
+						<p>Puede gestionar sus preferencias de cookies a través de la configuración de su navegador. A continuación, le indicamos cómo hacerlo en los navegadores más populares:</p>
+						<ul>
+							<li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+							<li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+							<li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
+							<li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+						</ul>
+
+						<p>Le informamos de que si desactiva las cookies, es posible que algunas funciones de este sitio web no funcionen correctamente.</p>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
+	<Footer />
+</MainLayout>
+
+<style>
+	.legal-page {
+		background: white;
+	}
+
+	.page-hero {
+		background: #4a5568;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.page-hero h1 {
+		color: white;
+		font-size: var(--fs-h1);
+		font-family: var(--font-heading);
+		margin: 0;
+		font-weight: 700;
+	}
+
+	.section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.legal-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.legal-content h2 {
+		font-size: var(--fs-h3);
+		font-family: var(--font-heading);
+		color: #4a5568;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #4a5568;
+	}
+
+	.legal-content p {
+		font-size: var(--fs-body);
+		font-family: var(--font-body);
+		color: var(--c-gray-700);
+		line-height: 1.8;
+		margin-bottom: 1.25rem;
+	}
+
+	.legal-content ul {
+		margin: 1rem 0 1.5rem 1.5rem;
+		padding: 0;
+	}
+
+	.legal-content li {
+		font-size: var(--fs-body);
+		font-family: var(--font-body);
+		color: var(--c-gray-700);
+		line-height: 1.8;
+		margin-bottom: 0.5rem;
+	}
+
+	.legal-content a {
+		color: #4a5568;
+		text-decoration: none;
+		font-weight: 500;
+		transition: color var(--transition);
+	}
+
+	.legal-content a:hover {
+		color: #2d3748;
+		text-decoration: underline;
+	}
+
+	.cookies-links {
+		display: flex;
+		gap: 1rem;
+		margin: 1.5rem 0 2rem;
+		flex-wrap: wrap;
+	}
+
+	.cookie-link {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background: white;
+		border: 2px solid #4a5568;
+		border-radius: var(--rad);
+		font-family: var(--font-body);
+		font-weight: 500;
+		color: #4a5568;
+		transition: all var(--transition);
+	}
+
+	.cookie-link:hover {
+		background: #4a5568;
+		color: white;
+		text-decoration: none;
+	}
+
+	.cookie-item {
+		background: var(--c-gray-50);
+		border-radius: var(--rad);
+		padding: 1.5rem 2rem;
+		margin: 1.5rem 0;
+		border-left: 4px solid #4a5568;
+	}
+
+	.cookie-item h3 {
+		font-size: 1.125rem;
+		font-family: var(--font-heading);
+		color: #4a5568;
+		margin: 0 0 1rem 0;
+		font-weight: 600;
+	}
+
+	.cookie-item p {
+		font-family: var(--font-body);
+		margin-bottom: 0.75rem;
+	}
+
+	.cookie-item p:last-of-type {
+		margin-bottom: 1rem;
+	}
+
+	.cookie-provider,
+	.cookie-details {
+		font-size: 0.9rem;
+	}
+
+	.cookie-links-small {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 0.5rem;
+	}
+
+	.cookie-links-small a {
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.no-cookies {
+		font-style: italic;
+		color: var(--c-gray-500);
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.page-hero h1 {
+			font-size: 2rem;
+		}
+
+		.legal-content h2 {
+			font-size: 1.25rem;
+		}
+
+		.cookie-item {
+			padding: 1rem 1.25rem;
+		}
+
+		.cookies-links {
+			flex-direction: column;
+		}
+
+		.cookie-link {
+			text-align: center;
+		}
+	}
+</style>

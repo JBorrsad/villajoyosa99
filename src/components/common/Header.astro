@@ -1,39 +1,54 @@
 ---
 import { asset } from '../../utils/assets';
 
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 const navItems = [
-	{ title: 'Inicio', label: 'inicio', url: '#inicio' },
-	{ title: 'Servicios', label: 'servicios', url: '#servicios' },
-	{ title: 'Casos de éxito', label: 'casos-clinicos', url: '#casos-clinicos' },
-	{ title: 'Reseñas', label: 'reviews', url: '#reviews' },
-	{ title: 'Promociones', label: 'promociones', url: '#promociones' },
-	{ title: 'Contacto', label: 'contacto', url: '#contacto' },
+	{ title: 'Inicio', label: 'inicio', url: `${baseUrl}#inicio` },
+	{ title: 'Servicios', label: 'servicios', url: `${baseUrl}#servicios` },
+	{ title: 'Casos de éxito', label: 'casos-clinicos', url: `${baseUrl}#casos-clinicos` },
+	{ title: 'Reseñas', label: 'reviews', url: `${baseUrl}#reviews` },
+	{ title: 'Promociones', label: 'promociones', url: `${baseUrl}#promociones` },
+	{ title: 'Contacto', label: 'contacto', url: `${baseUrl}#contacto` },
 ];
 ---
 
 <header class="header">
 	<nav class="nav" aria-label="Navegación principal">
-		<a href="#inicio" class="logo">
-			<div class="logo-wrapper">
-				<img 
-					src={asset("/logo/white.png")}
-					alt="Logo Clínica Dental Villajoyosa 99" 
-					width="36"
-					height="36"
-					loading="eager"
-					class="logo-white"
-				/>
-				<img 
-					src={asset("/logo/logo.png")}
-					alt="Logo Clínica Dental Villajoyosa 99" 
-					width="36"
-					height="36"
-					loading="eager"
-					class="logo-dark"
-				/>
-			</div>
-			<span class="logo-text">Villajoyosa 99</span>
-		</a>
+		<div class="nav-content">
+			<button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+				<svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+				<svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+			<a href={`${baseUrl}#inicio`} class="logo">
+				<div class="logo-wrapper">
+					<img 
+						src={asset("/logo/white.png")}
+						alt="Logo Clínica Dental Villajoyosa 99" 
+						width="36"
+						height="36"
+						loading="eager"
+						class="logo-white"
+					/>
+					<img 
+						src={asset("/logo/logo.png")}
+						alt="Logo Clínica Dental Villajoyosa 99" 
+						width="36"
+						height="36"
+						loading="eager"
+						class="logo-dark"
+					/>
+				</div>
+				<span class="logo-text">Villajoyosa 99</span>
+			</a>
+		</div>
 		<div class="nav-links">
 			{navItems.map((link) => (
 				<a
@@ -47,19 +62,6 @@ const navItems = [
 		</div>
 	</nav>
 </header>
-
-<!-- Botón de menú móvil flotante -->
-<button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
-	<svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-		<line x1="3" y1="6" x2="21" y2="6"></line>
-		<line x1="3" y1="12" x2="21" y2="12"></line>
-		<line x1="3" y1="18" x2="21" y2="18"></line>
-	</svg>
-	<svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-		<line x1="18" y1="6" x2="6" y2="18"></line>
-		<line x1="6" y1="6" x2="18" y2="18"></line>
-	</svg>
-</button>
 
 <!-- Menú móvil -->
 <div class="mobile-menu">
@@ -89,6 +91,7 @@ const navItems = [
 		width: 100%;
 		margin: 0 auto;
 		padding: 0.75rem 1rem;
+		background: transparent;
 	}
 
 	.nav {
@@ -105,11 +108,21 @@ const navItems = [
 		animation-range: 0 100px;
 	}
 
+	.nav-content {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
 	.logo {
 		display: flex;
 		align-items: center;
-		gap: 0.625rem;
+		gap: 0;
 		text-decoration: none;
+	}
+
+	.logo-text {
+		margin-left: -0.25rem;
 	}
 
 	.logo-wrapper {
@@ -168,6 +181,7 @@ const navItems = [
 		animation: text-color 1s linear both;
 		animation-timeline: scroll();
 		animation-range: 0 100px;
+		margin-left: -0.375rem;
 	}
 
 	.nav-links {
@@ -233,31 +247,29 @@ const navItems = [
 	/* Botón menú móvil */
 	.mobile-menu-btn {
 		display: none;
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
-		z-index: 1001;
-		width: 48px;
-		height: 48px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.9);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
+		background: transparent;
 		border: none;
 		cursor: pointer;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		padding: 0;
+		flex-shrink: 0;
+		transition: transform 0.2s ease, opacity 0.2s ease;
 	}
 
 	.mobile-menu-btn:hover {
-		transform: scale(1.05);
-		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+		transform: scale(1.1);
+		opacity: 0.8;
 	}
 
 	.mobile-menu-btn svg {
-		color: var(--c-ink);
+		color: white;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+		width: 24px;
+		height: 24px;
 	}
 
 	/* Menú móvil */
@@ -316,6 +328,51 @@ const navItems = [
 
 	@media (max-width: 767px) {
 		.header {
+			display: flex;
+			justify-content: center;
+			animation: none;
+			background: transparent !important;
+			backdrop-filter: none !important;
+			-webkit-backdrop-filter: none !important;
+		}
+
+		.nav {
+			justify-content: center;
+			width: auto;
+			padding: 0.625rem 1.25rem;
+			animation: none;
+			background: transparent !important;
+			backdrop-filter: none !important;
+			-webkit-backdrop-filter: none !important;
+			box-shadow: none !important;
+		}
+
+		.nav-content {
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			padding: 0.5rem 1rem;
+			border-radius: 9999px;
+			background: rgba(255, 255, 255, 0);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			animation: mobile-nav-content-bg 1s linear both;
+			animation-timeline: scroll();
+			animation-range: 0 100px;
+		}
+
+		@keyframes mobile-nav-content-bg {
+			0% {
+				background: rgba(255, 255, 255, 0);
+				box-shadow: none;
+			}
+			100% {
+				background: rgba(255, 255, 255, 0.5);
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+			}
+		}
+
+		.nav-links {
 			display: none;
 		}
 
@@ -326,10 +383,90 @@ const navItems = [
 		.mobile-menu {
 			display: block;
 		}
+
+		/* Hacer que el logo también abra el menú en móvil */
+		.logo {
+			cursor: pointer;
+		}
+
+		/* Animaciones de color en móvil basadas en scroll */
+		.logo-text {
+			color: white;
+			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+			animation: mobile-text-color 1s linear both;
+			animation-timeline: scroll();
+			animation-range: 0 100px;
+		}
+
+		.logo-white {
+			opacity: 1;
+			animation: mobile-logo-white-fade 1s linear both;
+			animation-timeline: scroll();
+			animation-range: 0 100px;
+		}
+
+		.logo-dark {
+			opacity: 0;
+			animation: mobile-logo-dark-fade 1s linear both;
+			animation-timeline: scroll();
+			animation-range: 0 100px;
+		}
+
+		.mobile-menu-btn svg {
+			color: white;
+			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+			animation: mobile-icon-color 1s linear both;
+			animation-timeline: scroll();
+			animation-range: 0 100px;
+		}
+
+		@keyframes mobile-text-color {
+			0% {
+				color: white;
+				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+			}
+			100% {
+				color: #1e3a5f;
+				text-shadow: none;
+			}
+		}
+
+		@keyframes mobile-logo-white-fade {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes mobile-logo-dark-fade {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes mobile-icon-color {
+			0% {
+				color: white;
+				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+			}
+			100% {
+				color: #1e3a5f;
+				text-shadow: none;
+			}
+		}
 	}
 
 	/* Navegadores que no soportan animation-timeline */
 	@supports not (animation-timeline: scroll()) {
+		.header {
+			background: transparent;
+		}
+
 		.nav {
 			background: rgba(255, 255, 255, 0.5);
 			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -350,6 +487,53 @@ const navItems = [
 		.logo-dark {
 			opacity: 1;
 		}
+
+		.mobile-menu-btn {
+			background: transparent;
+		}
+
+		.mobile-menu-btn svg {
+			color: var(--c-text);
+		}
+
+		@media (max-width: 767px) {
+			.header {
+				background: transparent !important;
+				backdrop-filter: none !important;
+				-webkit-backdrop-filter: none !important;
+			}
+
+			.nav {
+				background: transparent !important;
+				backdrop-filter: none !important;
+				-webkit-backdrop-filter: none !important;
+				box-shadow: none !important;
+			}
+
+			.nav-content {
+				background: rgba(255, 255, 255, 0.5);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+			}
+
+			.logo-text {
+				color: #1e3a5f;
+				text-shadow: none;
+			}
+
+			.logo-white {
+				opacity: 0;
+			}
+
+			.logo-dark {
+				opacity: 1;
+			}
+
+			.mobile-menu-btn svg {
+				color: #1e3a5f;
+			}
+		}
 	}
 </style>
 
@@ -360,8 +544,14 @@ const navItems = [
 		const navLinks = document.querySelectorAll('.nav-link');
 		const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-		// Mapeo de URLs a IDs de sección
-		const urlToIdMap: Record<string, string> = {
+		// Función para extraer el hash de una URL
+		const getHashFromHref = (href: string): string => {
+			const hashIndex = href.indexOf('#');
+			return hashIndex !== -1 ? href.slice(hashIndex) : '';
+		};
+
+		// Mapeo de hashes a IDs de sección
+		const hashToIdMap: Record<string, string> = {
 			'#inicio': 'inicio',
 			'#servicios': 'servicios',
 			'#casos-clinicos': 'casos-clinicos',
@@ -423,7 +613,8 @@ const navItems = [
 			// Actualizar clases activas
 			navLinks.forEach((item) => {
 				const href = item.getAttribute('href') || '';
-				const sectionId = urlToIdMap[href] || '';
+				const hash = getHashFromHref(href);
+				const sectionId = hashToIdMap[hash] || '';
 				if (sectionId === activeId) {
 					item.classList.add('active');
 				} else {
@@ -433,7 +624,8 @@ const navItems = [
 			
 			mobileNavLinks.forEach((item) => {
 				const href = item.getAttribute('href') || '';
-				const sectionId = urlToIdMap[href] || '';
+				const hash = getHashFromHref(href);
+				const sectionId = hashToIdMap[hash] || '';
 				if (sectionId === activeId) {
 					item.classList.add('active');
 				} else {
@@ -458,7 +650,8 @@ const navItems = [
 			if (hash) {
 				navLinks.forEach((item) => {
 					const href = item.getAttribute('href') || '';
-					if (href === `#${hash}`) {
+					const linkHash = getHashFromHref(href);
+					if (linkHash === `#${hash}`) {
 						item.classList.add('active');
 					} else {
 						item.classList.remove('active');
@@ -466,7 +659,8 @@ const navItems = [
 				});
 				mobileNavLinks.forEach((item) => {
 					const href = item.getAttribute('href') || '';
-					if (href === `#${hash}`) {
+					const linkHash = getHashFromHref(href);
+					if (linkHash === `#${hash}`) {
 						item.classList.add('active');
 					} else {
 						item.classList.remove('active');
@@ -485,21 +679,44 @@ const navItems = [
 	const menuIcon = document.querySelector('.menu-icon');
 	const closeIcon = document.querySelector('.close-icon');
 	const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+	const logo = document.querySelector('.logo');
+
+	const toggleMobileMenu = () => {
+		if (!mobileMenuBtn || !mobileMenu || !menuIcon || !closeIcon) return;
+		
+		const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+		mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
+		mobileMenu.classList.toggle('active');
+		
+		if (!isExpanded) {
+			(menuIcon as HTMLElement).style.display = 'none';
+			(closeIcon as HTMLElement).style.display = 'block';
+		} else {
+			(menuIcon as HTMLElement).style.display = 'block';
+			(closeIcon as HTMLElement).style.display = 'none';
+		}
+	};
+
+	const isMobile = () => window.innerWidth <= 767;
 
 	if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
-		mobileMenuBtn.addEventListener('click', () => {
-			const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-			mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
-			mobileMenu.classList.toggle('active');
-			
-			if (!isExpanded) {
-				(menuIcon as HTMLElement).style.display = 'none';
-				(closeIcon as HTMLElement).style.display = 'block';
-			} else {
-				(menuIcon as HTMLElement).style.display = 'block';
-				(closeIcon as HTMLElement).style.display = 'none';
-			}
+		// Abrir/cerrar menú desde el botón
+		mobileMenuBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+			toggleMobileMenu();
 		});
+
+		// Abrir/cerrar menú desde el logo en móvil
+		if (logo) {
+			logo.addEventListener('click', (e) => {
+				if (isMobile()) {
+					e.preventDefault();
+					e.stopPropagation();
+					toggleMobileMenu();
+				}
+			});
+		}
 
 		// Cerrar menú al hacer clic en un enlace
 		mobileNavLinks.forEach((link) => {

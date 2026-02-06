@@ -1,0 +1,223 @@
+---
+import MainLayout from '../components/layout/MainLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import { CONTACT_INFO, CLINIC_INFO } from '../utils/constants';
+
+const title = 'Política de Privacidad | Clínica Dental Villajoyosa 99';
+const description = 'Política de privacidad de Clínica Dental Villajoyosa 99. Información sobre el tratamiento de datos personales y Google Analytics.';
+const keywords = 'política de privacidad, protección de datos, RGPD, clínica dental Madrid';
+
+const clinica = CONTACT_INFO.clinica;
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<MainLayout title={title} description={description} keywords={keywords}>
+	<Header />
+	<main id="main-content">
+		<article class="legal-page">
+			<!-- Hero Section -->
+			<section class="page-hero">
+				<div class="container">
+					<h1>Política de Privacidad</h1>
+				</div>
+			</section>
+
+			<!-- Content -->
+			<section class="section">
+				<div class="container">
+					<div class="legal-content">
+						<h2>Advertencias sobre el tratamiento de los datos en relación con Google Analytics</h2>
+						
+						<p>Este sitio web hace uso de Google Analytics, un servicio de análisis web de Google Ireland Limited. Cuando el responsable del tratamiento de los datos en este sitio web tenga su sede fuera del Espacio Económico Europeo o de Suiza, el tratamiento de los datos por parte de Google Analytics tendrá lugar por Google LLC. Google LLC y Google Ireland Limited se denominarán en lo sucesivo «Google».</p>
+						
+						<p>Google Analytics utiliza las denominadas «cookies», archivos de texto que se almacenan en el dispositivo usado y que facilitan un análisis del uso del sitio web por parte del visitante del sitio. La información generada por la cookie sobre su uso de este sitio web se transmite por regla general a un servidor de Google en Estados Unidos y se almacena allí.</p>
+						
+						<p>Google Analytics se utilizará en este sitio web exclusivamente con la extensión «_anonymizeIp()». Esta extensión garantiza una anonimización de la dirección IP mediante su acortamiento y excluye una asociación directa con las personas. A través de la extensión, Google acortará la dirección IP dentro de los Estados miembros de la Unión Europea o de otros Estados partes del Acuerdo sobre el Espacio Económico Europeo antes de su transmisión. La dirección IP transmitida por el navegador correspondiente en el marco de Google Analytics no se combina con otros datos de Google.</p>
+						
+						<p>En nombre del operador del sitio web, Google usará la información obtenida para evaluar el uso del sitio web, para redactar informes sobre las actividades del sitio web y para prestar más servicios relacionados con el uso del sitio web de cara al operador del sitio web (artículo 6, párrafo 1, letra f del RGPD). El interés legítimo en el tratamiento de los datos radica en la optimización de este sitio web, en el análisis del uso del sitio web y en la adaptación de los contenidos. Los intereses de los usuarios se protegerán de manera suficiente mediante la seudonimización.</p>
+						
+						<p>Google LLC garantiza el mantenimiento de un nivel adecuado de protección de datos en base a las cláusulas contractuales estándares europeas. La información enviada y vinculada a las cookies de Google Analytics, p.ej., las ID de usuarios o los identificadores de publicidad se eliminarán automáticamente tras 50 meses. La supresión de los datos que alcanzan su período de retención se realiza de manera automática una vez al mes.</p>
+						
+						<p>La recopilación mediante Google Analytics puede evitarse si el visitante del sitio ajusta la configuración de las cookies para este sitio web. Además, la recopilación y el almacenamiento de la dirección IP y de los datos generados por las cookies también pueden ser objeto de oposición en cualquier momento con efecto para el futuro. El complemento del navegador correspondiente puede descargarse e instalarse a través del siguiente enlace: <a href="https://tools.google.com/dlpage/gaoptout?hl=es" target="_blank" rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout</a>.</p>
+						
+						<p>El visitante de la página puede desactivar el uso de datos de Google Analytics haciendo clic en <a href={`${baseUrl}politica-cookies`}>este enlace</a> para acceder a la configuración de cookies.</p>
+						
+						<p>Encontrará más información sobre las condiciones de uso y la protección de datos de Google en las <a href="https://www.google.com/analytics/terms/es.html" target="_blank" rel="noopener noreferrer">Condiciones de Google Analytics</a> o en la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">vista general de Google Analytics</a>.</p>
+
+						<h2>Derechos de los interesados</h2>
+						
+						<p>Según la legislación pertinente y el RGPD, los visitantes del sitio web tienen ciertos derechos con respecto a sus datos personales tratados a través de este tratamiento de datos de Google Analytics. En especial, tienen un derecho de acceso, rectificación, portabilidad y supresión de sus datos. Asimismo, los visitantes del sitio tienen derecho a oponerse a un determinado tratamiento de sus datos.</p>
+						
+						<p>Para ejercer estos derechos de los interesados con respecto al tratamiento de datos de Google Analytics en este sitio web, el interesado (visitante del sitio web) puede ponerse en contacto en cualquier momento con el operador del sitio web:</p>
+
+						<div class="info-box">
+							<p><strong>{CLINIC_INFO.name}</strong></p>
+							<p>{clinica.address}</p>
+							<p>{clinica.postalCode} - {clinica.city}</p>
+							<p>España</p>
+							<p><br /></p>
+							<p>Email: <a href={`mailto:${clinica.email}`}>{clinica.email}</a></p>
+							<p>Teléfono: <a href={`tel:+34${clinica.phone.replace(/\s/g, '')}`}>{clinica.phone}</a></p>
+						</div>
+
+						<h2>Responsable del tratamiento</h2>
+						
+						<p>El responsable del tratamiento de los datos personales es:</p>
+						
+						<div class="info-box">
+							<p><strong>{CLINIC_INFO.name}</strong></p>
+							<p>{clinica.address}</p>
+							<p>{clinica.postalCode} - {clinica.city}</p>
+							<p>España</p>
+						</div>
+
+						<h2>Finalidad del tratamiento</h2>
+						
+						<p>Los datos personales que nos facilite serán tratados con las siguientes finalidades:</p>
+						<ul>
+							<li>Gestionar las solicitudes de información y/o consultas realizadas a través del formulario de contacto.</li>
+							<li>Gestionar las citas y servicios odontológicos solicitados.</li>
+							<li>Enviar información comercial sobre nuestros servicios, en caso de haber dado su consentimiento.</li>
+							<li>Análisis estadístico del uso del sitio web para mejorar nuestros servicios.</li>
+						</ul>
+
+						<h2>Legitimación</h2>
+						
+						<p>La base legal para el tratamiento de sus datos es:</p>
+						<ul>
+							<li>El consentimiento del interesado para el tratamiento de sus datos personales para uno o varios fines específicos.</li>
+							<li>La ejecución de un contrato en el que el interesado es parte o para la aplicación a petición de este de medidas precontractuales.</li>
+							<li>El interés legítimo del responsable del tratamiento.</li>
+						</ul>
+
+						<h2>Conservación de datos</h2>
+						
+						<p>Los datos personales proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales.</p>
+
+						<h2>Destinatarios</h2>
+						
+						<p>Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.</p>
+
+						<h2>Seguridad de los datos</h2>
+						
+						<p>Hemos adoptado las medidas de seguridad técnicas y organizativas necesarias para garantizar la seguridad de sus datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado.</p>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
+	<Footer />
+</MainLayout>
+
+<style>
+	.legal-page {
+		background: white;
+	}
+
+	.page-hero {
+		background: #4a5568;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.page-hero h1 {
+		color: white;
+		font-size: var(--fs-h1);
+		font-family: var(--font-heading);
+		margin: 0;
+		font-weight: 700;
+	}
+
+	.section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.legal-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.legal-content h2 {
+		font-size: var(--fs-h3);
+		font-family: var(--font-heading);
+		color: #4a5568;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #4a5568;
+	}
+
+	.legal-content h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.legal-content p {
+		font-size: var(--fs-body);
+		font-family: var(--font-body);
+		color: var(--c-gray-700);
+		line-height: 1.8;
+		margin-bottom: 1.25rem;
+	}
+
+	.legal-content ul {
+		margin: 1rem 0 1.5rem 1.5rem;
+		padding: 0;
+	}
+
+	.legal-content li {
+		font-size: var(--fs-body);
+		font-family: var(--font-body);
+		color: var(--c-gray-700);
+		line-height: 1.8;
+		margin-bottom: 0.5rem;
+	}
+
+	.legal-content a {
+		color: #4a5568;
+		text-decoration: none;
+		font-weight: 500;
+		transition: color var(--transition);
+	}
+
+	.legal-content a:hover {
+		color: #2d3748;
+		text-decoration: underline;
+	}
+
+	.info-box {
+		background: var(--c-gray-50);
+		border-left: 4px solid #4a5568;
+		padding: 1.5rem 2rem;
+		margin: 1.5rem 0;
+		border-radius: 0 var(--rad) var(--rad) 0;
+	}
+
+	.info-box p {
+		font-family: var(--font-body);
+		margin-bottom: 0.5rem;
+	}
+
+	.info-box p:last-child {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.page-hero h1 {
+			font-size: 2rem;
+		}
+
+		.legal-content h2 {
+			font-size: 1.25rem;
+		}
+
+		.info-box {
+			padding: 1rem 1.25rem;
+		}
+	}
+</style>

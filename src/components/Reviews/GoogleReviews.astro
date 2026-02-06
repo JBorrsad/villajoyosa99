@@ -560,7 +560,6 @@ function formatDate(dateStr: string): string {
 		.reviews-summary {
 			height: auto;
 			padding: 2rem 1.5rem;
-			text-align: center;
 			margin-bottom: 1rem;
 			display: flex;
 			flex-direction: column;
@@ -568,16 +567,28 @@ function formatDate(dateStr: string): string {
 		}
 
 		.clinic-header {
-			justify-content: center;
-			margin-bottom: 1.25rem;
-		}
-
-		.rating-display {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
 			margin-bottom: 0.75rem;
 		}
 
+		.clinic-name {
+			text-align: left;
+		}
+
+		.rating-display {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+
 		.review-count {
-			margin-bottom: 1.25rem;
+			margin-bottom: 1rem;
 		}
 
 		.write-review-btn {
@@ -625,7 +636,6 @@ function formatDate(dateStr: string): string {
 		.reviews-summary {
 			padding: 1.5rem 1rem;
 			height: auto;
-			gap: 1rem;
 			margin-bottom: 1.5rem;
 			display: flex;
 			flex-direction: column;
@@ -633,56 +643,65 @@ function formatDate(dateStr: string): string {
 		}
 
 		.clinic-header {
-			margin-bottom: 1rem;
-			justify-content: center;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 0.75rem;
 		}
 
 		.clinic-logo {
-			width: 70px;
-			height: 70px;
-			padding: 6px;
+			flex-shrink: 0;
+			width: 80px;
+			height: 80px;
+			padding: 8px;
 		}
 
 		.clinic-logo img {
-			width: 50px;
-			height: 50px;
+			width: 60px;
+			height: 60px;
 		}
 
 		.clinic-name {
-			font-size: 15px;
+			font-size: 16px;
+			text-align: left;
+			max-width: 100px;
 		}
 
 		.rating-display {
+			display: flex;
 			flex-direction: row;
-			gap: 0.75rem;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
 			margin-bottom: 0.5rem;
 		}
 
 		.stars-large {
-			font-size: 1.1rem;
+			font-size: 1.25rem;
 		}
 
 		.rating-number {
-			font-size: 1.75rem;
+			font-size: 1.5rem;
 		}
 
 		.review-count {
 			margin-bottom: 1rem;
-			font-size: 13px;
+			font-size: 14px;
 		}
 
 		.write-review-btn {
-			padding: 0.625rem 1.25rem;
-			font-size: 13px;
+			padding: 0.75rem 1.5rem;
+			font-size: 14px;
 			margin-top: 0;
 			width: auto;
 		}
 
 		.review-card {
-			flex: 0 0 auto;
-			min-width: 280px;
-			width: 280px;
-			max-width: 280px;
+			flex: 0 0 254px;
+			min-width: 254px;
+			width: 254px;
+			max-width: 254px;
 			height: 280px;
 			padding: 1.25rem;
 		}
@@ -692,20 +711,37 @@ function formatDate(dateStr: string): string {
 		}
 
 		.reviews-carousel-wrapper {
-			padding: 0 45px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 50px;
+			position: relative;
+		}
+		
+		.reviews-list {
+			display: flex;
+			gap: 0;
+			width: auto;
+			overflow: visible;
+			justify-content: center;
 		}
 
 		.carousel-btn {
 			width: 40px;
 			height: 40px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 10;
 		}
 
 		.carousel-btn.prev {
-			left: 0;
+			left: 10px;
 		}
 
 		.carousel-btn.next {
-			right: 0;
+			right: 10px;
 		}
 	}
 </style>
@@ -727,7 +763,7 @@ function formatDate(dateStr: string): string {
 			this.prevBtn = document.getElementById('reviews-prev') as HTMLButtonElement;
 			this.nextBtn = document.getElementById('reviews-next') as HTMLButtonElement;
 			this.scrollAmount = 0; // Se calculará dinámicamente
-			this.isMobile = window.innerWidth <= 1024;
+			this.isMobile = window.innerWidth <= 768;
 			this.currentIndex = 0;
 			this.cards = null;
 			this.touchStartX = 0;
@@ -750,7 +786,7 @@ function formatDate(dateStr: string): string {
 			// Detectar cambios de tamaño de pantalla
 			window.addEventListener('resize', () => {
 				const wasMobile = this.isMobile;
-				this.isMobile = window.innerWidth <= 1024;
+				this.isMobile = window.innerWidth <= 768;
 				
 				if (wasMobile !== this.isMobile) {
 					this.cleanup();
@@ -814,7 +850,23 @@ function formatDate(dateStr: string): string {
 			if (!this.cards || !this.container) return;
 
 			// Resetear posición inicial
-			this.container.style.transform = 'translateX(0)';
+			this.container.style.transform = 'none';
+			this.currentIndex = 0;
+
+			// Resetear anchos y ocultar todas las tarjetas excepto la primera
+			this.cards.forEach((card, index) => {
+				const cardEl = card as HTMLElement;
+				// Forzar ancho de 254px en móvil con !important
+				cardEl.style.setProperty('width', '254px', 'important');
+				cardEl.style.setProperty('min-width', '254px', 'important');
+				cardEl.style.setProperty('max-width', '254px', 'important');
+				
+				if (index === 0) {
+					cardEl.style.display = 'flex';
+				} else {
+					cardEl.style.display = 'none';
+				}
+			});
 
 			this.prevBtn?.addEventListener('click', () => this.navigateMobile('prev'));
 			this.nextBtn?.addEventListener('click', () => this.navigateMobile('next'));
@@ -863,12 +915,15 @@ function formatDate(dateStr: string): string {
 			this.currentIndex--;
 		}
 
-		// Calcular desplazamiento usando el ancho real de la tarjeta (280px)
-		const cardWidth = 280; // Ancho fijo de las tarjetas
-		const gap = 16; // 1rem en px
-		const displacement = this.currentIndex * (cardWidth + gap);
+		// Ocultar todas las tarjetas y mostrar solo la actual
+		this.cards.forEach((card, index) => {
+			if (index === this.currentIndex) {
+				(card as HTMLElement).style.display = 'flex';
+			} else {
+				(card as HTMLElement).style.display = 'none';
+			}
+		});
 		
-		this.container.style.transform = `translateX(-${displacement}px)`;
 		this.updateMobileButtons();
 	}
 
@@ -907,6 +962,17 @@ function formatDate(dateStr: string): string {
 		cleanup() {
 			// Reset index
 			this.currentIndex = 0;
+			
+			// Restaurar display y anchos de todas las tarjetas
+			if (this.cards) {
+				this.cards.forEach((card) => {
+					const cardEl = card as HTMLElement;
+					cardEl.style.display = '';
+					cardEl.style.removeProperty('width');
+					cardEl.style.removeProperty('min-width');
+					cardEl.style.removeProperty('max-width');
+				});
+			}
 			
 			// Remover event listeners antiguos
 			if (this.prevBtn) {

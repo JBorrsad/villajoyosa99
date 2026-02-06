@@ -197,7 +197,7 @@ import { asset } from '../../utils/assets';
 		
 		.hero-bottom {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 10rem;
 		}
 		
 		.hero-text p {
@@ -205,12 +205,16 @@ import { asset } from '../../utils/assets';
 		}
 		
 		.hero-buttons {
-			flex-direction: column;
-			gap: 0.75rem;
+			flex-direction: row;
+			justify-content: center;
+			gap: 1.5rem;
 		}
 		
 		.hero-buttons .btn-primary,
 		.hero-buttons .btn-secondary {
+			width: auto;
+			padding: 0.75rem 1.25rem;
+			font-size: 14px;
 			text-align: center;
 		}
 	}
