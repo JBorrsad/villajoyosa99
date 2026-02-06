@@ -1,7 +1,7 @@
 {
-  "title": "Clínica Dental Sada Borrás",
-  "description": "Página web de la mejor clínica dental en todo Navarra, con más de 40 años de experiencia. Desarrollado con muchísimo cariño y paciencia, Astro y Tailwind CSS, que incluye gestión de servicios odontológicos, integración con Google Reviews API para mostrar valoraciones en tiempo real, galería de instalaciones, sistema de información de contacto multi-sede y diseño responsive moderno. Con este proyecto pretendo demostrar de todo lo que soy capaz!",
-  "website": "https://jborrsad.github.io/clinica-sada-borras/",
-  "coverImage": "cover.png",
-  "tags": ["ASTRO"]
+	"title": "Clínica Dental Villajoyosa 99",
+	"description": "Sitio web oficial de la Clínica Dental Villajoyosa 99, clínica dental en Madrid (Villaverde) con más de 25 años de experiencia. Especialistas en implantes, ortodoncia, endodoncia y odontopediatría. Desarrollado con Astro y TypeScript, incluye integración automática con Google Places API para mostrar reseñas actualizadas diariamente.",
+	"website": "https://jborrsad.github.io/villajoyosa99/",
+	"coverImage": "cover.png",
+	"tags": ["Astro", "TypeScript", "CSS", "GitHub Pages"]
 }
