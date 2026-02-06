@@ -509,11 +509,11 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 				const data = new FormData(form);
 				await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
 					to_email: RECIPIENT_EMAIL,
-					from_name: `${data.get('nombre')} ${data.get('apellido')}`,
-					from_email: data.get('email'),
-					phone: data.get('telefono'),
-					message: data.get('mensaje') || 'Sin mensaje',
-					reply_to: data.get('email')
+					from_name: `${data.get('nombre') as string} ${data.get('apellido') as string}`,
+					from_email: data.get('email') as string,
+					phone: data.get('telefono') as string,
+					message: (data.get('mensaje') as string) || 'Sin mensaje',
+					reply_to: data.get('email') as string
 				});
 				showMessage('✅ Mensaje enviado correctamente.', 'success');
 				form.reset();
